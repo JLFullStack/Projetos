@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <html>
+<head>
+  <meta charset="UTF-8">
+
+<title>MANUAL GESTÃO EDUCAÇÃO</title>
+
+
+
+<!--SITE RESPONSIVO PARA TODOS OS TIPOS DE APARELHO -->
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta  content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="HandheldFriendly" content="true">
+<script src="botão-mobile.js"></script>
+
+
+ <!-- LINKS DE IMPORTAÇÃO --> 
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css.css" rel="stylesheet">
+<link rel="font-awesome" href="https://fonts.google.com/specimen/Montserrat">
+
+ <!-- ICONE AO TITULO -->
+
+    <link rel="icon" type="image/x-icon" href="favicon.jfif" style="width:100%;" alt="Ícone com a brasão de Praia Grande"> 
+
+
+</head>
+
+
+<!-- menu ao lado -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-white" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+
+
+<!-- IMAGEM ENCIMA DO TITULO -->
+
+    <img src="favicon.png" style="width: 85%;" class="w3-round" alight="center" alt="Brasão da Prefeitura" ><br>
+    <h7><b> GESTÃO EDUCAÇÃO </b></h7><br><br>
+ 
+  </div>
+
+
+<!-- MENU AO LADO-BOTÕES ICONES E TEXTO-->
+
+<!-- botões todos funcionando -->
+  <div class="paginas">
+    <a href="#cabeçario" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i><h8>ÍNICIO</h8></a> <br>
+    <a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-envelope fa-fw w3-margin-right"></i><h8>LOGIN</h8></a> <br>
+    <a href="#icon" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i><h8>ÍCONES</h8></a> <br>
+    <a href="#avisos" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-bullhorn fa-fw w3-margin-right"></i><h8>AVISOS</h8></a><br>
+    <a href="#chamada" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-clipboard fa-fw w3-margin-right"></i><h8>CHAMADAS</h8></a><br>
+    <a href="#senha" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-edit fa-fw w3-margin-right"></i><h8>ALTERAR SENHA</h8></a>
+  </div>
+  <p>
+
+    <!-- BOTÃO DE DOWNLOAD - PDF (ANIMADO)-->
+
+<!-- apresenta glitch se você passar mouse em lugar especifico(na linha exata da divisão de cores) --> 
+
+      <form method="get" action="Manual de Utilização- Gestão Educação.pdf" target="_blank" >
+
+          <button type="submit" class="fill">BAIXE O PDF!</button>
+ 
+        
+       </form>
+       <button onclick="topFunction()" id="myBtn" title="Go to top">⬆︎</button>
+  </p>
+
+
+</nav>
+
+<!-- TRANSFORMA O MENU AO LADO CLICAVEL EM MOBILE -->
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- CONTEUDO DA PAGINA -->
+
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- HEADER -->
+  
+  <header id="cabeçario">
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-white" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+
+    <div class="w3-section"> 
+  
+ 
+    </div>
+    </div>
+  </header>
+
+  <!-- APRESENTAÇÃO (PRIMEIRA PAGINA) -->
+
+  <div class="w3-container w3-padding-large w3-#008DD0">
+   
+  
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px w3-bottombar" >
+
+     <h1>CONFIRA</h1>
+     <ul>
+      <a href="#login" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><p>• LOGIN</p></a><br>
+      <a href="#icon" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><p>• ÍCONES</p></a> <br>
+      <a href="#avisos" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><p>• AVISOS</p></a> <br>
+      <a href="#chamada" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><p>• CHAMADAS</p></a> <br>
+      <a href="#senha" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><p>• SENHA</p></a> <br>
+      
+      <br><br><br> <br><br><br> <br><br> <br><br><br>
+      <br><br> <br><br><br>
+
+     </ul>
+    </div>
+  </div>
+
+  <!-- LOGIN (SEGUNDA PAGINA)-->
+
+  <div class="w3-container w3-padding-large w3-white">
+    
+    <h2 id="login"> <h2>LOGIN</h2></h2>
+    
+  
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+
+      <h5>• Ao acessar o site “Gestão Educação” encontrado no domínio: <a href="https://gem.praiagrande.sp.gov.br/"  target="_blank"> Gestão Educação </a> <br><br>
+       
+         •Em primeira instância seremos apresentados à caixa de pergunta onde devemos inserir o “login”, que nada mais é do que seu nome de usuário cadastrado e cedido pela Seduc, que se configura em forma de 5 caracteres
+       numerais.<br><br>
+       
+       •Após digitar o seu nome de usuário, login, informe a senha que também foi cadastrada previamente. <br><br>
+
+       •Tendo digitado as informações, aperte o botão de cor azul nomeado "Entrar" para fazer acesso ao site.
+       
+       </h5>
+       
+   
+
+       <img src="centrologin.png" alight="center" alt="Imagem demonstrativa da tela de login " alt="Tela de login">
+       <br><br> <br><br><br>
+      
+    <div>
+  </div>
+      </div>
+
+
+  <!--ÍCONES (TERCEIRA PAGINA) -->
+
+
+  <div class="w3-container w3-padding-large w3-#008DD0">
+    <h2 id="icon"> <h2>ÍCONES</h2></h2>
+    <br><br>
+  
+    <a href="https://gem.praiagrande.sp.gov.br/ " target="_blank"><img src="icone-home.png"  style="float:left" alight="left" class="media-object  img-responsive img-thumbnail" alt="Imagem demonstrativa do ícone home" ></a>
+
+
+    <h4><b>O QUE É E COMO FUNCIONA?</b></h4>
+
+<h5>
+ Em primeira instância encontramos o ícone com formato de ‘casa’, localizado
+  a esquerda no topo da tela, funcionando como um botão “home”,
+  que ao ser apertado leva o usuário a tela inicial. 
+</h5>
+<br>
+<br>
+
+  <br>
+  <br>
+
+      <a href= "https://gem.praiagrande.sp.gov.br/Home/Principal" target="_blank"><img src="icone-menu.png"  style="float:left" alight="left" class="media-object  img-responsive img-thumbnail"></a>
+
+      <h4><b>O QUE É E COMO FUNCIONA?</b></h4>
+
+      <h5>
+
+        Em segunda instância, localizado ao lado do botão 'home' encontramos o ícone com formato de ‘aluno’ funcionando 
+        como um botão “menu principal”, onde ao ser apertado
+         leva o usuário ao menu de avisos, chamadas e turmas.  
+      
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <br><br> <br><br><br>
+    </h5>
+    </div>
+  </div>
+
+<!-- AVISOS (QUARTA PAGINA) -->
+
+
+<div class="w3-container w3-padding-large w3-white">
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+
+  <h2 id="avisos"> <h2>AVISOS</h2></h2>
+<br><br>
+
+  
+    <h5>
+      • Ao acessar o botão “Menu Principal”, localizado ao topo da tela em formato de 'aluno', somos apresentados 
+      para um calendário com as próximas datas de interesse, por exemplo, datas de aniversário dos alunos ou dos docentes, tanto como visitas de setores internos. <br><br>
+     
+     <i>O calendário “avisos” não é interativo.</i>
+
+     </h5>
+     
+ 
+  <img src="centroavisos.png" alt="Imagem demonstrativa da tela de avisos">
+  
+
+ <br><br> <br><br><br>
+ <br><br> <br><br><br>
+<br><br> <br><br><br>
+      
+
+<!-- CHAMADA-TURMAS- DETALHAMENTO- MENSAL- DIARIA (QUINTA, SEXTA, SETIMA E OITAVA PAGINA ) -->
+
+<div class="w3-container w3-padding-large w3-white">
+
+
+  <h2 id="chamada">CHAMADAS</h2></h2>
+
+ <!-- CHAMADA- TURMAS (QUINTA PAGINA ) -->
+
+  <a href="#turmas" id="showHideTurmas"><h3>TURMAS:</h3></a>
+
+
+<div id="linkContainer2">   
+  <h5>
+   • A aba nomeada como “Turmas” é onde se encontram as informações da área de atuação do
+   docente, por exemplo, em que turmas/escolas ele está designado.
+
+<br><br>
+   • Caso o usuário deseje um detalhamento, ou seja, mais informações de cada turma
+   ele pode apertar em seus respectivos nomes, como "Oitavo ano B", e será encaminhado para
+   uma tela com os respectivos nomes de todos  alunos matriculados à ela.
+
+ </h5>
+ 
+ <img src="centroTURMAS.png" alt="Imagem demonstrativa da tela de turmas"></div>
+
+ <!-- CHAMADA- DIARIA ( SEXTA PAGINA ) -->
+
+ <a href="#CHAMADA DIÁRIA" id="showHidechamadadiaria"> <h3>CHAMADA DIÁRIA</h3></a>
+
+<div id="linkContainer3"> 
+  
+  <h4><b>O QUE É E COMO FUNCIONA?</b></h4>
+
+<h5>
+   Ao escolher a turma em que se deseja fazer a chamada, lembrando que essa 
+   escolha deve ser feita previamente na aba “turmas” ao clicar na respectiva que desejas.
+   Após uma rápida verificação ao topo da chamada se a turma é a que foi selecionada  o
+    docente deve escolher a qual aula aquela chamada é 
+    referente, sendo as únicas opções possíveis “Aula 1” e “Aula 2”; se deve
+     pressionar em cima da opção que se aplica melhor a nescessidade.
+   Ao iniciar a chamada pela primeira vez todos os alunos
+    terão um “X” a esquerda do nome, isso é modificável por apenas
+     um clique(apertar em cima do X), que se tornará um sinal de correto,
+      indicando que o aluno está de fato presente naquela aula </h5>
+
+<img src="centrochamadadiaria.jpg" alt="Imagem demonstrativa da tela da chamada diária"></div>
+
+   
+ <!-- CHAMADA- MENSAL ( SETIMA PAGINA ) -->
+
+
+ <a href="#CHAMADA MENSAL" id="showHideMensal"> <h3>CHAMADA MENSAL</h3>
+ </a>
+ 
+ <div id="linkContainer5">
+ <h4><b>O QUE É E COMO FUNCIONA?</b></h4>
+ 
+ 
+ <h5>
+   • Onde o educador/docente pode detalhadamente as informações, referentes as presenças e faltas, de todo
+    mês de 
+   uma turma(lembrando que a turma tem que ser selecionada anteriormente na aba “turmas”).<br> <br>
+
+   • É possivel o acesso à todos os meses do ano e a possibilidade de alteração de todas as faltas
+   e presenças de um aluno ao longo do ano escolar. </h5>
+ </h5>
+ <img src="centrochamadamensal.png" alt="Imagem demonstrativa da tela da chamada mensal "> </div>
+    
+   
+ 
+ 
+ <!-- CHAMADA- DETALHAMENTO (OITAVA PAGINA ) -->
+
+ 
+ <a href="#detalhamento" id="showHideDetalhamento"> <h3>DETALHAMENTO</h3> </a>
+
+<div id="linkContainer4">
+
+
+<h4><b>O QUE É E COMO FUNCIONA?</b></h4>
+
+
+<h5>
+  Para o acessar basta pressionar o botão com um símbolo de "+" ao lado direito do nome do 
+  aluno na <b>Chamada Diária</b>, que será aberta uma tela com informações pessoais do mesmo, sendo elas:<br>
+ Número de matrícula, foto, situação e data de nascimento. 
+
+</h5>
+
+<img src="centrochamadadetalhamento.png" alt="Imagem demonstrativa da tela de detalhadamente "> </div>
+
+<br>
+<br>
+</div>
+
+  <!-- SENHA- TROCA DE SENHA (DECIMA PAGINA)-->
+  
+
+  <div class="w3-container w3-padding-large w3-white">
+
+    <h2 id="senha"> <h2>SENHA
+    </h2>
+ 
+    <h4><b>APRENDA A TROCAR SUA SENHA:</b></h4>
+
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    
+      <h5>
+
+       • Acesse a opção no botão localizado a direita ao topo da tela:
+
+
+    <img src="centrosenha.png" alt="imagem demonstrativa da tela de troca de senha">
+
+</picture>
+
+       • Digite sua senha atual, que foi definida previamente em seu cadastro.
+
+       <br>
+       <br>
+
+       • Digite o que você deseja que se torne sua nova senha, repita esse processo 
+       e clique em "salvar alteração".
+
+     </h5><img src="alterar senha.png" alt="Imagem demonstrativa da tela de troca de senha">
+     <br>
+     <br> <br>
+
+  
+   <!--JAVA SCRIPT - APARECER E DESAPARECER TEXTO, ABRIR E FECHAR MENU -->
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+// ABRIR E FECHAR MENU
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+//APARECER E DESAPARECER TEXTO
+
+//APARECER E DESAPARECER TEXTO- TURMAS
+
+document.getElementById('showHideTurmas').onclick = function() {
+    divTest = document.getElementById('linkContainer2');
+    if (divTest.style.display === "none") {
+        divTest.style.display = 'block';
+    }
+    else {
+        divTest.style.display = "none";
+    }
+}
+
+
+//APARECER E DESAPARECER TEXTO - CHAMADA DIARIA 
+
+document.getElementById('showHidechamadadiaria').onclick = function() {
+    divTest = document.getElementById('linkContainer3');
+    if (divTest.style.display === "none") {
+        divTest.style.display = 'block';
+    }
+    else {
+        divTest.style.display = "none";
+    }
+}
+
+
+//APARECER E DESAPARECER TEXTO -  DETALHAMENTO
+
+document.getElementById('showHideDetalhamento').onclick = function() {
+    divTest = document.getElementById('linkContainer4');
+    if (divTest.style.display === "none") {
+        divTest.style.display = 'block';
+    }
+    else {
+        divTest.style.display = "none";
+    }
+}
+
+//APARECER E DESAPARECER TEXTO - CHAMADA MENSAL 
+
+document.getElementById('showHideMensal').onclick = function() {
+    divTest = document.getElementById('linkContainer5');
+    if (divTest.style.display === "none") {
+        divTest.style.display = 'block';
+    }
+    else {
+        divTest.style.display = "none";
+    }
+}
+
+// FIM DO CONTEUDO DA PAGINA
+
+</script>
+
+</body>
+</html>

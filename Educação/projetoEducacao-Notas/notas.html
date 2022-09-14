@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="lib/notas.css" />
+    <link rel="stylesheet" href="lib/font-awesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="lib/font-awesome-pro/pro-5.13.0/css/all.min.css"/>
+
+    <script rel="stylesheet" href="lib/font-awesome-free/js/all.min.js"></script>
+    <script src="lib/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
+</head>
+
+<body>
+    <div class="panel panel-default" id="container-modulo-principal">
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="container container-tab" id="container-nav-professor">
+                    <div class="tab-content">
+
+                        <!--nav pills-->
+                        <div class="table-responsive nav nav-bar-pills-notas">
+                            <ul class="nav nav-pills-notas">
+
+                                <li data-nota_trimestre="1">
+                                    <a href="#tab-notas-trimestre-1" data-toggle="tab" id="nav-titulo-notas-trimestre-1"
+                                        onclick="carregarTrimestre(1);">
+                                        <!--<span class="tab-titulo-min">TRI 1</span>-->
+                                        <span class="tab-titulo-max">Trimestre 1</span>
+                                    </a>
+                                </li>
+
+                                <li data-nota_trimestre="2">
+                                    <a href="#tab-notas-trimestre-2" data-toggle="tab" id="nav-titulo-notas-trimestre-2"
+                                        onclick="carregarTrimestre(1);">
+                                        <!--<span class="tab-titulo-min">TRI 2</span>-->
+                                        <span class="tab-titulo-max">Trimestre 2</span>
+                                    </a>
+                                </li>
+
+                                <li data-nota_trimestre="3">
+                                    <a href="#tab-notas-trimestre-3" data-toggle="tab" id="nav-titulo-notas-trimestre-3"
+                                        onclick="carregarTrimestre(1);">
+                                        <!--<span class="tab-titulo-min">TRI 3</span>-->
+                                        <span class="tab-titulo-max">Trimestre 3</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--tb-notas-container-->
+                        <div class="table-responsive" id="tb-notas-container">
+                            <table class="" id="tb-notas">
+
+                                <thead>
+                                    <tr>
+                                        <th id="col-nr">NR</th>
+                                        <th id="col-nome">NOME</th>
+                                        <th id="col-atividades" colspan="2">TAREFAS</th>
+                                        <th>
+                                            <div id="btn-atividades">
+                                                <div id="btn-adicionar-atividade">
+                                                    <i class=" fa-solid fa-circle-question popover-mobile" type="button"
+                                                        onclick="AbrirPopover()" data-toggle="popover"
+                                                        data-placement="top" data-original-title="Cadastrar Tarefa"
+                                                        data-content="Cadastre uma tarefa clicando no botão abaixo.">
+                                                    </i>
+                                                    <a class="btn" data-toggle="modal"
+                                                        data-target="#md-cadastrar-tarefa">
+                                                        <span class="glyphicon glyphicon-plus tooltip-group">
+                                                            <span class="tooltip-text"
+                                                                id="tooltip-btn-cadastrar">Cadastrar Tarefa</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div id="btn-editar-atividade">
+                                                    <i class=" fa-solid fa-circle-question popover-mobile" type="button"
+                                                        onclick="AbrirPopover()" data-toggle="popover"
+                                                        data-placement="top" data-original-title="Editar Tarefa"
+                                                        data-content="Edite uma tarefa clicando no botão abaixo">
+                                                    </i>
+                                                    <a class="btn" data-toggle="modal" data-target="#md-editar-tarefa">
+                                                        <span class="glyphicon glyphicon-edit tooltip-group">
+                                                            <span class="tooltip-text" id="tooltip-btn-editar">Editar
+                                                                Tarefa</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div id="btn-excluir-atividade">
+                                                    <i class=" fa-solid fa-circle-question popover-mobile" type="button"
+                                                        onclick="AbrirPopover()" data-toggle="popover"
+                                                        data-placement="top" data-original-title="Excluir Tarefa"
+                                                        data-content="Exclua uma tarefa clicando no botão abaixo">
+                                                    </i>
+                                                    <a class="btn" data-toggle="modal" data-target="#md-excluir-tarefa">
+                                                        <span class="glyphicon glyphicon-trash tooltip-group">
+                                                            <span class="tooltip-text" id="tooltip-btn-excluir">Excluir
+                                                                Tarefa</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th id="col-nota-final">NF</th>
+                                        <th id="col-nota-conselho">NOTA CONSELHO</th>
+                                        <th id="col-qtd-faltas">FALTAS</th>
+                                        <th id="col-ausencia-compensacao">AUSÊNCIAS COMPENSADAS</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">1</td>
+
+                                        <td class="text-left">ADRIANA DOS SANTOS</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="1111">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre
+                                                            cores
+                                                            <i class="descricao-desempenho">A aluna demonstrou
+                                                                dificuldade na pronúncia de algumas
+                                                                palavras</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ADRIANA DOS SANTOS"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="1"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="1" autocomplete="off"
+                                                        data-atividade="1" data-atividade_matricula="1111" maxlength="4"
+                                                        placeholder="0,0" oninput="validarNumeroDecimal(this)"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this), ativarNotaConselho()">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre
+                                                            animais
+                                                            <i class="descricao-desempenho">nenhum desempenho
+                                                                cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ADRIANA DOS SANTOS"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="1"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="1" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="1111" maxlength="4"
+                                                        placeholder="0,0" oninput="validarNumeroDecimal(this)"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this), ativarNotaConselho()">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="1111" maxlength="4" placeholder="0,0"
+                                                    disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_conselho="1111" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-qtd-faltas="1111" maxlength="4" placeholder="0" disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-ausencia-compensacao="1111" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">3</td>
+
+                                        <td class="text-left">ALINE COELHO DA SILVA</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="2222">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre
+                                                            cores
+                                                            <i class="descricao-desempenho">nenhum desempenho
+                                                                cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ALINE COELHO DA SILVA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="2"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="2" autocomplete="off"
+                                                        data-atividade="1" data-atividade_matricula="2222" maxlength="4"
+                                                        placeholder="0,0" oninput="validarNumeroDecimal(this)"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this), ativarNotaConselho()">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre
+                                                            animais
+                                                            <i class="descricao-desempenho">nenhum desempenho
+                                                                cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ALINE COELHO DA SILVA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="2"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="2" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="2222" maxlength="4"
+                                                        placeholder="0,0" oninput="validarNumeroDecimal(this)"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this), ativarNotaConselho()">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="2222" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota-conselho="2222" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-qtd-faltas="2222" maxlength="4" placeholder="0" disabled="">
+                                            </div>
+                                        </td>
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-ausencia-compensacao="1111" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">4</td>
+
+                                        <td class="text-left">AMANDA MARIA DA COSTA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">5</td>
+
+                                        <td class="text-left">AMANDA PORTES CUSTODIO</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">6</td>
+
+                                        <td class="text-left">AMANDA SILVA TARGINO</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">7</td>
+
+                                        <td class="text-left">DAVID BATISTA DE OLIVEIRA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">8</td>
+
+                                        <td class="text-left">DAYANE CRISTINA DE OLIVEIRA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">9</td>
+
+                                        <td class="text-left">EDINA ROSA SANTOS</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">11</td>
+
+                                        <td class="text-left">EVELYN CRISTIANNE SILVA DOS ANJOS</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">12</td>
+
+                                        <td class="text-left">HUGO CESAR PEREIRA LIMA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">13</td>
+
+                                        <td class="text-left">JASMYNE JULIE MOREIRA DA SILVA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">14</td>
+
+                                        <td class="text-left">JOANA EVANGELISTA MOURA DA SILVA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">17</td>
+
+                                        <td class="text-left">MARCOS VINICIUS DOMINGUES DE ALMEIDA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">18</td>
+
+                                        <td class="text-left">MARIA DO SOCORRO DA SILVA COSTA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">20</td>
+
+                                        <td class="text-left">NATALIA COSTA BERTELLI</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">21</td>
+
+                                        <td class="text-left">NATHALIA PIRES DA SILVA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">23</td>
+
+                                        <td class="text-left">ROSEANE DE OLIVEIRA MACENA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">24</td>
+
+                                        <td class="text-left">SILVANA TAVARES RODRIGUES</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">25</td>
+
+                                        <td class="text-left">SIMONE LIMA DE OLIVEIRA FAGUNDES</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">26</td>
+
+                                        <td class="text-left">VINICIUS DOS SANTOS</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">27</td>
+
+                                        <td class="text-left">WILSON ROBERTO DE LIMA</td>
+                                        <td id="tb-notas-atividades" colspan="3"></td>
+                                        <td class="nota-final-trimestre"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!--Modal cadastrar tarefa-->
+                        <div class="modal fade md-global" id="md-cadastrar-tarefa">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title"><strong>Cadastrar Tarefa</strong></h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group" id="container-tarefas">
+
+                                            <div class="input-group-tarefa-peso">
+                                                <div class="input-tarefa">
+                                                    <label for="input-group">Tipo</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa-solid fa-list-check"></i>
+                                                        </span>
+
+                                                        <select class="form-control">
+                                                            <option id="select-placeholder">Selecione um tipo de tarefa
+                                                            </option>
+                                                            <option value="1">Atividade</option>
+                                                            <option value="2">Prova</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="input-peso">
+                                                    <label for="input-group">Peso</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fas fa-weight-hanging"></i>
+                                                        </span>
+
+                                                        <input type="text" class="form-control text-center"
+                                                            maxlength="4" autocomplete="off" placeholder="0,0"
+                                                            oninput="validarNumeroDecimal(this)"
+                                                            onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="input-titulo">
+                                                <label for="input-group">Título</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <svg width="22" height="22" fill="currentColor"
+                                                            class="bi bi-file-earmark-font-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM5.057 6h5.886L11 8h-.5c-.18-1.096-.356-1.192-1.694-1.235l-.298-.01v5.09c0 .47.1.582.903.655v.5H6.59v-.5c.799-.073.898-.184.898-.654V6.755l-.293.01C5.856 6.808 5.68 6.905 5.5 8H5l.057-2z" />
+                                                        </svg>
+                                                        <i class="bi bi-file-earmark-font-fill"></i>
+                                                    </span>
+
+                                                    <input class="form-control" autocomplete="off"
+                                                        placeholder="Adicione um título para está tarefa"
+                                                        id="txt-descricao-atividade">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair">
+                                            <svg id="ico-sair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                <g class="fa-group">
+                                                    <path class="fa-secondary" fill="currentColor"
+                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
+                                                    </path>
+                                                    <path class="fa-primary" fill="currentColor"
+                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
+                                                    </path>
+                                                </g>
+                                            </svg> Fechar
+                                        </button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar"
+                                            onclick="enviarDadosDaAtividadeParaGravacao()">Gravar
+                                            <svg id="ico-gravar" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 448 512">
+                                                <path fill="currentColor"
+                                                    d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar" onclick="enviarDadosDasNotasParaGravacao()">Gravar <i class="fas fa-save"></i></button>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal editar tarefa-->
+                        <div class="modal fade md-global" id="md-editar-tarefa">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title"><strong>Editar Tarefa</strong></h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group" id="container-tarefas">
+
+                                            <div class="input-group-tarefa-peso">
+                                                <div class="input-tarefa">
+                                                    <label for="input-group">Tarefa</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa-solid fa-list-check"></i>
+                                                        </span>
+
+                                                        <select class="form-control">
+                                                            <option id="select-placeholder">Selecione uma tarefa
+                                                            </option>
+                                                            <option value="">Atividade sobre cores</option>
+                                                            <option value="">Atividade sobre animais</option>
+                                                            <option value="">Prova sobre o alfabeto em inglês</option>
+                                                            <option value="">Membros da família em inglês</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="input-peso">
+                                                    <label for="input-group">Peso</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fas fa-weight-hanging"></i>
+                                                        </span>
+
+                                                        <input type="text" class="form-control text-center"
+                                                            maxlength="4" autocomplete="off" placeholder="0,0"
+                                                            oninput="validarNumeroDecimal(this)"
+                                                            onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="input-titulo">
+                                                <label for="input-group">Título</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <svg width="22" height="22" fill="currentColor"
+                                                            class="bi bi-file-earmark-font-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM5.057 6h5.886L11 8h-.5c-.18-1.096-.356-1.192-1.694-1.235l-.298-.01v5.09c0 .47.1.582.903.655v.5H6.59v-.5c.799-.073.898-.184.898-.654V6.755l-.293.01C5.856 6.808 5.68 6.905 5.5 8H5l.057-2z" />
+                                                        </svg>
+                                                        <i class="bi bi-file-earmark-font-fill"></i>
+                                                    </span>
+
+                                                    <input class="form-control" autocomplete="off"
+                                                        placeholder="Adicione um novo título para está tarefa"
+                                                        id="txt-descricao-atividade"></input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair">
+                                            <svg id="ico-sair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                <g class="fa-group">
+                                                    <path class="fa-secondary" fill="currentColor"
+                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
+                                                    </path>
+                                                    <path class="fa-primary" fill="currentColor"
+                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
+                                                    </path>
+                                                </g>
+                                            </svg> Fechar
+                                        </button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar"
+                                            onclick="enviarDadosDaAtividadeParaGravacao()">Gravar
+                                            <svg id="ico-gravar" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 448 512">
+                                                <path fill="currentColor"
+                                                    d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar" onclick="enviarDadosDasNotasParaGravacao()">Gravar <i class="fas fa-save"></i></button>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal excluir tarefa-->
+                        <div class="modal fade md-global" id="md-excluir-tarefa">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title"><strong>Excluir Tarefa</strong></h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group" id="container-check-delete-atividade">
+                                            <div class="form-check" onclick="destacarAtividadeSelecionada(this)">
+                                                <span class="glyphicon glyphicon-unchecked"
+                                                    id="check-delete-atividade-3" value=""></span>
+                                                Atividade sobre cores
+                                            </div>
+                                            <div class="form-check" onclick="destacarAtividadeSelecionada(this)">
+                                                <span class="glyphicon glyphicon-unchecked"
+                                                    id="check-delete-atividade-3" value=""></span>
+                                                Atividade sobre animais
+                                            </div>
+                                            <div class="form-check" onclick="destacarAtividadeSelecionada(this)">
+                                                <span class="glyphicon glyphicon-unchecked"
+                                                    id="check-delete-atividade-3" value=""></span>
+                                                Prova sobre o alfabeto em inglês
+                                            </div>
+                                            <div class="form-check" onclick="destacarAtividadeSelecionada(this)">
+                                                <span class="glyphicon glyphicon-unchecked"
+                                                    id="check-delete-atividade-4" value=""></span>
+                                                Membros da família em inglês
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer" id="modal-footer-delete-atividade">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair">
+                                            <svg id="ico-sair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                <g class="fa-group">
+                                                    <path class="fa-secondary" fill="currentColor"
+                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
+                                                    </path>
+                                                    <path class="fa-primary" fill="currentColor"
+                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
+                                                    </path>
+                                                </g>
+                                            </svg> Fechar
+                                        </button>
+                                        <button type="button" class="btn btn-default" id="btn-excluir"
+                                            onclick="ConfirmarExcluirAtividadesSelecionadas()">Excluir
+                                            <span class="glyphicon glyphicon-trash" id="ico-excluir"></span>
+                                        </button>
+                                    </div>
+
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar" onclick="enviarDadosDasNotasParaGravacao()">Gravar <i class="fas fa-save"></i></button>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal confirmar excluir tarefa-->
+                        <div class="modal fade md-global" id="md-confirmar-excluir-tarefa">
+                            <div class="modal-dialog modal-sm modal-side modal-top-left">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-circle-exclamation"></i>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title"><strong>Excluir</strong></h4>
+                                    </div>
+
+                                    <div class="modal-body text-center">
+                                        <h1>Realmente deseja excluir ?</h1>
+                                        <p>Você não será capaz de reverter isso!</p>
+                                        <h2>Tarefa(s) selecionada(s):</h2>
+                                        <ul id="checked-list"></ul>
+                                    </div>
+
+                                    <div class="modal-footer" id="modal-footer-delete-atividade">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair">
+                                            <svg id="ico-sair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                <g class="fa-group">
+                                                    <path class="fa-secondary" fill="currentColor"
+                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
+                                                    </path>
+                                                    <path class="fa-primary" fill="currentColor"
+                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
+                                                    </path>
+                                                </g>
+                                            </svg> Fechar
+                                        </button>
+                                        <button type="button" class="btn btn-default" id="btn-excluir"
+                                            onclick="excluirAtividadesSelecionadas()">
+                                            Confirmar
+                                            <span class="glyphicon glyphicon-trash" id="ico-excluir"></span>
+                                        </button>
+                                    </div>
+
+                                    <!--<div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar" onclick="enviarDadosDasNotasParaGravacao()">Gravar <i class="fas fa-save"></i></button>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- modal mensage -->
+                        <div class="modal fade" id="modal-msg" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content" id="msg-content">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal cadastrar desempenho do aluno-->
+                        <div class="modal fade md-global" id="md-cadastrar-desempenho-do-aluno">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        <h4 class="modal-title-nome-aluno"></h4>
+                                        <p class="modal-title">Cadastrar Desempenho do(a) Aluno(a)</p>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group" id="container-tarefas" data-codigo-matricula
+                                            data-componente-curricular>
+                                            <textarea class="form-control"
+                                                placeholder="Descreva o desempenho do(a) aluno(a)"
+                                                id="txt-descricao-atividade"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar"
+                                            onclick="enviarDesempenhoDoAlunoParaGravacao()">Gravar <i
+                                                class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal example-->
+                        <div class="modal fade md-global" tabindex="-1" role="dialog" id="md-example"
+                            data-backdrop="true" style="display: none;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title"><strong>MODAL EXAMPLE</strong></h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="md-notas-msg"></div>
+
+                                        <div class="table-responsive">
+                                            <table id="md-tb-notas" data-codigo-matricula="344680"
+                                                data-componente-curricular="8">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Nota 1</th>
+                                                        <th class="text-center">Nota 2</th>
+                                                        <th class="text-center">Nota 3</th>
+                                                        <th class="text-center">Compensação</th>
+                                                        <th class="text-center">Média</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="nota-1"
+                                                                    autocomplete="off" data-trimestre="1" maxlength="4"
+                                                                    placeholder="0,0"
+                                                                    oninput="validarNumeroDecimal(this)"
+                                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)"
+                                                                    style="color: rgb(33, 150, 243);">
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="nota-2"
+                                                                    autocomplete="off" data-trimestre="2" maxlength="4"
+                                                                    placeholder="0,0"
+                                                                    oninput="validarNumeroDecimal(this)"
+                                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)"
+                                                                    style="color: rgb(244, 67, 54);">
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="nota-3"
+                                                                    autocomplete="off" data-trimestre="3" maxlength="4"
+                                                                    placeholder="0,0"
+                                                                    oninput="validarNumeroDecimal(this)"
+                                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)"
+                                                                    style="color: rgb(33, 150, 243);">
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="nota-4"
+                                                                    autocomplete="off" data-trimestre="4" maxlength="4"
+                                                                    placeholder="0,0"
+                                                                    oninput="validarNumeroDecimal(this)"
+                                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)"
+                                                                    disabled="">
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="media"
+                                                                    data-trimestre="5" maxlength="4" placeholder="0,0"
+                                                                    oninput="validarNumeroDecimal(this)"
+                                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)"
+                                                                    disabled="">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="text-center" colspan="5">
+                                                            <div class="form-group" id="container-txt-compensacao">
+                                                                <textarea class="form-control"
+                                                                    placeholder="Descreva os detalhes que justificam a compensação"
+                                                                    id="txt-compensacao"></textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            id="btn-sair"><svg class="svg-inline--fa fa-reply-all fa-w-18"
+                                                aria-hidden="true" focusable="false" data-prefix="fad"
+                                                data-icon="reply-all" role="img" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 576 512" data-fa-i2svg="">
+                                                <g class="fa-group">
+                                                    <path class="fa-secondary" fill="currentColor"
+                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
+                                                    </path>
+                                                    <path class="fa-primary" fill="currentColor"
+                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
+                                                    </path>
+                                                </g>
+                                            </svg><!-- <i class="fad fa-reply-all"></i> --> Fechar</button>
+                                        <button type="button" class="btn btn-default" id="btn-gravar-notas"
+                                            onclick="enviarDadosDasNotasParaGravacao()">Gravar <svg
+                                                class="svg-inline--fa fa-save fa-w-14" aria-hidden="true"
+                                                focusable="false" data-prefix="fas" data-icon="save" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z">
+                                                </path>
+                                            </svg><!-- <i class="fas fa-save"></i> --></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--tab-content-->
+                </div>
+                <!--container-nav-professor-->
+            </div>
+            <!--container-fluid-->
+        </div>
+        <!--panel-body-->
+    </div>
+    <!--container-modulo-principal-->
+
+    <script src="lib/notas.js"></script>
+</body>
+
+</html>
