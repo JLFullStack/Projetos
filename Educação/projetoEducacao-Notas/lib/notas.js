@@ -70,25 +70,11 @@ function validarNumeroDecimal(campo) {
         campo.value = 10;
 
         const 
-            msg = document.querySelector("#msg-content"),
-            i = document.createElement("i"),
-            nodeMsg = document.createTextNode("O valor máximo permitido é dez (10)");
-
-        //exclui qualquer menssagem existente na modal mensage
-        while (msg.hasChildNodes()) {
-            msg.removeChild(msg.firstChild);
-        }
-
-        //cria uma nova menssagem na modal mensage
-        i.classList.add("fa-regular");
-        i.classList.add("fa-circle-xmark");
-        msg.classList.add("modal-danger");
-
-        msg.appendChild(i);
-        msg.appendChild(nodeMsg);
+            contentClassList = "modal-danger",
+            iClassList = "glyphicon glyphicon-remove-circle",
+            message = "O valor máximo permitido é dez (10)";
         
-        //exibe a modal mensage
-        modalMsg();
+        modalMsg(contentClassList, iClassList, message);
     }
 
     if (campo.value.length >= 3) {
@@ -207,7 +193,7 @@ function enviarDadosDasNotasParaGravacao() {
         cache: false,
         success: function (data) {
             //console.log(data);
-            // TODO: Mensagem de sucesso aqui!
+            // TODO: menssagem de sucesso aqui!
 
         },
         error: function (xhr, status, error) {
@@ -257,8 +243,7 @@ function destacarAtividadeSelecionada(atividade) {
 function ConfirmarExcluirAtividadesSelecionadas() {
     const 
         atividades = document.querySelector("#container-check-delete-atividade"),
-        ul = document.querySelector("#checked-list"),
-        msg = document.querySelector("#msg-content");
+        ul = document.querySelector("#checked-list");
 
     //exclui qualquer lista de tarefas criada anteriormente 
     while (ul.hasChildNodes()) {
@@ -284,30 +269,34 @@ function ConfirmarExcluirAtividadesSelecionadas() {
 
     //se nunhuma tarefa foi selecionada
     if (ul.hasChildNodes() == false) {
-
-        //exclui qualquer menssagem existente na modal mensage
-        while (msg.hasChildNodes()) {
-            msg.removeChild(msg.firstChild);
-        }
-
-        //cria uma nova menssagem na modal mensage
-        const
-            i = document.createElement("i"),
-            nodeMsg = document.createTextNode("Nenhuma tarefa foi selecionada.");
-
-        i.classList.add("fa-regular");
-        i.classList.add("fa-circle-xmark");
-        msg.classList.add("modal-danger");
-
-        msg.appendChild(i);
-        msg.appendChild(nodeMsg);
+        const 
+            contentClassList = "modal-danger",
+            iClassList = "glyphicon glyphicon-remove-circle",
+            message = "Nenhuma tarefa foi selecionada.";
         
-        //exibe a modal mensage
-        modalMsg();
+        modalMsg(contentClassList, iClassList, message);
     }
 }
 
-function modalMsg() {
+function modalMsg(contentClassList, iClassList, message) {
+
+    const 
+        i = document.createElement("i"),
+        nodeMsg = document.createTextNode(message),
+        msgContent = document.querySelector("#msg-content");
+
+    //exclui qualquer menssagem existente na modal message
+    while (msgContent.hasChildNodes()) {
+        msgContent.removeChild(msgContent.firstChild);
+    }
+
+    //cria uma nova menssagem na modal message
+    i.className = iClassList;
+    msgContent.classList.add(contentClassList);
+
+    msgContent.appendChild(i);
+    msgContent.appendChild(nodeMsg);
+
     $("#modal-msg").modal("show");
 
     setTimeout(function () {

@@ -26,9 +26,9 @@
         max-width: 60%;
     }*/
 
-/*global________________________________________________________*/
+/*global________________________________________________________________________________________________*/
 
-/*variáveis___________________*/
+/*variáveis paleta de cores_____________________*/
 :root {
     --color-red: #fc6560;
     --color-grey: #8c8b8b;
@@ -37,7 +37,7 @@
     --color-blue-3: #48657d;
 }
 
-/*global modal_________________*/
+/*global modal_________________________________*/
 .md-global {
     padding: 0px !important;
 }
@@ -134,7 +134,47 @@
     width: 22%;
 }
 
-/*container-notas___________________________________________________*/
+/* modal message __________________________________*/
+#md-confirmar-excluir-tarefa,
+#modal-msg {
+    padding-top: 10%;
+    background-color: #0000006b;
+}
+
+#modal-msg .modal-content{
+    display: flex;
+    align-items: center;
+    gap: 20%;
+
+    text-shadow: 0px 1px 5px #0000006b;
+    box-shadow: -2px 4px 5px #00000061;
+    font-size: 14pt;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px !important;
+    color: white;
+}
+
+    #modal-msg .modal-content i{
+        font-size: 2.5em;
+    }
+
+.modal-danger{
+    background-color: #ff3333cc;
+    border: 1px solid #ff3333cc;
+}
+
+.modal-primary{
+    background-color: #03a8f4cb;
+    border: 1px solid #03a8f4cb;
+}
+
+.modal-warning{
+    background-color: #f48403cb;
+    border: 1px solid #f48403cb;
+}
+
+/*container-notas____________________________________________________________________________________________*/
 #container-modulo-principal {
     background-color: var(--color-blue-2);
 }
@@ -807,46 +847,6 @@
     #md-confirmar-excluir-tarefa .glyphicon-trash:active {
         color: var(--color-blue-3);
     }
-
-/* modal mensage ________________________________________________________________________________________*/
-#md-confirmar-excluir-tarefa,
-#modal-msg {
-    padding-top: 10%;
-    background-color: #0000006b;
-}
-
-#modal-msg .modal-content{
-    display: flex;
-    align-items: center;
-    gap: 20%;
-
-    text-shadow: 0px 1px 5px #0000006b;
-    box-shadow: -2px 4px 5px #00000061;
-    font-size: 14pt;
-    border-radius: 5px;
-    text-align: center;
-    padding: 15px !important;
-    color: white;
-}
-
-    #modal-msg .modal-content i{
-        font-size: xxx-large;
-    }
-
-.modal-danger{
-    background-color: #ff3333cc;
-    border: 1px solid #ff3333cc;
-}
-
-.modal-primary{
-    background-color: #03a8f4cb;
-    border: 1px solid #03a8f4cb;
-}
-
-.modal-warning{
-    background-color: #f48403cb;
-    border: 1px solid #f48403cb;
-}
 
 /*modal cadastrar desempenho do aluno___________________________________*/
 
