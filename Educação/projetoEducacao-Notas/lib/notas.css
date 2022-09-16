@@ -103,6 +103,10 @@
     font-size: 28px;
 }
 
+.md-global .modal-header .modal-title {
+    font-size: 16px;
+}
+
 /*modal-body*/
 .md-global .modal-body {
     padding: 0px;
@@ -851,11 +855,22 @@
 /*modal cadastrar desempenho do aluno___________________________________*/
 
 /*modal header_____________________*/
-#md-cadastrar-desempenho-do-aluno .modal-header p {
+#md-cadastrar-desempenho-do-aluno .modal-title{
+    gap: 10px;    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#md-cadastrar-desempenho-do-aluno .modal-title i{
+    font-style: normal;
+}
+
+#md-cadastrar-desempenho-do-aluno .modal-header .modal-sub-title {
     margin: 0px;
+    font-size: 14px;
     font-weight: normal;
-    color: var(--color-blue-3);
-    text-shadow: 0px 1px 1px #00000021;
+    color: #333;
 }
 
 /*modal body_____________________*/
