@@ -69,12 +69,11 @@ function validarNumeroDecimal(campo) {
     if (valor > 10) {
         campo.value = 10;
 
-        const 
-            contentClassList = "modal-danger",
-            iClassList = "glyphicon glyphicon-remove-circle",
-            message = "O valor máximo permitido é dez (10)";
-        
-        modalMsg(contentClassList, iClassList, message);
+        enviarMenssagemDeAlerta(
+            "modal-danger",
+            "glyphicon glyphicon-remove-circle",
+            "O valor máximo permitido é dez (10)"
+        );
     }
 
     if (campo.value.length >= 3) {
@@ -228,6 +227,19 @@ function tratarIconeDasNotas(campo) {
     }
 }
 
+function verificarExistenciaDeAtividades() {
+    const
+        atividades = document.querySelectorAll(".form-atividades"),
+        btnEditar = document.querySelector("#btn-editar-atividade"),
+        btnExcluir = document.querySelector("#btn-excluir-atividade");
+
+    if (atividades.length == 0) {
+        btnEditar.style="display:none";
+        btnExcluir.style="display:none";
+    } else console.log("tem atividade");
+
+} verificarExistenciaDeAtividades();
+
 function destacarAtividadeSelecionada(atividade) {
     if (atividade.classList.contains("checked")) {
         atividade.classList.remove("checked");
@@ -246,8 +258,10 @@ function ConfirmarExcluirAtividadesSelecionadas() {
         ul = document.querySelector("#checked-list");
 
     //exclui qualquer lista de tarefas criada anteriormente 
-    while (ul.hasChildNodes()) {
-        ul.removeChild(ul.firstChild);
+    if (ul.hasChildNodes() == true) {
+        while (ul.hasChildNodes()) {
+            ul.removeChild(ul.firstChild);
+        }
     }
 
     for (let i = 0; i < atividades.children.length; i++) {
@@ -269,25 +283,38 @@ function ConfirmarExcluirAtividadesSelecionadas() {
 
     //se nunhuma tarefa foi selecionada
     if (ul.hasChildNodes() == false) {
-        const 
-            contentClassList = "modal-danger",
-            iClassList = "glyphicon glyphicon-remove-circle",
-            message = "Nenhuma tarefa foi selecionada.";
-        
-        modalMsg(contentClassList, iClassList, message);
+        enviarMenssagemDeAlerta(
+            "modal-danger",
+            "glyphicon glyphicon-remove-circle",
+            "Nenhuma tarefa foi selecionada."
+        );
     }
 }
 
-function modalMsg(contentClassList, iClassList, message) {
+function excluirAtividadesSelecionadas() {
+    const
+        atividades = document.querySelector("#container-check-delete-atividade");
 
+    for (let i = 0; i < atividades.children.length; i++) {
+        //se alguma tarefa foi selecionada
+        if (atividades.children[i].classList.contains("checked")) {
+            console.log("atividade na posição " + (i + 1) + " selecionada");
+            console.log(atividades.children[i]);
+        }
+    }
+}
+
+function enviarMenssagemDeAlerta(contentClassList, iClassList, message) {
     const 
         i = document.createElement("i"),
         nodeMsg = document.createTextNode(message),
-        msgContent = document.querySelector("#msg-content");
+        msgContent = document.querySelector(".alert-content");
 
     //exclui qualquer menssagem existente na modal message
-    while (msgContent.hasChildNodes()) {
-        msgContent.removeChild(msgContent.firstChild);
+    if (msgContent.hasChildNodes() == true) {
+        while (msgContent.hasChildNodes()) {
+            msgContent.removeChild(msgContent.firstChild);
+        }
     }
 
     //cria uma nova menssagem na modal message
@@ -302,19 +329,6 @@ function modalMsg(contentClassList, iClassList, message) {
     setTimeout(function () {
         $('#modal-msg').modal('hide');
     }, 2000);
-}
-
-function excluirAtividadesSelecionadas() {
-    const
-        atividades = document.querySelector("#container-check-delete-atividade");
-
-    for (let i = 0; i < atividades.children.length; i++) {
-        //se alguma tarefa foi selecionada
-        if (atividades.children[i].classList.contains("checked")) {
-            console.log("atividade na posição " + (i + 1) + " selecionada");
-            console.log(atividades.children[i]);
-        }
-    }
 }
 
 function AbrirPopover() {
