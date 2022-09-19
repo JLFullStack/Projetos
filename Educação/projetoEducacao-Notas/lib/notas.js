@@ -1,3 +1,31 @@
+function imprimirTurmaNoTituloDoContainer() {
+    // const
+    //     turma = document.querySelector("#txt-nome-turma-selecionada-notas"),
+    //     titulo = document.querySelector(".realcar-aula-turma-professor");
+
+    // turma.textContent = titulo.innerText;
+
+    const
+        turma = document.querySelector("#txt-nome-turma-selecionada-notas"),
+        titulo ="1° Ano A Inglês";
+
+    turma.textContent = titulo;
+}
+imprimirTurmaNoTituloDoContainer();
+
+function verificarExistenciaDeAtividades() {
+    const
+        atividades = document.querySelectorAll(".form-atividades"),
+        btnEditar = document.querySelector("#btn-editar-atividade"),
+        btnExcluir = document.querySelector("#btn-excluir-atividade");
+
+    if (atividades.length == 0) {
+        btnEditar.style="display:none";
+        btnExcluir.style="display:none";
+    }
+
+} verificarExistenciaDeAtividades();
+
 function filtrarAluno() {
     const
         nome = document.querySelector("#txt-filtro-aluno-lista-notas"),
@@ -31,15 +59,6 @@ function limparFiltro() {
         x.removeAttribute("style", "display");
     });
 }
-
-function imprimirTurmaNoTituloDoContainer() {
-    const
-        turma = document.querySelector("#txt-nome-turma-selecionada-notas"),
-        titulo = document.querySelector(".realcar-aula-turma-professor");
-
-    turma.textContent = titulo.innerText;
-}
-// imprimirTurmaNoTituloDoContainer();
 
 function obterDadosAlunoAoAbrirModal(info) {
     //console.log(info);
@@ -226,19 +245,6 @@ function tratarIconeDasNotas(campo) {
         }
     }
 }
-
-function verificarExistenciaDeAtividades() {
-    const
-        atividades = document.querySelectorAll(".form-atividades"),
-        btnEditar = document.querySelector("#btn-editar-atividade"),
-        btnExcluir = document.querySelector("#btn-excluir-atividade");
-
-    if (atividades.length == 0) {
-        btnEditar.style="display:none";
-        btnExcluir.style="display:none";
-    } else console.log("tem atividade");
-
-} verificarExistenciaDeAtividades();
 
 function destacarAtividadeSelecionada(atividade) {
     if (atividade.classList.contains("checked")) {

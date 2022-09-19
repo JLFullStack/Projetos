@@ -185,27 +185,29 @@
 
 #container-notas {
     padding: 8px;
-    margin-left: 5px;
-    margin-right: 5px;
     border-right-width: 8px;
+    padding-left: 0px !important;
 }
 
 #turma-notas {
+    color: white;
+    padding-left: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-bottom: 0px !important;
 }
 
-#txt-nome-turma-selecionada-notas {
-    color: #FFFFFF;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-top: 8px;
-    padding-left: 3px;
-    padding-bottom: 8px;
-    margin-top: 10px !important;
-    margin-top: 10px !important;
-}
+    #txt-nome-turma-selecionada-notas {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-top: 10px !important;
+    }
 
-/*container-filtro-aluno__________________________________________*/
+#container-notas hr{
+    margin-top: 3px;
+}  
+
+/*container-filtro-aluno_________________________________________________________________________________________*/
 #container-filtro-aluno-lista-notas {
     color: #FFFFFF;
     border-radius: 2px;
@@ -226,6 +228,10 @@
     padding-bottom: 8px;
 }
 
+    #container-filtro-aluno-turma-selecionada-notas .fa-search {
+        font-size: 16px;
+    }
+
 #container-txt-filtro-aluno-lista-notas {
     background-color: #FAFAFA;
     padding-top: 8px;
@@ -233,11 +239,11 @@
     padding-bottom: 8px;
 }
 
-#container-txt-filtro-aluno-lista-notas .input-group {
-    width: 300px;
-}
+    #container-txt-filtro-aluno-lista-notas .input-group {
+        width: 300px;
+    }
 
-/*nav-pills_____________________________________________________*/
+/*nav-pills______________________________________________________________________________________________*/
 .nav-bar-pills-notas {
     display: flex;
     margin-top: 18px;
@@ -273,6 +279,10 @@
     border-radius: 3px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+}
+
+.nav-pills-notas li a .fa-calendar{
+    font-size: 16px;
 }
 
 /*tb-notas-container________________________________________________*/

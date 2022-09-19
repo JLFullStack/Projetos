@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="lib/notas.css" />
     <link rel="stylesheet" href="lib/font-awesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="lib/font-awesome-pro/pro-5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="lib/font-awesome-pro/pro-5.13.0/css/all.min.css" />
 
     <script rel="stylesheet" href="lib/font-awesome-free/js/all.min.js"></script>
     <script src="lib/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
@@ -30,31 +30,65 @@
                 <div class="container container-tab" id="container-nav-professor">
                     <div class="tab-content">
 
+                        <!--container título turma selecionada-->
+                        <div class="container-fluid" id="container-notas">
+                            <div class="text-left">
+                                <h4 id="turma-notas">
+                                    <i class="fad fa-users-class"></i>
+                                    <strong><span id="txt-nome-turma-selecionada-notas"></span></strong>
+                                </h4>
+                                <hr />
+                            </div>
+                        </div>
+
+                        <!--filtro alunos-->
+                        <div class="form-group" id="container-filtro-aluno-lista-notas">
+                            <div id="container-filtro-aluno-turma-selecionada-notas">
+                                <span><i class="fad fa-search"></i> Pesquisar aluno</span>
+                            </div>
+
+                            <div id="container-txt-filtro-aluno-lista-notas">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="txt-filtro-aluno-lista-notas"
+                                        onkeyup="filtrarAluno()" placeholder="Encontre um(a) aluno(a)" title="" />
+
+                                    <span class="input-group-btn tooltip-group">
+                                        <button class="btn btn-default" type="button" onclick="limparFiltro()">
+                                            <i class="fad fa-eraser"></i>
+                                        </button>
+                                        <!-- <span class="tooltip-text"
+                                                id="tooltip-btn-limpar-filtro">Limpar Filtro
+                                        </span> -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
                         <!--nav pills-->
                         <div class="table-responsive nav nav-bar-pills-notas">
                             <ul class="nav nav-pills-notas">
 
-                                <li data-nota_trimestre="1">
+                                <li data-nota_trimestre="1" class="active">
                                     <a href="#tab-notas-trimestre-1" data-toggle="tab" id="nav-titulo-notas-trimestre-1"
                                         onclick="carregarTrimestre(1);">
-                                        <!--<span class="tab-titulo-min">TRI 1</span>-->
-                                        <span class="tab-titulo-max">Trimestre 1</span>
+                                        <!-- <span class="tab-titulo-min"><i class="fad fa-calendar"></i> TRI 1</span> -->
+                                        <span class="tab-titulo-max"><i class="fad fa-calendar"></i> Trimestre 1</span>
                                     </a>
                                 </li>
 
                                 <li data-nota_trimestre="2">
                                     <a href="#tab-notas-trimestre-2" data-toggle="tab" id="nav-titulo-notas-trimestre-2"
-                                        onclick="carregarTrimestre(1);">
-                                        <!--<span class="tab-titulo-min">TRI 2</span>-->
-                                        <span class="tab-titulo-max">Trimestre 2</span>
+                                        onclick="carregarTrimestre(2);">
+                                        <!-- <span class="tab-titulo-min"><i class="fad fa-calendar"></i> TRI 2</span> -->
+                                        <span class="tab-titulo-max"><i class="fad fa-calendar"></i> Trimestre 2</span>
                                     </a>
                                 </li>
 
                                 <li data-nota_trimestre="3">
                                     <a href="#tab-notas-trimestre-3" data-toggle="tab" id="nav-titulo-notas-trimestre-3"
-                                        onclick="carregarTrimestre(1);">
-                                        <!--<span class="tab-titulo-min">TRI 3</span>-->
-                                        <span class="tab-titulo-max">Trimestre 3</span>
+                                        onclick="carregarTrimestre(3);">
+                                        <!-- <span class="tab-titulo-min"><i class="fad fa-calendar"></i> TRI 3</span> -->
+                                        <span class="tab-titulo-max"><i class="fad fa-calendar"></i> Trimestre 3</span>
                                     </a>
                                 </li>
                             </ul>
@@ -868,7 +902,7 @@
                                             <i class="fad fa-graduation-cap"></i>
                                             <i class="modal-title-nome-aluno"></i>
                                         </span>
-                                        <p class="modal-sub-title">Deseja cadastrar o desempenho do(a) aluno(a) ?</p>                                       
+                                        <p class="modal-sub-title">Deseja cadastrar o desempenho do(a) aluno(a) ?</p>
                                     </div>
 
                                     <div class="modal-body">
