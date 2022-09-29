@@ -7,7 +7,7 @@ function imprimirTurmaNoTituloDoContainer() {
 
     const
         turma = document.querySelector("#txt-nome-turma-selecionada-notas"),
-        titulo ="1° Ano A Inglês";
+        titulo = "1° Ano A Inglês";
 
     turma.textContent = titulo;
 }
@@ -20,11 +20,90 @@ function verificarExistenciaDeAtividades() {
         btnExcluir = document.querySelector("#btn-excluir-atividade");
 
     if (atividades.length == 0) {
-        btnEditar.style="display:none";
-        btnExcluir.style="display:none";
+        btnEditar.style = "display:none";
+        btnExcluir.style = "display:none";
     }
 
-} verificarExistenciaDeAtividades();
+}
+verificarExistenciaDeAtividades();
+
+function estilizarValoresNotasObtidasNoBD() {
+    const td = document.querySelectorAll("tbody #tb-notas-atividades .form-atividades");
+    td.forEach(x => {
+        let
+            ipt = x.querySelector("input"),
+            vlr = ipt.value;
+        if (parseInt(vlr) > 6) {
+            x.querySelector("input").style.color = "rgb(33, 150, 243)";
+            validarNumeroDecimal(x.querySelector("input"));
+            tratarIconeDasNotas(x.querySelector("input"));
+        } else {
+            x.querySelector("input").style.color = "rgb(244, 67, 54)";
+            validarNumeroDecimal(x.querySelector("input"));
+            tratarIconeDasNotas(x.querySelector("input"));
+        }
+    });
+}
+estilizarValoresNotasObtidasNoBD();
+
+
+// function verificarCamposObrigatorios() {
+//         const 
+//             forms = document.querySelectorAll('.needs-validation'),
+//             validation = document.querySelectorAll('.needs-validation .validation'),
+//             formsValidated = document.querySelectorAll('.was-validated .validation');
+
+//         // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos 
+//         Array.from(forms).forEach(form => {
+//             form.addEventListener('submit', event => {
+
+//                 // impede o envio de campos 
+//                 if (!form.checkValidity()) {
+//                     event.preventDefault()
+//                     event.stopPropagation()
+
+//                     //mostra as menssagens de feedback
+//                     Array.from(validation).forEach(validations => {
+//                         if (validations.children[1].lastElementChild.checkValidity() == false) {
+//                             validations.children[2].style = "display:block";
+//                             validations.children[3].style = "display:none";
+//                         } 
+//                         else if (validations.children[1].lastElementChild.checkValidity() == true) {
+//                             validations.children[3].style = "display:block";
+//                             validations.children[2].style = "display:none";
+//                         }
+//                     })
+//                 }
+
+//                 console.log(form);
+//                 form.classList.add('was-validated');
+
+//                 enviarMenssagemDeAlerta(
+//                     "modal-danger",
+//                     "fa-solid fa-circle-exclamation",
+//                     "Preencha todos os campos obrigatórios!"
+//                 );
+//             }, false)
+//         });
+
+//         //mantém as menssagens de feedback dinâmicas de acordo com a ação do usuário
+//         for (let i = 0; i < formsValidated.length; i++) {
+//             if (formsValidated[i].children[1].lastElementChild.checkValidity() == true) {
+//                 formsValidated[i].children[2].style = "display:none";
+//                 formsValidated[i].children[3].style = "display:block";
+//                 formsValidated[i].children[1].firstElementChild.classList.add("valid-addon");
+//                 formsValidated[i].children[1].firstElementChild.classList.remove("invalid-addon");
+//             } else{
+//                 formsValidated[i].children[2].style = "display:block";
+//                 formsValidated[i].children[3].style = "display:none";
+//                 formsValidated[i].children[1].firstElementChild.classList.add("invalid-addon");
+//                 formsValidated[i].children[1].firstElementChild.classList.remove("valid-addon");
+//             }
+//         };
+// }
+// verificarCamposObrigatorios();
+
+
 
 function filtrarAluno() {
     const
@@ -73,7 +152,9 @@ function obterDadosAlunoAoAbrirModal(info) {
 }
 
 function validarNumeroDecimal(campo) {
-    const regExp = new RegExp("[^0-9,]", "g");
+    const
+        regExp = new RegExp("[^0-9,]", "g"),
+        valor = parseFloat(campo.value.replace(",", "."));
 
     if (campo.value === "00") campo.value = 0.0;
     if (campo.value === ",") campo.value = "";
@@ -83,16 +164,37 @@ function validarNumeroDecimal(campo) {
 
     if (campo.value == "") return false;
 
-    const valor = parseFloat(campo.value.replace(",", "."));
+    //verifica a existência do peso na input
+    if (campo.dataset.peso_atividade == null) {
+        if (valor > 10) {
+            campo.value = 10;
 
-    if (valor > 10) {
-        campo.value = 10;
+            enviarMenssagemDeAlerta(
+                "modal-danger",
+                "glyphicon glyphicon-remove-circle",
+                "O valor máximo permitido é dez (10)"
+            );
+        }
 
-        enviarMenssagemDeAlerta(
-            "modal-danger",
-            "glyphicon glyphicon-remove-circle",
-            "O valor máximo permitido é dez (10)"
-        );
+        if (valor < 5) {
+            campo.style.color = "#F44336";
+        } else campo.style.color = "#2196F3";
+    } else {
+        const peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
+
+        if (valor > peso_atividade) {
+            campo.value = peso_atividade;
+
+            enviarMenssagemDeAlerta(
+                "modal-danger",
+                "glyphicon glyphicon-remove-circle",
+                "O valor máximo permitido é " + peso_atividade
+            );
+        }
+
+        if (valor < peso_atividade / 2) {
+            campo.style.color = "#F44336";
+        } else campo.style.color = "#2196F3";
     }
 
     if (campo.value.length >= 3) {
@@ -100,9 +202,6 @@ function validarNumeroDecimal(campo) {
 
         campo.value = valor.toString().replace(".", ",");
     }
-
-    if (valor < 5) campo.style.color = "#F44336";
-    else campo.style.color = "#2196F3";
 }
 
 function tratarValorDecimalEmDesfoqueDoCampo(campo) {
@@ -259,7 +358,7 @@ function destacarAtividadeSelecionada(atividade) {
 }
 
 function ConfirmarExcluirAtividadesSelecionadas() {
-    const 
+    const
         atividades = document.querySelector("#container-check-delete-atividade"),
         ul = document.querySelector("#checked-list");
 
@@ -311,7 +410,7 @@ function excluirAtividadesSelecionadas() {
 }
 
 function enviarMenssagemDeAlerta(contentClassList, iClassList, message) {
-    const 
+    const
         i = document.createElement("i"),
         nodeMsg = document.createTextNode(message),
         msgContent = document.querySelector(".alert-content");
@@ -325,6 +424,9 @@ function enviarMenssagemDeAlerta(contentClassList, iClassList, message) {
 
     //cria uma nova menssagem na modal message
     i.className = iClassList;
+    msgContent.classList.remove("modal-danger");
+    msgContent.classList.remove("modal-primary");
+    msgContent.classList.remove("modal-warning");
     msgContent.classList.add(contentClassList);
 
     msgContent.appendChild(i);
@@ -343,4 +445,73 @@ function AbrirPopover() {
             container: '#tb-notas-container'
         })
     })
+}
+
+function verificarCampoObrigatorio() {
+    const
+        form = document.querySelectorAll(".form"),
+        campoForm = document.querySelectorAll(".form .form-control");
+
+    for (let i = 0; i < form.length; i++) {
+
+        form[i].classList.add("formulario-em-validacao");
+
+        for (let i = 0; i < campoForm.length; i++) {
+
+            // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
+            if (campoForm[i].selectedIndex === 0 || campoForm[i].value == "") {
+                event.preventDefault();
+
+                enviarMenssagemDeAlerta(
+                    "modal-warning",
+                    "fa-solid fa-circle-exclamation",
+                    "Preencha todos os campos obrigatórios!"
+                );
+
+                //mantém o formulário dinâmico
+                campoForm[i].classList.add("invalid-feedback");
+                campoForm[i].classList.add("invalid-background");
+                campoForm[i].classList.remove("valid-feedback");
+                campoForm[i].classList.remove("valid-background");
+                campoForm[i].previousElementSibling.classList.add("invalid-feedback");
+                campoForm[i].previousElementSibling.classList.remove("valid-feedback");
+            } else {
+                campoForm[i].classList.add("valid-feedback");
+                campoForm[i].classList.add("valid-background");
+                campoForm[i].classList.remove("invalid-feedback");
+                campoForm[i].classList.remove("invalid-background");
+                campoForm[i].previousElementSibling.classList.add("valid-feedback");
+                campoForm[i].previousElementSibling.classList.remove("invalid-feedback");
+            }
+        }
+    }
+}
+
+function deixarCampoDeFormularioDinamico() {
+    const
+        form = document.querySelector(".formulario-em-validacao"),
+        campoForm = document.querySelectorAll(".formulario-em-validacao .form-control");
+
+    //verifica se existe algum formulário em validação
+    if (form != null) {
+        for (let i = 0; i < campoForm.length; i++) {
+
+            //se algum campo do formulário estiver vazio 
+            if (campoForm[i].selectedIndex === 0 || campoForm[i].value == "") {
+
+                //mantém o formulário dinâmico
+                campoForm[i].classList.add("invalid-feedback");
+                campoForm[i].classList.add("invalid-background");
+                campoForm[i].previousElementSibling.classList.add("invalid-feedback");
+            } else {
+                campoForm[i].classList.add("valid-feedback");
+                campoForm[i].classList.add("valid-background");
+                campoForm[i].classList.remove("invalid-feedback");
+                campoForm[i].classList.remove("invalid-background");
+
+                campoForm[i].previousElementSibling.classList.remove("invalid-feedback");
+                campoForm[i].previousElementSibling.classList.add("valid-feedback");
+            }
+        }
+    }
 }

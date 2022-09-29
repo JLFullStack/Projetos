@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style>
+        #sumario {
+            background-color: grey;
+            border-style: solid;
+            border-width: thin;
+            border-color: #000000;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <ul id="sumario">
+            <li id="msg-nome"></li>
+            <li id="msg-sobrenome"></li>
+        </ul>
+        <hr />
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" />
+
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" name="sobrenome" id="sobrenome" />
+        <hr />
+
+        <button type="button" id="validar">Validar</button>
+        <button type="button" onclick="location.reload(true)">Recarregar</button>
+    </form>
+
+    <script>
+        $("#validar").click(function () {
+            if ($("#nome").val() == "" || $("#sobrenome").val() == "") {
+
+                // Exibir a div
+                //$("#sumario").show();
+                $("#sumario").fadeIn(1000);
+
+                // Criar e apagar o texto dentro do span
+                if ($("#nome").val() == "") {
+                    $("#msg-nome").html("● Preencha o campo nome" + "<br />");
+                } else {
+                    $("#msg-nome").empty();
+                }
+
+                if ($("#sobrenome").val() == "") {
+                    $("#msg-sobrenome").html("● Preencha o campo sobrenome");
+                } else {
+                    $("#msg-sobrenome").empty();
+                }
+
+            } else {
+                // Restaurar padrão
+                //$("#sumario").hide();
+                $("#sumario").fadeOut(1000);
+                $("#msg-nome").empty();
+                $("#msg-sobrenome").empty();
+            }
+        });
+    </script>
+</body>
+
+</html>

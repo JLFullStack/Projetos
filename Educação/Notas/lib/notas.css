@@ -44,7 +44,7 @@
     background-color: #0000006b;
 }
 
-#modal-msg .modal-content{
+#modal-msg .modal-content {
     display: flex;
     align-items: center;
     gap: 20%;
@@ -58,21 +58,22 @@
     color: white;
 }
 
-    #modal-msg .modal-content i{
-        font-size: 2.5em;
-    }
+#modal-msg .modal-content svg,
+#modal-msg .modal-content i {
+    font-size: 2.5em;
+}
 
-.modal-danger{
+.modal-danger {
     background-color: #ff3333cc;
     border: 1px solid #ff3333cc;
 }
 
-.modal-primary{
+.modal-primary {
     background-color: #03a8f4cb;
     border: 1px solid #03a8f4cb;
 }
 
-.modal-warning{
+.modal-warning {
     background-color: #f48403cb;
     border: 1px solid #f48403cb;
 }
@@ -140,7 +141,7 @@
     border: 5px solid var(--color-blue-2);
 }
 
-.md-global #btn-excluir{
+.md-global #btn-excluir {
     border: 5px solid var(--color-red);
 }
 
@@ -178,6 +179,43 @@
     width: 22%;
 }
 
+/*validação de formulário________________________________________*/
+.valid-feedback {
+    border-color: #198754;
+}
+
+    .valid-feedback:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+    }
+
+    .valid-background{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+.invalid-feedback {
+    border-color: #dc3545;
+}
+
+    .invalid-feedback:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+    }
+
+    .invalid-background{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+.formulario-em-validacao .form-select{
+    background-position: right calc(1.375em + 0.1875rem) center;
+}
+
 /*container-notas____________________________________________________________________________________________*/
 #container-modulo-principal {
     background-color: var(--color-blue-2);
@@ -197,15 +235,15 @@
     margin-bottom: 0px !important;
 }
 
-    #txt-nome-turma-selecionada-notas {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        margin-top: 10px !important;
-    }
+#txt-nome-turma-selecionada-notas {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 10px !important;
+}
 
-#container-notas hr{
+#container-notas hr {
     margin-top: 3px;
-}  
+}
 
 /*container-filtro-aluno_________________________________________________________________________________________*/
 #container-filtro-aluno-lista-notas {
@@ -228,9 +266,9 @@
     padding-bottom: 8px;
 }
 
-    #container-filtro-aluno-turma-selecionada-notas .fa-search {
-        font-size: 16px;
-    }
+#container-filtro-aluno-turma-selecionada-notas .fa-search {
+    font-size: 16px;
+}
 
 #container-txt-filtro-aluno-lista-notas {
     background-color: #FAFAFA;
@@ -239,9 +277,9 @@
     padding-bottom: 8px;
 }
 
-    #container-txt-filtro-aluno-lista-notas .input-group {
-        width: 300px;
-    }
+#container-txt-filtro-aluno-lista-notas .input-group {
+    width: 300px;
+}
 
 /*nav-pills______________________________________________________________________________________________*/
 .nav-bar-pills-notas {
@@ -281,7 +319,7 @@
     border-bottom-right-radius: 0px;
 }
 
-.nav-pills-notas li a .fa-calendar{
+.nav-pills-notas li a .fa-calendar {
     font-size: 16px;
 }
 
@@ -488,6 +526,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
+    justify-content: center;
 }
 
 /*lugar da .form-atividades*/
@@ -675,7 +714,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 78%;
+    width: 75%;
 }
 
 #md-editar-tarefa .input-tarefa span i,
@@ -689,7 +728,7 @@
 
 #md-editar-tarefa .input-peso,
 #md-cadastrar-tarefa .input-peso {
-    width: 20%;
+    width: 24%;
 }
 
 #md-cadastrar-tarefa #select-placeholder,
@@ -779,20 +818,20 @@
 }
 
 /* modal confirmar excluir tarefa________________________________________________________________________*/
-#md-confirmar-excluir-tarefa .modal-dialog{
+#md-confirmar-excluir-tarefa .modal-dialog {
     min-width: 230px !important;
 }
 
-#md-confirmar-excluir-tarefa .modal-content{
+#md-confirmar-excluir-tarefa .modal-content {
     height: max-content;
 }
 
 /* modal-header_______________________________*/
-#md-confirmar-excluir-tarefa .modal-header{
+#md-confirmar-excluir-tarefa .modal-header {
     background-color: #f48403cb;
 }
 
-#md-confirmar-excluir-tarefa .modal-header .icon-box{
+#md-confirmar-excluir-tarefa .modal-header .icon-box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -809,70 +848,71 @@
     box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
 }
 
-    #md-confirmar-excluir-tarefa .modal-header i{
+#md-confirmar-excluir-tarefa .modal-header i {
     font-size: 60px;
     position: relative;
     color: rgba(244, 132, 3, 0.796);
     text-shadow: rgb(0 0 0 / 28%) 0px 1px 2px;
     text-transform: none;
-    }
+}
 
 /* .modal-body________________________________*/
-#md-confirmar-excluir-tarefa .modal-body{
+#md-confirmar-excluir-tarefa .modal-body {
     padding: 15px;
 }
 
-    #md-confirmar-excluir-tarefa .modal-body p{
-        margin: 5px;
-    }
+#md-confirmar-excluir-tarefa .modal-body p {
+    margin: 5px;
+}
 
-    #md-confirmar-excluir-tarefa .modal-body h1{
-        margin-top: 0px;
-        font-size: 1.7em;
-        font-weight: bold;
-    }
+#md-confirmar-excluir-tarefa .modal-body h1 {
+    margin-top: 0px;
+    font-size: 1.7em;
+    font-weight: bold;
+}
 
-    #md-confirmar-excluir-tarefa .modal-body h2{
-        margin-top: 40px;
-        margin-left: 10%;
-        font-size: 1.2em;
-        font-weight: bold;
-        text-align: start;
-    }
+#md-confirmar-excluir-tarefa .modal-body h2 {
+    margin-top: 40px;
+    margin-left: 10%;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: start;
+}
 
-    #md-confirmar-excluir-tarefa .modal-body ul{
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+#md-confirmar-excluir-tarefa .modal-body ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 /*modal-footer_______________________________*/
-#md-confirmar-excluir-tarefa #btn-excluir{
+#md-confirmar-excluir-tarefa #btn-excluir {
     border: 5px solid var(--color-blue-2);
 }
-    #md-confirmar-excluir-tarefa .glyphicon-trash {
-        margin: 0px;
-        font-size: 1em;
-    }
 
-    #md-confirmar-excluir-tarefa .glyphicon-trash:hover,
-    #md-confirmar-excluir-tarefa .glyphicon-trash:active {
-        color: var(--color-blue-3);
-    }
+#md-confirmar-excluir-tarefa .glyphicon-trash {
+    margin: 0px;
+    font-size: 1em;
+}
+
+#md-confirmar-excluir-tarefa .glyphicon-trash:hover,
+#md-confirmar-excluir-tarefa .glyphicon-trash:active {
+    color: var(--color-blue-3);
+}
 
 /*modal cadastrar desempenho do aluno___________________________________*/
 
 /*modal header_____________________*/
-#md-cadastrar-desempenho-do-aluno .modal-title{
-    gap: 10px;    
+#md-cadastrar-desempenho-do-aluno .modal-title {
+    gap: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#md-cadastrar-desempenho-do-aluno .modal-title i{
+#md-cadastrar-desempenho-do-aluno .modal-title i {
     font-style: normal;
 }
 
@@ -880,7 +920,6 @@
     margin: 0px;
     font-size: 14px;
     font-weight: normal;
-    color: #333;
 }
 
 /*modal body_____________________*/
@@ -1027,7 +1066,7 @@
 
 /* pelo menos um mecanismo de entrada do dispositivo inclui apontamento de precisão fina 
 e pode passar por cima (hover over) de elementos com facilidade */
-@media (any-pointer: fine) and (any-hover: hover){
+@media (any-pointer: fine) and (any-hover: hover) {
     #tb-notas tbody tr:hover {
         font-weight: bold;
         color: #FFFFFF !important;
@@ -1047,21 +1086,21 @@ e pode passar por cima (hover over) de elementos com facilidade */
         overflow: hidden;
         position: relative;
         text-transform: uppercase;
-    
+
         cursor: pointer;
         font-weight: bold;
         color: var(--color-blue-3);
         border-top: solid 1px #7babd2;
         border-bottom: solid 1px #7babd2;
         background-color: var(--color-blue-1);
-    
+
         transition: all 0.25s ease;
     }
 }
 
 /* pelo menos um mecanismo de entrada do dispositivo inclui apontamento de precisão grossa 
 e não pode passar por cima de elementos com facilidade ou não há mecanismos de apontamentos */
-@media (any-pointer: coarse) and (any-hover: none){
+@media (any-pointer: coarse) and (any-hover: none) {
     .tooltip-text {
         display: none !important;
     }
@@ -1075,33 +1114,33 @@ e não pode passar por cima de elementos com facilidade ou não há mecanismos d
         flex-direction: column;
     }
 
-        #btn-adicionar-atividade a {
-            margin-bottom: 5px;
-        }
+    #btn-adicionar-atividade a {
+        margin-bottom: 5px;
+    }
 
-        #btn-adicionar-atividade .popover-mobile {
-            color: #127aff;
-            margin-bottom: 14px;
-            border-radius: 20px;
-            padding: 0px !important;
-            background-color: white;
-        }
+    #btn-adicionar-atividade .popover-mobile {
+        color: #127aff;
+        margin-bottom: 14px;
+        border-radius: 20px;
+        padding: 0px !important;
+        background-color: white;
+    }
 
-        #btn-editar-atividade .popover-mobile {
-            color: #ffdb64;
-            margin-bottom: 12px;
-            border-radius: 20px;
-            padding: 0px !important;
-            background-color: var(--color-blue-3);
-        }
+    #btn-editar-atividade .popover-mobile {
+        color: #ffdb64;
+        margin-bottom: 12px;
+        border-radius: 20px;
+        padding: 0px !important;
+        background-color: var(--color-blue-3);
+    }
 
-        #btn-excluir-atividade .popover-mobile {
-            color: var(--color-red);
-            margin-bottom: 15px;
-            border-radius: 20px;
-            padding: 0px !important;
-            background-color: white;
-        }
+    #btn-excluir-atividade .popover-mobile {
+        color: var(--color-red);
+        margin-bottom: 15px;
+        border-radius: 20px;
+        padding: 0px !important;
+        background-color: white;
+    }
 
     /* popover _____________________________________*/
     .popover-mobile {
@@ -1122,23 +1161,23 @@ e não pode passar por cima de elementos com facilidade ou não há mecanismos d
         color: var(--color-blue-3);
     }
 
-        .popover {
-            text-align: center;
-            min-width: 15% !important;
-        }
+    .popover {
+        text-align: center;
+        min-width: 15% !important;
+    }
 
-        .popover-title {
-            color: white;
-            font-size: medium;
-            font-weight: bold;
-            text-align: center;
-            text-shadow: -1px 1px 2px #00000038;
-            background-color: var(--color-blue-3);
-        }
+    .popover-title {
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: -1px 1px 2px #00000038;
+        background-color: var(--color-blue-3);
+    }
 
-        .popover-content {
-            font-size: small;
-        }
+    .popover-content {
+        font-size: small;
+    }
 
     /* muda o tamanho da janela popover de acordo com o screan da tela */
     @media only screen and (max-width: 768px) {
@@ -1146,13 +1185,13 @@ e não pode passar por cima de elementos com facilidade ou não há mecanismos d
             min-width: 55% !important;
         }
     }
-    
+
     @media only screen and (max-width: 600px) {
         .popover {
             min-width: 65% !important;
         }
     }
-    
+
     @media only screen and (max-width: 400px) {
         .popover {
             min-width: 95% !important;
