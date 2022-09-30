@@ -565,7 +565,7 @@
                         </div>
 
                         <!--Modal cadastrar tarefa-->
-                        <form class="form">
+                        <form>
                             <div class="modal fade md-global" id="md-cadastrar-tarefa">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -589,7 +589,9 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa-solid fa-list-check"></i>
                                                             </span>
-                                                            <select class="form-control form-select" onclick="deixarCampoDeFormularioDinamico()">
+                                                            <select class="form-control"
+                                                                id="campo-tipo-tarefa-md-cadastrar-tarefa" 
+                                                                onclick="DeixarcampoDinamico(this)">
                                                                 <option value="0" id="select-placeholder">Selecione um tipo de tarefa</option>
                                                                 <option value="1">Atividade</option>
                                                                 <option value="2">Avaliação</option>
@@ -604,9 +606,10 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fas fa-weight-hanging"></i>
                                                             </span>
-                                                            <input type="text" class="form-control text-center"
-                                                                maxlength="4" autocomplete="off" placeholder="0,0"
-                                                                oninput="validarNumeroDecimal(this), deixarCampoDeFormularioDinamico()"
+                                                            <input type="text" class="form-control text-center" maxlength="4" 
+                                                                id="campo-peso-md-cadastrar-tarefa"
+                                                                autocomplete="off" placeholder="0,0" data-campo_form="cadastrar-tarefa"
+                                                                oninput="validarNumeroDecimal(this), DeixarcampoDinamico(this)"
                                                                 onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
                                                         </div>
                                                     </div>
@@ -624,11 +627,17 @@
                                                             </svg>
                                                             <i class="bi bi-file-earmark-font-fill"></i>
                                                         </span>
-                                                        <input class="form-control" autocomplete="off"
+                                                        <input class="form-control" autocomplete="off" 
                                                             placeholder="Adicione um título para está tarefa"
-                                                            id="txt-descricao-atividade"
-                                                            oninput="deixarCampoDeFormularioDinamico()">
+                                                            data-campo_form="cadastrar-tarefa"
+                                                            id="campo-titulo-md-cadastrar-tarefa"
+                                                            oninput="DeixarcampoDinamico(this)">
                                                     </div>
+                                                </div>
+
+                                                <div class="msg-alert" id="msg-alert-md-cadastrar-tarefa">
+                                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                                    Todos os campos são obrigatórios!
                                                 </div>
                                             </div>
                                         </div>
@@ -637,7 +646,8 @@
                                                 id="btn-sair">
                                                 <i class="fad fa-reply-all"></i> Fechar
                                             </button>
-                                            <button type="submit" class="btn btn-default" id="btn-gravar" onclick="verificarCampoObrigatorio()">Gravar
+                                            <button type="submit" class="btn btn-default" id="btn-gravar" 
+                                                onclick="validarCamposMdCadastrarTarefa()">Gravar
                                                 <i class="fas fa-save"></i>
                                             </button>
                                         </div>
@@ -647,7 +657,7 @@
                         </form>
 
                         <!--Modal editar tarefa-->
-                        <form class="form">
+                        <form>
                             <div class="modal fade md-global" id="md-editar-tarefa">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -663,13 +673,17 @@
                                         <div class="modal-body">
                                             <div class="form-group" id="container-tarefas">
                                                 <div class="input-group-tarefa-peso">
+
                                                     <div class="input-tarefa">
                                                         <label for="input-group">Tarefa</label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fa-solid fa-list-check"></i>
                                                             </span>
-                                                            <select class="form-control form-select" onclick="deixarCampoDeFormularioDinamico()">
+                                                            <select class="form-control" 
+                                                                data-campo_form="editar-tarefa"
+                                                                id="campo-tarefa-md-editar-tarefa"
+                                                                onclick="DeixarcampoDinamico(this)">
                                                                 <option value="0" id="select-placeholder">Selecione uma tarefa</option>
                                                                 <option value="1">Atividade sobre cores</option>
                                                                 <option value="2">Atividade sobre animais</option>
@@ -678,19 +692,22 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
                                                     <div class="input-peso">
                                                         <label for="input-group">Peso</label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
                                                                 <i class="fas fa-weight-hanging"></i>
                                                             </span>
-                                                            <input type="text" class="form-control text-center"
-                                                                maxlength="4" autocomplete="off" placeholder="0,0"
-                                                                oninput="validarNumeroDecimal(this), deixarCampoDeFormularioDinamico()"
+                                                            <input type="text" class="form-control text-center" maxlength="4"
+                                                                id="campo-peso-md-editar-tarefa" 
+                                                                data-campo_form="editar-tarefa" autocomplete="off" placeholder="0,0"
+                                                                oninput="validarNumeroDecimal(this), DeixarcampoDinamico(this)"
                                                                 onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="input-titulo">
                                                     <label for="input-group">Título</label>
                                                     <div class="input-group">
@@ -704,9 +721,15 @@
                                                         </span>
                                                         <input class="form-control" autocomplete="off"
                                                             placeholder="Adicione um novo título para está tarefa"
-                                                            id="txt-descricao-atividade"
-                                                            oninput="deixarCampoDeFormularioDinamico()">
+                                                            data-campo_form="editar-tarefa" 
+                                                            id="campo-titulo-md-editar-tarefa"
+                                                            oninput="DeixarcampoDinamico(this)">
                                                     </div>
+                                                </div>
+
+                                                <div class="msg-alert" id="msg-alert-md-editar-tarefa">
+                                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                                    Todos os campos são obrigatórios!
                                                 </div>
                                             </div>
                                         </div>
@@ -715,7 +738,7 @@
                                                 id="btn-sair">
                                                 <i class="fad fa-reply-all"></i> Fechar
                                             </button>
-                                            <button type="submit" class="btn btn-default" id="btn-gravar" onclick="verificarCampoObrigatorio()">Gravar
+                                            <button type="submit" class="btn btn-default" id="btn-gravar" onclick="validarCamposMdEditarTarefa()">Gravar
                                                 <i class="fas fa-save"></i>
                                             </button>
                                         </div>
@@ -875,7 +898,8 @@
                                             data-componente-curricular>
                                             <textarea class="form-control"
                                                 placeholder="Descreva o desempenho do(a) aluno(a)"
-                                                id="txt-descricao-atividade"></textarea>
+                                                id="campo-desempenho-md-cadastrar-desempenho-do-aluno">
+                                            </textarea>
                                         </div>
                                     </div>
 

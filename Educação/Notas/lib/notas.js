@@ -447,71 +447,68 @@ function AbrirPopover() {
     })
 }
 
-function verificarCampoObrigatorio() {
-    const
-        form = document.querySelectorAll(".form"),
-        campoForm = document.querySelectorAll(".form .form-control");
+function validarCamposMdCadastrarTarefa() {
+    const 
+        tipo = document.querySelector("#campo-tipo-tarefa-md-cadastrar-tarefa"),
+        peso = document.querySelector("#campo-peso-md-cadastrar-tarefa"),
+        titulo = document.querySelector("#campo-titulo-md-cadastrar-tarefa"),
+        msg = document.querySelector("#msg-alert-md-cadastrar-tarefa");
 
-    for (let i = 0; i < form.length; i++) {
+    // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
+    if (tipo.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
+        event.preventDefault();
 
-        form[i].classList.add("formulario-em-validacao");
+        msg.style = "opacity:100%";
 
-        for (let i = 0; i < campoForm.length; i++) {
+        setTimeout(function () {
+            msg.style = "opacity:0%";
+        }, 2000);
 
-            // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
-            if (campoForm[i].selectedIndex === 0 || campoForm[i].value == "") {
-                event.preventDefault();
-
-                enviarMenssagemDeAlerta(
-                    "modal-warning",
-                    "fa-solid fa-circle-exclamation",
-                    "Preencha todos os campos obrigatórios!"
-                );
-
-                //mantém o formulário dinâmico
-                campoForm[i].classList.add("invalid-feedback");
-                campoForm[i].classList.add("invalid-background");
-                campoForm[i].classList.remove("valid-feedback");
-                campoForm[i].classList.remove("valid-background");
-                campoForm[i].previousElementSibling.classList.add("invalid-feedback");
-                campoForm[i].previousElementSibling.classList.remove("valid-feedback");
-            } else {
-                campoForm[i].classList.add("valid-feedback");
-                campoForm[i].classList.add("valid-background");
-                campoForm[i].classList.remove("invalid-feedback");
-                campoForm[i].classList.remove("invalid-background");
-                campoForm[i].previousElementSibling.classList.add("valid-feedback");
-                campoForm[i].previousElementSibling.classList.remove("invalid-feedback");
-            }
-        }
+        DeixarcampoDinamico(tipo);
+        DeixarcampoDinamico(peso);
+        DeixarcampoDinamico(titulo);
     }
 }
 
-function deixarCampoDeFormularioDinamico() {
-    const
-        form = document.querySelector(".formulario-em-validacao"),
-        campoForm = document.querySelectorAll(".formulario-em-validacao .form-control");
+function validarCamposMdEditarTarefa() {
+    const 
+        tarefa = document.querySelector("#campo-tarefa-md-editar-tarefa"),
+        peso = document.querySelector("#campo-peso-md-editar-tarefa"),
+        titulo = document.querySelector("#campo-titulo-md-editar-tarefa"),
+        msg = document.querySelector("#msg-alert-md-editar-tarefa");
 
-    //verifica se existe algum formulário em validação
-    if (form != null) {
-        for (let i = 0; i < campoForm.length; i++) {
+    // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
+    if (tarefa.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
+        event.preventDefault();
 
-            //se algum campo do formulário estiver vazio 
-            if (campoForm[i].selectedIndex === 0 || campoForm[i].value == "") {
+        msg.style = "opacity:100%";
 
-                //mantém o formulário dinâmico
-                campoForm[i].classList.add("invalid-feedback");
-                campoForm[i].classList.add("invalid-background");
-                campoForm[i].previousElementSibling.classList.add("invalid-feedback");
-            } else {
-                campoForm[i].classList.add("valid-feedback");
-                campoForm[i].classList.add("valid-background");
-                campoForm[i].classList.remove("invalid-feedback");
-                campoForm[i].classList.remove("invalid-background");
+        setTimeout(function () {
+            msg.style = "opacity:0%";
+        }, 2000);
 
-                campoForm[i].previousElementSibling.classList.remove("invalid-feedback");
-                campoForm[i].previousElementSibling.classList.add("valid-feedback");
-            }
-        }
+        DeixarcampoDinamico(tarefa);
+        DeixarcampoDinamico(peso);
+        DeixarcampoDinamico(titulo);
     }
 }
+
+function DeixarcampoDinamico(campo) {
+    if (campo.value == "" || campo.selectedIndex === 0) {
+        campo.classList.add("invalid-feedback");
+        campo.classList.add("invalid-background");
+        campo.classList.remove("valid-feedback");
+        campo.classList.remove("valid-background");
+        campo.previousElementSibling.classList.add("invalid-feedback");
+        campo.previousElementSibling.classList.remove("valid-feedback");
+    } else{
+        campo.classList.add("valid-feedback");
+        campo.classList.add("valid-background");
+        campo.classList.remove("invalid-feedback");
+        campo.classList.remove("invalid-background");
+        campo.previousElementSibling.classList.add("valid-feedback");
+        campo.previousElementSibling.classList.remove("invalid-feedback");
+    }
+}
+
+localStorage.setItem('myCat', '123');

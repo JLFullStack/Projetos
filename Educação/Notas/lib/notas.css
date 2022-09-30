@@ -1,4 +1,81 @@
 /*mudanças de hoje_______*/
+#campo-titulo-md-cadastrar-tarefa
+{
+    resize: none;
+    width: 100%;
+}
+
+/*validação de formulário________________________________________*/
+.valid-feedback {
+    border-color: #198754;
+}
+
+    .valid-feedback:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
+    }
+
+    .valid-background{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+.invalid-feedback {
+    border-color: #dc3545;
+}
+
+    .invalid-feedback:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+    }
+
+    .invalid-background{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(0.375em + 0.1875rem) center;
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    }
+
+#md-cadastrar-tarefa #campo-tipo-tarefa-md-cadastrar-tarefa,
+#md-editar-tarefa #campo-tarefa-md-editar-tarefa{
+    background-position: right calc(1.375em + 0.1875rem) center;
+}
+
+/* mensagem de alerta________________________________________*/
+.md-global .msg-alert{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 70%;
+    margin: 0px;
+    opacity: 0%;
+    padding: 5px;
+    font-size: 1.1em;
+    text-align: center;
+    border-radius: 5px;
+
+    color: white;
+    background-color: #f48403cb;
+    border: 1px solid #f48403cb;
+    text-shadow: 0px 1px 4px #0000001a;
+    box-shadow: -2px 4px 5px #0000000f;
+
+    transition: all 0.25s ease;
+}
+
+    .md-global .msg-alert i,
+    .md-global .msg-alert svg{
+        font-size: 2.2em;
+    }
+
+
+
+
+
+
 .table-responsive {
     border: none;
 }
@@ -177,43 +254,6 @@
 #ico-excluir,
 #ico-editar {
     width: 22%;
-}
-
-/*validação de formulário________________________________________*/
-.valid-feedback {
-    border-color: #198754;
-}
-
-    .valid-feedback:focus {
-        border-color: #198754;
-        box-shadow: 0 0 0 0.25rem rgb(25 135 84 / 25%);
-    }
-
-    .valid-background{
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right calc(0.375em + 0.1875rem) center;
-        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-    }
-
-.invalid-feedback {
-    border-color: #dc3545;
-}
-
-    .invalid-feedback:focus {
-        border-color: #dc3545;
-        box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
-    }
-
-    .invalid-background{
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right calc(0.375em + 0.1875rem) center;
-        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-    }
-
-.formulario-em-validacao .form-select{
-    background-position: right calc(1.375em + 0.1875rem) center;
 }
 
 /*container-notas____________________________________________________________________________________________*/
@@ -673,7 +713,8 @@
 
 
 /*modal-cadastrar-tarefa________________________________________________*/
-#txt-descricao-atividade {
+#campo-titulo-md-cadastrar-tarefa
+{
     resize: none;
     width: 100%;
 }
@@ -747,7 +788,7 @@
     flex-direction: column;
 
     width: 70%;
-    margin: 0px 20px 20px 20px;
+    margin: 0px 20px 10px 20px;
 }
 
 /*modal-excluir-tarefa_______________________________________________*/
@@ -1020,9 +1061,13 @@
         font-size: smaller;
     }
 
-    .md-global .modal-body {
-        max-height: 400px;
-    }
+        .md-global .modal-body {
+            max-height: 400px;
+        }
+
+        .md-global .msg-alert{
+            min-width: 80%;
+        }
 
     #md-editar-tarefa .input-group-tarefa-peso,
     #md-cadastrar-tarefa .input-group-tarefa-peso {
@@ -1052,6 +1097,12 @@
     #md-editar-tarefa .input-peso div.input-group,
     #md-cadastrar-tarefa .input-peso div.input-group {
         min-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .md-global .msg-alert{
+        min-width: 95%;
     }
 }
 
