@@ -589,9 +589,9 @@
                                                             <span class="input-group-addon">
                                                                 <i class="fa-solid fa-list-check"></i>
                                                             </span>
-                                                            <select class="form-control"
+                                                            <select class="form-control" name="tipoTarefa"
                                                                 id="campo-tipo-tarefa-md-cadastrar-tarefa" 
-                                                                onclick="DeixarcampoDinamico(this)">
+                                                                onclick="deixarCampoDinamico(this)">
                                                                 <option value="0" id="select-placeholder">Selecione um tipo de tarefa</option>
                                                                 <option value="1">Atividade</option>
                                                                 <option value="2">Avaliação</option>
@@ -607,9 +607,9 @@
                                                                 <i class="fas fa-weight-hanging"></i>
                                                             </span>
                                                             <input type="text" class="form-control text-center" maxlength="4" 
+                                                                autocomplete="off" placeholder="0,0" name="valorPesoTarefa"
                                                                 id="campo-peso-md-cadastrar-tarefa"
-                                                                autocomplete="off" placeholder="0,0" data-campo_form="cadastrar-tarefa"
-                                                                oninput="validarNumeroDecimal(this), DeixarcampoDinamico(this)"
+                                                                oninput="validarNumeroDecimal(this), deixarCampoDinamico(this)"
                                                                 onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
                                                         </div>
                                                     </div>
@@ -629,13 +629,13 @@
                                                         </span>
                                                         <input class="form-control" autocomplete="off" 
                                                             placeholder="Adicione um título para está tarefa"
-                                                            data-campo_form="cadastrar-tarefa"
+                                                            name="txtarea_descricao_atividade" 
                                                             id="campo-titulo-md-cadastrar-tarefa"
-                                                            oninput="DeixarcampoDinamico(this)">
+                                                            oninput="deixarCampoDinamico(this)">
                                                     </div>
                                                 </div>
 
-                                                <div class="msg-alert" id="msg-alert-md-cadastrar-tarefa">
+                                                <div id="msg-alerta-md-cadastrar-tarefa">
                                                     <i class="fa-solid fa-circle-exclamation"></i>
                                                     Todos os campos são obrigatórios!
                                                 </div>
@@ -681,9 +681,8 @@
                                                                 <i class="fa-solid fa-list-check"></i>
                                                             </span>
                                                             <select class="form-control" 
-                                                                data-campo_form="editar-tarefa"
                                                                 id="campo-tarefa-md-editar-tarefa"
-                                                                onclick="DeixarcampoDinamico(this)">
+                                                                onclick="deixarCampoDinamico(this)">
                                                                 <option value="0" id="select-placeholder">Selecione uma tarefa</option>
                                                                 <option value="1">Atividade sobre cores</option>
                                                                 <option value="2">Atividade sobre animais</option>
@@ -700,9 +699,10 @@
                                                                 <i class="fas fa-weight-hanging"></i>
                                                             </span>
                                                             <input type="text" class="form-control text-center" maxlength="4"
+                                                                autocomplete="off" placeholder="0,0"
                                                                 id="campo-peso-md-editar-tarefa" 
-                                                                data-campo_form="editar-tarefa" autocomplete="off" placeholder="0,0"
-                                                                oninput="validarNumeroDecimal(this), DeixarcampoDinamico(this)"
+                                                                name="txt_novo_peso_atividade"
+                                                                oninput="validarNumeroDecimal(this), deixarCampoDinamico(this)"
                                                                 onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
                                                         </div>
                                                     </div>
@@ -721,13 +721,12 @@
                                                         </span>
                                                         <input class="form-control" autocomplete="off"
                                                             placeholder="Adicione um novo título para está tarefa"
-                                                            data-campo_form="editar-tarefa" 
-                                                            id="campo-titulo-md-editar-tarefa"
-                                                            oninput="DeixarcampoDinamico(this)">
+                                                            id="campo-titulo-md-editar-tarefa" name="txt_descricao_atividade"
+                                                            oninput="deixarCampoDinamico(this)">
                                                     </div>
                                                 </div>
 
-                                                <div class="msg-alert" id="msg-alert-md-editar-tarefa">
+                                                <div id="msg-alerta-md-editar-tarefa">
                                                     <i class="fa-solid fa-circle-exclamation"></i>
                                                     Todos os campos são obrigatórios!
                                                 </div>
@@ -738,7 +737,8 @@
                                                 id="btn-sair">
                                                 <i class="fad fa-reply-all"></i> Fechar
                                             </button>
-                                            <button type="submit" class="btn btn-default" id="btn-gravar" onclick="validarCamposMdEditarTarefa()">Gravar
+                                            <button type="submit" class="btn btn-default" id="btn-gravar" 
+                                                onclick="validarCamposMdEditarTarefa()">Gravar
                                                 <i class="fas fa-save"></i>
                                             </button>
                                         </div>
@@ -842,21 +842,10 @@
 
                                     <div class="modal-footer" id="modal-footer-delete-atividade">
                                         <button type="button" class="btn btn-default" data-dismiss="modal"
-                                            id="btn-sair">
-                                            <svg id="ico-sair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                                <g class="fa-group">
-                                                    <path class="fa-secondary" fill="currentColor"
-                                                        d="M115.39 250.38L224 344.17V360c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C199.72 24.55 224 35.35 224 56v15.83l-108.61 93.79a56 56 0 0 0 0 84.76z">
-                                                    </path>
-                                                    <path class="fa-primary" fill="currentColor"
-                                                        d="M576 321.33c0 61.44-39.58 122.3-83.33 154.13-13.66 9.93-33.11-2.54-28.08-18.63 38.51-123.17-3.92-169.49-112.59-182V359c0 20.7-24.3 31.45-39.69 18.16l-176-152a24 24 0 0 1 0-36.32l176-152C327.72 23.55 352 34.35 352 55v82.77C481.18 148 576 190 576 321.33z">
-                                                    </path>
-                                                </g>
-                                            </svg> Fechar
+                                            id="btn-sair"> <i class="fad fa-reply-all"></i> Fechar
                                         </button>
                                         <button type="button" class="btn btn-default" id="btn-excluir"
-                                            onclick="excluirAtividadesSelecionadas()">
-                                            Confirmar
+                                            onclick="excluirAtividadesSelecionadas()"> Confirmar
                                             <span class="glyphicon glyphicon-trash" id="ico-excluir"></span>
                                         </button>
                                     </div>
@@ -878,41 +867,48 @@
                         </div>
 
                         <!--Modal cadastrar desempenho do aluno-->
-                        <div class="modal fade md-global" id="md-cadastrar-desempenho-do-aluno">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <span class="modal-title">
-                                            <i class="fad fa-graduation-cap"></i>
-                                            <i class="modal-title-nome-aluno"></i>
-                                        </span>
-                                        <p class="modal-sub-title">Deseja cadastrar o desempenho do(a) aluno(a) ?</p>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <div class="form-group" id="container-tarefas" data-codigo-matricula
-                                            data-componente-curricular>
-                                            <textarea class="form-control"
-                                                placeholder="Descreva o desempenho do(a) aluno(a)"
-                                                id="campo-desempenho-md-cadastrar-desempenho-do-aluno">
-                                            </textarea>
+                        <form action="">
+                            <div class="modal fade md-global" id="md-cadastrar-desempenho-do-aluno">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <span class="modal-title">
+                                                <i class="fad fa-graduation-cap"></i>
+                                                <i class="modal-title-nome-aluno"></i>
+                                            </span>
+                                            <p class="modal-sub-title">Deseja cadastrar o desempenho do(a) aluno(a) ?</p>
                                         </div>
-                                    </div>
+                                        <div class="modal-body">
+                                            <div class="form-group" id="container-tarefas">
+                                                <textarea 
+                                                    class="form-control"
+                                                    placeholder="Descreva o desempenho do(a) aluno(a)"
+                                                    id="txt-descricao-atividade"
+                                                    oninput="deixarCampoDinamico(this)">
+                                                </textarea>
+                                            </div>
 
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal"
-                                            id="btn-sair"><i class="fad fa-reply-all"></i> Fechar</button>
-                                        <button type="button" class="btn btn-default" id="btn-gravar"
-                                            onclick="enviarDesempenhoDoAlunoParaGravacao()">Gravar <i
-                                                class="fas fa-save"></i></button>
+                                            <div id="msg-alerta-md-cadastrar-desempenho-do-aluno">
+                                                <i class="fa-solid fa-circle-exclamation"></i>
+                                                É necessário descrever o desempenho do(a) aluno(a)!
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal"
+                                                id="btn-sair"><i class="fad fa-reply-all"></i> Fechar
+                                            </button>
+                                            <button type="submit" class="btn btn-default" id="btn-gravar"
+                                                onclick="validarCampoMdCadastrarDesempenhoDoAluno()">Gravar
+                                                <i class="fas fa-save"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
 
                         <!--Modal example-->
                         <div class="modal fade md-global" tabindex="-1" role="dialog" id="md-example"

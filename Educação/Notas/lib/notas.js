@@ -449,13 +449,13 @@ function AbrirPopover() {
 
 function validarCamposMdCadastrarTarefa() {
     const 
-        tipo = document.querySelector("#campo-tipo-tarefa-md-cadastrar-tarefa"),
+        tipoTarefa = document.querySelector("#campo-tipo-tarefa-md-cadastrar-tarefa"),
         peso = document.querySelector("#campo-peso-md-cadastrar-tarefa"),
         titulo = document.querySelector("#campo-titulo-md-cadastrar-tarefa"),
-        msg = document.querySelector("#msg-alert-md-cadastrar-tarefa");
+        msg = document.querySelector("#msg-alerta-md-cadastrar-tarefa");
 
     // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
-    if (tipo.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
+    if (tipoTarefa.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
         event.preventDefault();
 
         msg.style = "opacity:100%";
@@ -464,9 +464,9 @@ function validarCamposMdCadastrarTarefa() {
             msg.style = "opacity:0%";
         }, 2000);
 
-        DeixarcampoDinamico(tipo);
-        DeixarcampoDinamico(peso);
-        DeixarcampoDinamico(titulo);
+        deixarCampoDinamico(tipoTarefa);
+        deixarCampoDinamico(peso);
+        deixarCampoDinamico(titulo);
     }
 }
 
@@ -475,7 +475,7 @@ function validarCamposMdEditarTarefa() {
         tarefa = document.querySelector("#campo-tarefa-md-editar-tarefa"),
         peso = document.querySelector("#campo-peso-md-editar-tarefa"),
         titulo = document.querySelector("#campo-titulo-md-editar-tarefa"),
-        msg = document.querySelector("#msg-alert-md-editar-tarefa");
+        msg = document.querySelector("#msg-alerta-md-editar-tarefa");
 
     // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
     if (tarefa.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
@@ -487,27 +487,61 @@ function validarCamposMdEditarTarefa() {
             msg.style = "opacity:0%";
         }, 2000);
 
-        DeixarcampoDinamico(tarefa);
-        DeixarcampoDinamico(peso);
-        DeixarcampoDinamico(titulo);
+        deixarCampoDinamico(tarefa);
+        deixarCampoDinamico(peso);
+        deixarCampoDinamico(titulo);
     }
 }
 
-function DeixarcampoDinamico(campo) {
+function validarCampoMdCadastrarDesempenhoDoAluno() {
+        const 
+            msg = document.querySelector("#msg-alerta-md-cadastrar-desempenho-do-aluno"),
+            txtDesempenhoAluno = document.querySelector("#txt-descricao-atividade");
+
+    // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
+    if (txtDesempenhoAluno.value == "") {
+        event.preventDefault();
+
+        msg.classList.add("mostrar-msg-alerta");
+        
+        setTimeout(function () {
+            msg.style = "opacity:100%";
+        }, 30);
+
+        setTimeout(function () {
+            msg.style = "opacity:0%";
+        }, 2000);
+
+        setTimeout(function () {
+            msg.classList.remove("mostrar-msg-alerta");
+        }, 2200);
+
+        deixarCampoDinamico(txtDesempenhoAluno);
+    }
+}
+
+function deixarCampoDinamico(campo) {
     if (campo.value == "" || campo.selectedIndex === 0) {
-        campo.classList.add("invalid-feedback");
-        campo.classList.add("invalid-background");
-        campo.classList.remove("valid-feedback");
-        campo.classList.remove("valid-background");
-        campo.previousElementSibling.classList.add("invalid-feedback");
-        campo.previousElementSibling.classList.remove("valid-feedback");
+        campo.classList.add("campo-invalido");
+        campo.classList.add("background-campo-invalido");
+        campo.classList.remove("campo-valido");
+        campo.classList.remove("background-campo-valido");
+
+        if (campo.previousElementSibling != null) {
+            campo.previousElementSibling.classList.add("campo-invalido");
+            campo.previousElementSibling.classList.remove("campo-valido");
+        }
+        
     } else{
-        campo.classList.add("valid-feedback");
-        campo.classList.add("valid-background");
-        campo.classList.remove("invalid-feedback");
-        campo.classList.remove("invalid-background");
-        campo.previousElementSibling.classList.add("valid-feedback");
-        campo.previousElementSibling.classList.remove("invalid-feedback");
+        campo.classList.add("campo-valido");
+        campo.classList.add("background-campo-valido");
+        campo.classList.remove("campo-invalido");
+        campo.classList.remove("background-campo-invalido");
+        
+        if (campo.previousElementSibling != null) {
+            campo.previousElementSibling.classList.add("campo-valido");
+            campo.previousElementSibling.classList.remove("campo-invalido");
+        }
     }
 }
 
