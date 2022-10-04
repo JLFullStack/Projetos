@@ -46,65 +46,6 @@ function estilizarValoresNotasObtidasNoBD() {
 }
 estilizarValoresNotasObtidasNoBD();
 
-
-// function verificarCamposObrigatorios() {
-//         const 
-//             forms = document.querySelectorAll('.needs-validation'),
-//             validation = document.querySelectorAll('.needs-validation .validation'),
-//             formsValidated = document.querySelectorAll('.was-validated .validation');
-
-//         // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos 
-//         Array.from(forms).forEach(form => {
-//             form.addEventListener('submit', event => {
-
-//                 // impede o envio de campos 
-//                 if (!form.checkValidity()) {
-//                     event.preventDefault()
-//                     event.stopPropagation()
-
-//                     //mostra as menssagens de feedback
-//                     Array.from(validation).forEach(validations => {
-//                         if (validations.children[1].lastElementChild.checkValidity() == false) {
-//                             validations.children[2].style = "display:block";
-//                             validations.children[3].style = "display:none";
-//                         } 
-//                         else if (validations.children[1].lastElementChild.checkValidity() == true) {
-//                             validations.children[3].style = "display:block";
-//                             validations.children[2].style = "display:none";
-//                         }
-//                     })
-//                 }
-
-//                 console.log(form);
-//                 form.classList.add('was-validated');
-
-//                 enviarMenssagemDeAlerta(
-//                     "modal-danger",
-//                     "fa-solid fa-circle-exclamation",
-//                     "Preencha todos os campos obrigatórios!"
-//                 );
-//             }, false)
-//         });
-
-//         //mantém as menssagens de feedback dinâmicas de acordo com a ação do usuário
-//         for (let i = 0; i < formsValidated.length; i++) {
-//             if (formsValidated[i].children[1].lastElementChild.checkValidity() == true) {
-//                 formsValidated[i].children[2].style = "display:none";
-//                 formsValidated[i].children[3].style = "display:block";
-//                 formsValidated[i].children[1].firstElementChild.classList.add("valid-addon");
-//                 formsValidated[i].children[1].firstElementChild.classList.remove("invalid-addon");
-//             } else{
-//                 formsValidated[i].children[2].style = "display:block";
-//                 formsValidated[i].children[3].style = "display:none";
-//                 formsValidated[i].children[1].firstElementChild.classList.add("invalid-addon");
-//                 formsValidated[i].children[1].firstElementChild.classList.remove("valid-addon");
-//             }
-//         };
-// }
-// verificarCamposObrigatorios();
-
-
-
 function filtrarAluno() {
     const
         nome = document.querySelector("#txt-filtro-aluno-lista-notas"),
@@ -140,8 +81,6 @@ function limparFiltro() {
 }
 
 function obterDadosAlunoAoAbrirModal(info) {
-    //console.log(info);
-
     const
         dados = info.dataset,
         modal = document.querySelector("#md-cadastrar-desempenho-do-aluno");
@@ -154,7 +93,8 @@ function obterDadosAlunoAoAbrirModal(info) {
 function validarNumeroDecimal(campo) {
     const
         regExp = new RegExp("[^0-9,]", "g"),
-        valor = parseFloat(campo.value.replace(",", "."));
+        valor = parseFloat(campo.value.replace(",", ".")),
+        peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
 
     if (campo.value === "00") campo.value = 0.0;
     if (campo.value === ",") campo.value = "";
@@ -179,8 +119,8 @@ function validarNumeroDecimal(campo) {
         if (valor < 5) {
             campo.style.color = "#F44336";
         } else campo.style.color = "#2196F3";
+
     } else {
-        const peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
 
         if (valor > peso_atividade) {
             campo.value = peso_atividade;
@@ -217,9 +157,9 @@ function tratarValorDecimalEmDesfoqueDoCampo(campo) {
 
 function calcularMediaDasAtividadesDoAluno(AtividadeAluno) {
     const
-        grupoDeAtividades = document.querySelectorAll("[data-grupo_de_atividades_matricula]"),
         atividade = document.querySelectorAll("[data-atividade_matricula]"),
-        notaFinal = document.querySelectorAll("[data-nota_final_matricula]");
+        notaFinal = document.querySelectorAll("[data-nota_final_matricula]"),
+        grupoDeAtividades = document.querySelectorAll("[data-grupo_de_atividades_matricula]");
 
     for (let i = 0; i < notaFinal.length; i++) {
 
@@ -228,20 +168,26 @@ function calcularMediaDasAtividadesDoAluno(AtividadeAluno) {
             AtividadeAluno.dataset.atividade_matricula === notaFinal[i].dataset.nota_final_matricula) {
 
             let
+                mediaDasAtividades,
                 somaDasAtividades = 0.0,
-                quantidadeDeAtividades = grupoDeAtividades[i].children.length,
-                mediaDasAtividades;
+                quantidadeDeAtividades = grupoDeAtividades[i].children.length;
+                
 
             for (let i = 0; i < atividade.length; i++) {
 
                 //verifica se a célula digitada faz parte das células de atividades do aluno
                 if (atividade[i].dataset.atividade_matricula === AtividadeAluno.dataset.atividade_matricula) {
-                    somaDasAtividades += converterValorDaNotaParaDecimal(atividade[i].value);
+                    let 
+                        vl_nota_atividade = converterValorDaNotaParaDecimal(atividade[i].value),
+                        peso_atividade = converterValorDaNotaParaDecimal(atividade[i].dataset.peso_atividade),
+                        nota_atividade_pelo_peso = vl_nota_atividade / peso_atividade;
+
+                    somaDasAtividades += nota_atividade_pelo_peso;
                 }
             }
 
             mediaDasAtividades = (somaDasAtividades / quantidadeDeAtividades).toFixed(1);
-            notaFinal[i].value = mediaDasAtividades;
+            notaFinal[i].value = mediaDasAtividades * 10;
 
             //tratamento da nota final do aluno
             const valor = parseFloat(notaFinal[i].value.replace(",", ".")).toFixed(1);
@@ -321,10 +267,11 @@ function enviarDadosDasNotasParaGravacao() {
 
 function tratarIconeDasNotas(campo) {
     const
-        valor = parseFloat(campo.value),
+        valor = parseFloat(campo.value.replace(",", ".")),
         icon = document.querySelectorAll("[data-ico_atividade]"),
         ico_nota_azul = document.querySelectorAll(".ico-nota-azul"),
-        ico_nota_vermelha = document.querySelectorAll(".ico-nota-vermelha");
+        ico_nota_vermelha = document.querySelectorAll(".ico-nota-vermelha"),
+        peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
 
     let atividade = campo.dataset.atividade;
 
@@ -334,7 +281,7 @@ function tratarIconeDasNotas(campo) {
             numero_chamada_aluno = icon[i].dataset.numero_chamada;
 
         if (atividade === ico_atividade && campo.id === numero_chamada_aluno) {
-            if (valor < 5) {
+            if (valor < peso_atividade / 2) {
                 ico_nota_azul[i].style = "display: none";
                 ico_nota_vermelha[i].style = "display: block";
             } else {
@@ -495,25 +442,26 @@ function validarCamposMdEditarTarefa() {
 
 function validarCampoMdCadastrarDesempenhoDoAluno() {
         const 
+            txtDesempenhoAluno = document.querySelector("#txt-descricao-atividade"),
             msg = document.querySelector("#msg-alerta-md-cadastrar-desempenho-do-aluno"),
-            txtDesempenhoAluno = document.querySelector("#txt-descricao-atividade");
+            modalBody = document.querySelector("#md-cadastrar-desempenho-do-aluno .modal-body");
 
     // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
     if (txtDesempenhoAluno.value == "") {
         event.preventDefault();
 
-        msg.classList.add("mostrar-msg-alerta");
-        
+        modalBody.classList.add("mostrar-menssagem-de-alerta");
+    
         setTimeout(function () {
             msg.style = "opacity:100%";
-        }, 30);
+        }, 100);
 
         setTimeout(function () {
             msg.style = "opacity:0%";
         }, 2000);
 
         setTimeout(function () {
-            msg.classList.remove("mostrar-msg-alerta");
+            modalBody.classList.remove("mostrar-menssagem-de-alerta");
         }, 2200);
 
         deixarCampoDinamico(txtDesempenhoAluno);
@@ -545,4 +493,4 @@ function deixarCampoDinamico(campo) {
     }
 }
 
-localStorage.setItem('myCat', '123');
+// localStorage.setItem('myCat', '123');
