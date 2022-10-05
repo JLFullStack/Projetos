@@ -1,4 +1,9 @@
 /*mudanças de hoje_______*/
+.table-responsive {
+    border: none;
+}
+
+/* css para deixar a modal de desempenho do aluno dinâmica */
 #md-cadastrar-desempenho-do-aluno .modal-body{
     display: flex;
     flex-direction: column;
@@ -26,15 +31,7 @@
     }
 }
 
-
-
-
-
-.table-responsive {
-    border: none;
-}
-
-/*mudanças para o destaque de desempenho cadastrado_______*/
+/*mudanças para o destaque de desempenho cadastrado*/
 #tb-notas tbody tr .form-atividades {
     width: 10%;
     border: none;
@@ -45,17 +42,15 @@
 
 .destaque-desempenho-negativo {
     border-radius: 4px;
-    border: solid 2px var(--color-red);
+    box-shadow: 0px 0px 1px 0px #000000;
+    border: solid 2px var(--color-red) !important;
 }
 
 .destaque-desempenho-positivo {
     border-radius: 4px;
-    border: solid 2px var(--color-blue-2);
+    box-shadow: 0px 0px 1px 0px #000000;
+    border: solid 2px var(--color-blue-2) !important;
 }
-
-/*#tb-notas tbody tr .form-group-atividades{
-        max-width: 60%;
-    }*/
 
 /*global________________________________________________________________________________________________*/
 

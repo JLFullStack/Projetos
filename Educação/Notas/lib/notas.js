@@ -80,21 +80,10 @@ function limparFiltro() {
     });
 }
 
-function obterDadosAlunoAoAbrirModal(info) {
-    const
-        dados = info.dataset,
-        modal = document.querySelector("#md-cadastrar-desempenho-do-aluno");
-
-    modal.querySelector(".modal-title-nome-aluno").innerHTML = `<strong>${dados.nome}</strong> - ${dados.atividade}`;
-    modal.querySelector("#container-tarefas").dataset.codigoMatricula = dados.matricula;
-    modal.querySelector("#container-tarefas").dataset.componenteCurricular = dados.componenteCurricular;
-}
-
 function validarNumeroDecimal(campo) {
     const
         regExp = new RegExp("[^0-9,]", "g"),
-        valor = parseFloat(campo.value.replace(",", ".")),
-        peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
+        valor = parseFloat(campo.value.replace(",", "."));  
 
     if (campo.value === "00") campo.value = 0.0;
     if (campo.value === ",") campo.value = "";
@@ -121,6 +110,7 @@ function validarNumeroDecimal(campo) {
         } else campo.style.color = "#2196F3";
 
     } else {
+        const peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
 
         if (valor > peso_atividade) {
             campo.value = peso_atividade;
@@ -267,12 +257,17 @@ function enviarDadosDasNotasParaGravacao() {
 
 function tratarIconeDasNotas(campo) {
     const
-        valor = parseFloat(campo.value.replace(",", ".")),
         icon = document.querySelectorAll("[data-ico_atividade]"),
         ico_nota_azul = document.querySelectorAll(".ico-nota-azul"),
         ico_nota_vermelha = document.querySelectorAll(".ico-nota-vermelha"),
-        peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade);
+        peso_atividade = converterValorDaNotaParaDecimal(campo.dataset.peso_atividade),
+        descricaoDesempenhoAluno = ((campo.previousElementSibling).firstElementChild).firstElementChild;
 
+    //verifica se existe alguma descrição de desempenho cadastrada
+    if (descricaoDesempenhoAluno.innerHTML != "nenhum desempenho cadastrado"){
+        valor = converterValorDaNotaParaDecimal(campo.value);
+    } else valor = parseFloat(campo.value.replace(",", "."));
+        
     let atividade = campo.dataset.atividade;
 
     for (let i = 0; i < icon.length; i++) {
@@ -467,6 +462,41 @@ function validarCampoMdCadastrarDesempenhoDoAluno() {
         deixarCampoDinamico(txtDesempenhoAluno);
     }
 }
+
+function obterDadosAlunoAoAbrirModal(info) {
+    const
+        dados = info.dataset,
+        modal = document.querySelector("#md-cadastrar-desempenho-do-aluno");
+
+    modal.querySelector(".modal-title-nome-aluno").innerHTML = `<strong>${dados.nome}</strong> - ${dados.atividade}`;
+    modal.querySelector("#container-tarefas").dataset.codigoMatricula = dados.matricula;
+    modal.querySelector("#container-tarefas").dataset.componenteCurricular = dados.componenteCurricular;
+    modal.querySelector("#txt-descricao-atividade").value = dados.desempenho_do_aluno;
+}
+
+function destacarTarefasComDesempenhoCadastrado() {
+const descricaoDesempenhoAluno = document.querySelectorAll(".descricao-desempenho");
+
+for (let i = 0; i < descricaoDesempenhoAluno.length; i++) {
+
+    //verifica se existe alguma descrição de desempenho cadastrada
+    if (descricaoDesempenhoAluno[i].innerHTML != "nenhum desempenho cadastrado") {
+
+        const atividade = descricaoDesempenhoAluno[i].closest("div.form-atividades");
+        let
+            valorAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.value),
+            pesoAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.dataset.peso_atividade);
+
+        if (valorAtividade < pesoAtividade / 2) {
+            atividade.classList.add("destaque-desempenho-negativo");
+            atividade.classList.remove("destaque-desempenho-positivo");
+        } else{
+            atividade.classList.add("destaque-desempenho-positivo");
+            atividade.classList.remove("destaque-desempenho-negativo");
+        }
+    }  
+}
+} destacarTarefasComDesempenhoCadastrado();
 
 function deixarCampoDinamico(campo) {
     if (campo.value == "" || campo.selectedIndex === 0) {

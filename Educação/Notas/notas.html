@@ -169,9 +169,7 @@
                                                     <div class="form-atividades-cabeçalho tooltip-group">
                                                         <span class="tooltip-text descricao-atividade">Atividade sobre
                                                             cores
-                                                            <i class="descricao-desempenho">A aluna demonstrou
-                                                                dificuldade na pronúncia de algumas
-                                                                palavras</i>
+                                                            <i class="descricao-desempenho">A aluna demonstrou dificuldade na pronúncia de algumas palavras</i>
                                                         </span>
                                                         <label for="form-control">AT1</label>
 
@@ -192,6 +190,7 @@
                                                             data-descricao-situacao="@item.tipoSituacao"
                                                             data-turma="@item.nmTurma"
                                                             data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno="A aluna demonstrou dificuldade na pronúncia de algumas palavras"
                                                             onclick="obterDadosAlunoAoAbrirModal(this)">
 
                                                             <span class="ico-nota-vermelha">
@@ -207,17 +206,16 @@
 
                                                     <input type="text" class="form-control" id="1" autocomplete="off"
                                                         data-atividade="1" data-atividade_matricula="1111" maxlength="4"
-                                                        data-peso_atividade=6 placeholder="0,0"
-                                                        oninput="validarNumeroDecimal(this)"
-                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this)">
+                                                        data-peso_atividade=6 placeholder="0,0" value="2,5"
+                                                        oninput="validarNumeroDecimal(this), tratarIconeDasNotas(this), destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), calcularMediaDasAtividadesDoAluno(this)">
                                                 </div>
 
                                                 <div class="form-atividades" data-atividade="2">
                                                     <div class="form-atividades-cabeçalho tooltip-group">
                                                         <span class="tooltip-text descricao-atividade"> Atividade sobre
                                                             animais
-                                                            <i class="descricao-desempenho">nenhum desempenho
-                                                                cadastrado</i>
+                                                            <i class="descricao-desempenho">nenhum desempenho cadastrado</i>
                                                         </span>
                                                         <label for="form-control">AT2</label>
 
@@ -238,6 +236,7 @@
                                                             data-descricao-situacao="@item.tipoSituacao"
                                                             data-turma="@item.nmTurma"
                                                             data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
                                                             onclick="obterDadosAlunoAoAbrirModal(this)">
 
                                                             <span class="ico-nota-vermelha">
@@ -253,9 +252,9 @@
 
                                                     <input type="text" class="form-control" id="1" autocomplete="off"
                                                         data-atividade="2" data-atividade_matricula="1111" maxlength="4"
-                                                        data-peso_atividade=5,5 placeholder="0,0"
-                                                        oninput="validarNumeroDecimal(this)"
-                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this)">
+                                                        data-peso_atividade=5,5 placeholder="0,0" value="2,75"
+                                                        oninput="validarNumeroDecimal(this), tratarIconeDasNotas(this), destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), calcularMediaDasAtividadesDoAluno(this)">
                                                 </div>
                                             </div>
                                         </td>
@@ -305,8 +304,7 @@
                                                     <div class="form-atividades-cabeçalho tooltip-group">
                                                         <span class="tooltip-text descricao-atividade">Atividade sobre
                                                             cores
-                                                            <i class="descricao-desempenho">nenhum desempenho
-                                                                cadastrado</i>
+                                                            <i class="descricao-desempenho">nenhum desempenho cadastrado</i>
                                                         </span>
                                                         <label for="form-control">AT1</label>
 
@@ -327,6 +325,7 @@
                                                             data-descricao-situacao="@item.tipoSituacao"
                                                             data-turma="@item.nmTurma"
                                                             data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
                                                             onclick="obterDadosAlunoAoAbrirModal(this)">
 
                                                             <span class="ico-nota-vermelha">
@@ -343,16 +342,15 @@
                                                     <input type="text" class="form-control" id="2" autocomplete="off"
                                                         maxlength="4" placeholder="0,0" data-atividade="1"
                                                         data-peso_atividade=10 data-atividade_matricula="2222"
-                                                        oninput="validarNumeroDecimal(this)"
-                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this)">
+                                                        oninput="validarNumeroDecimal(this), tratarIconeDasNotas(this), destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), calcularMediaDasAtividadesDoAluno(this)">
                                                 </div>
 
                                                 <div class="form-atividades" data-atividade="2">
                                                     <div class="form-atividades-cabeçalho tooltip-group">
                                                         <span class="tooltip-text descricao-atividade"> Atividade sobre
                                                             animais
-                                                            <i class="descricao-desempenho">nenhum desempenho
-                                                                cadastrado</i>
+                                                            <i class="descricao-desempenho">A aluna demonstrou um desempenho acima da média da classe</i>
                                                         </span>
                                                         <label for="form-control">AT2</label>
 
@@ -373,6 +371,7 @@
                                                             data-descricao-situacao="@item.tipoSituacao"
                                                             data-turma="@item.nmTurma"
                                                             data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno="A aluna demonstrou um desempenho acima da média da classe."
                                                             onclick="obterDadosAlunoAoAbrirModal(this)">
 
                                                             <span class="ico-nota-vermelha">
@@ -388,9 +387,9 @@
 
                                                     <input type="text" class="form-control" id="2" autocomplete="off"
                                                         data-atividade="2" data-atividade_matricula="2222" maxlength="4"
-                                                        data-peso_atividade=5 placeholder="0,0"
-                                                        oninput="validarNumeroDecimal(this)"
-                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), tratarIconeDasNotas(this), calcularMediaDasAtividadesDoAluno(this)">
+                                                        data-peso_atividade=5 placeholder="0,0" value="5"
+                                                        oninput="validarNumeroDecimal(this), tratarIconeDasNotas(this), destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this), calcularMediaDasAtividadesDoAluno(this)">
                                                 </div>
                                             </div>
                                         </td>
