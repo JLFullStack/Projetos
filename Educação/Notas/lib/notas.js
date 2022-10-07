@@ -480,7 +480,7 @@ const descricaoDesempenhoAluno = document.querySelectorAll(".descricao-desempenh
 for (let i = 0; i < descricaoDesempenhoAluno.length; i++) {
 
     //verifica se existe alguma descrição de desempenho cadastrada
-    if (descricaoDesempenhoAluno[i].innerHTML != "nenhum desempenho cadastrado") {
+    if (descricaoDesempenhoAluno[i].innerHTML.trim() != "Nenhum desempenho cadastrado") {
 
         const atividade = descricaoDesempenhoAluno[i].closest("div.form-atividades");
         let
@@ -521,6 +521,97 @@ function deixarCampoDinamico(campo) {
             campo.previousElementSibling.classList.remove("campo-invalido");
         }
     }
+}
+
+function focarNaCelulaAbaixoDaPressionada(inputAcionada) {
+    const 
+        linhas = document.querySelectorAll("tr"),
+        inputs = document.querySelectorAll("input[type='text']");
+
+    let quantCell;
+
+    //adiciona o indice as linhas da tabela
+    for (let i = 1; i < linhas.length; i++) {
+        linhas[i].setAttribute("data-indice_linha", i);
+    }
+
+    //adiciona o indice e o evento onkeydown as inputs da tabela
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].setAttribute("data-indice_input", i);
+        inputs[i].setAttribute('onkeydown', 'focarNaCelulaAbaixoDaPressionada(this)');
+    }
+
+    //verifica a quantidade de inputs que tem na mesma linha
+    for (let i = 0; i < inputs.length; i++) {
+
+        if (inputs[i].closest("tr") != null) {
+
+            //verifica se as inputs estão na mesma linha
+            if (inputAcionada.closest("tr").dataset.indice_linha == inputs[i].closest("tr").dataset.indice_linha) {
+
+                quantCell = i/inputAcionada.closest("tr").dataset.indice_linha;
+                
+                //verifica se existe alguma linha abaixo
+                if (inputAcionada.closest("tr").nextElementSibling != null) {
+                    // quantCell = i/inputAcionada.closest("tr").dataset.indice_linha; 
+                }
+            } 
+        }  
+    }
+
+    console.log(quantCell);
+
+    if (inputAcionada != undefined) {
+        const teclaPressionada = window.event.code;
+        let posicaoFoco;
+
+        //verifica o código da tecla pressionada
+        if (teclaPressionada === "Tab") {
+
+            // bloqueia o padrão da tecla tab
+            event.preventDefault(); 
+
+
+            posicaoFoco = parseInt(inputAcionada.dataset.indice_input) + quantCell;
+
+            try {
+                // foca na próxima célula da mesma coluna
+                document.querySelector("[data-indice_input='" + posicaoFoco.toString() + "']").focus();
+            } catch {
+                // foca na primeira célula da tabela
+                document.querySelector("[data-indice_input='1']").focus(); 
+            }
+        }
+    }
+
+    // console.log(quantCell);
+
+    // Linhas da tabela
+    // for (var i = 1; i < tabela.rows.length; i++) {
+
+    //     //Colunas da tabela
+    //     for (var j = 0; j < tabela.rows[i].cells.length; j++) {
+
+    //         tabela.rows[i].cells[j].onkeydown = function identificarIndiceDaCelula() {
+
+    //             //verifica o código da tecla pressionada
+    //             const teclaPressionada = window.event.code;
+
+    //             if (teclaPressionada === "Tab") {
+    //                 console.log(this);
+
+    //                 colunaDeFoco = this.parentElement.nextElementSibling;
+    //                 // console.log(colunaDeFoco);
+    //             }
+    //         };
+    //     }
+    // }
+} focarNaCelulaAbaixoDaPressionada();
+
+function teste(ipt){
+    // let posicao = parseInt(ipt.dataset.numeroInput) + 1;
+
+    // document.querySelector("[data-numero-input='"+posicao.toString()+"']").focus();
 }
 
 // localStorage.setItem('myCat', '123');
