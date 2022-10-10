@@ -523,95 +523,74 @@ function deixarCampoDinamico(campo) {
     }
 }
 
-function focarNaCelulaAbaixoDaPressionada(inputAcionada) {
-    const 
-        linhas = document.querySelectorAll("tr"),
-        inputs = document.querySelectorAll("input[type='text']");
+function mapearTabelaNotas() {
+    let
+        iColuna = 1;
+        linha = document.querySelectorAll("#tb-notas tbody tr"),
+        input = document.querySelectorAll("#tb-notas tbody input");
 
-    let quantCell;
-
-    //adiciona o indice as linhas da tabela
-    for (let i = 1; i < linhas.length; i++) {
-        linhas[i].setAttribute("data-indice_linha", i);
+    //adiciona o indice nas linhas da tabela
+    for (let i = 0; i < linha.length; i++) {
+        linha[i].setAttribute("data-indice_linha", i);
     }
 
     //adiciona o indice e o evento onkeydown as inputs da tabela
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].setAttribute("data-indice_input", i);
-        inputs[i].setAttribute('onkeydown', 'focarNaCelulaAbaixoDaPressionada(this)');
+    for (let i = 0; i < input.length; i++) {
+        input[i].setAttribute("data-indice_input", i);
+        input[i].setAttribute('onkeydown', 'focarNaCelulaAbaixo(this, event)');
     }
 
-    //verifica a quantidade de inputs que tem na mesma linha
-    for (let i = 0; i < inputs.length; i++) {
+    //adiciona o indice nas colunas da tabela
+    for (let i = 0; i < linha.length; i++) {
+        for (let j = 0; j < input.length; j++) {
 
-        if (inputs[i].closest("tr") != null) {
+            let quantInputPorLinha = input.length / linha.length;
 
-            //verifica se as inputs estão na mesma linha
-            if (inputAcionada.closest("tr").dataset.indice_linha == inputs[i].closest("tr").dataset.indice_linha) {
+            input[j].classList.add("col" +iColuna);
+            input[j].setAttribute("data-Col", iColuna);
 
-                quantCell = i/inputAcionada.closest("tr").dataset.indice_linha;
-                
-                //verifica se existe alguma linha abaixo
-                if (inputAcionada.closest("tr").nextElementSibling != null) {
-                    // quantCell = i/inputAcionada.closest("tr").dataset.indice_linha; 
-                }
-            } 
-        }  
-    }
+            iColuna++;
 
-    console.log(quantCell);
-
-    if (inputAcionada != undefined) {
-        const teclaPressionada = window.event.code;
-        let posicaoFoco;
-
-        //verifica o código da tecla pressionada
-        if (teclaPressionada === "Tab") {
-
-            // bloqueia o padrão da tecla tab
-            event.preventDefault(); 
-
-
-            posicaoFoco = parseInt(inputAcionada.dataset.indice_input) + quantCell;
-
-            try {
-                // foca na próxima célula da mesma coluna
-                document.querySelector("[data-indice_input='" + posicaoFoco.toString() + "']").focus();
-            } catch {
-                // foca na primeira célula da tabela
-                document.querySelector("[data-indice_input='1']").focus(); 
+            if (iColuna > quantInputPorLinha) {
+                iColuna = 1;
             }
         }
     }
+}mapearTabelaNotas();
 
-    // console.log(quantCell);
+function focarNaCelulaAbaixo(ipt, event) {
+    const 
+        linhas = document.querySelectorAll("#tb-notas tbody tr"),
+        input = document.querySelectorAll("#tb-notas tbody input");
 
-    // Linhas da tabela
-    // for (var i = 1; i < tabela.rows.length; i++) {
+    let quantInputPorLinha, cellFocoInicio;
 
-    //     //Colunas da tabela
-    //     for (var j = 0; j < tabela.rows[i].cells.length; j++) {
+    //verifica a quantidade de inputs que tem na mesma linha
+    for (let i = 0; i < linhas.length; i++) {
+        for (let j = 0; j < input.length; j++) {
+            quantInputPorLinha = input.length / linhas.length
+        }
+    }
 
-    //         tabela.rows[i].cells[j].onkeydown = function identificarIndiceDaCelula() {
+    if (ipt != undefined) {
+        const 
+            tecla = event.code,
+            cellFoco = parseInt(ipt.dataset.indice_input) + quantInputPorLinha,
+            cellFocoInicio = linhas[0].querySelector(".col" +ipt.dataset.col);
 
-    //             //verifica o código da tecla pressionada
-    //             const teclaPressionada = window.event.code;
+        //verifica o código da tecla pressionada
+        if (tecla === "Tab") {
 
-    //             if (teclaPressionada === "Tab") {
-    //                 console.log(this);
+            event.preventDefault(); // bloqueia o padrão da tecla tab
 
-    //                 colunaDeFoco = this.parentElement.nextElementSibling;
-    //                 // console.log(colunaDeFoco);
-    //             }
-    //         };
-    //     }
-    // }
-} focarNaCelulaAbaixoDaPressionada();
+            try {
+                document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").focus(); // foca no próximo campo
+                document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").select(); // foca no próximo campo
 
-function teste(ipt){
-    // let posicao = parseInt(ipt.dataset.numeroInput) + 1;
-
-    // document.querySelector("[data-numero-input='"+posicao.toString()+"']").focus();
-}
-
-// localStorage.setItem('myCat', '123');
+            } catch {
+                cellFocoInicio.focus(); // foca no primeiro campo
+                cellFocoInicio.select();
+            }
+        }
+    }
+} focarNaCelulaAbaixo();

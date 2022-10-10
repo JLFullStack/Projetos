@@ -3,20 +3,6 @@
     border: none;
 }
 
-/* identificando a tecla pressionasa */
-.foco-input:focus {
-    border-color: #66afe9;
-    outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
-}
-
-.foco-input::selection{
-    color:white;
-    background-color: #4681f9;
-}
-
-
 /* css para deixar a modal de desempenho do aluno dinâmica */
 #md-cadastrar-desempenho-do-aluno .modal-body{
     display: flex;
