@@ -1,4 +1,10 @@
 /*mudanças de hoje_______*/
+#tb-notas tbody tr .ausencias-compensadas {
+    color: #2196F3 !important;
+}
+
+
+
 .table-responsive {
     border: none;
 }

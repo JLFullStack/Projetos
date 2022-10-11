@@ -594,3 +594,51 @@ function focarNaCelulaAbaixo(ipt, event) {
         }
     }
 } focarNaCelulaAbaixo();
+
+function tratarCampoAunsenciasCompensadas(campo) {
+    const 
+        regExp = new RegExp("[^0-9,]", "g"),
+        falta = document.querySelectorAll(".qtd-faltas"),
+        aunsencias = document.querySelectorAll(".ausencias-compensadas input");
+
+//desabilita o campo das ausências compensadas
+for (let i = 0; i < aunsencias.length; i++) {
+
+    //verifica se os campos estão na mesma linha
+    if (aunsencias[i].closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
+
+        let qtdFaltas = parseInt(falta[i].innerText);
+
+        if (qtdFaltas < 15) {
+            aunsencias[i].setAttribute("disabled", true);
+        } else{
+            
+            falta[i].style.color = "#F44336";
+        }
+    }
+}
+
+//trata os campos desabilitados das ausências compensadas 
+if (campo != undefined) {
+    campo.value = campo.value.replace(regExp, "");
+
+    for (let i = 0; i < falta.length; i++) {
+
+        //verifica se os campos estão na mesma linha
+        if (campo.closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
+
+            let qtdFaltas = parseInt(falta[i].innerText);
+
+            if (campo.value > qtdFaltas) {
+                campo.value = qtdFaltas;
+
+                enviarMenssagemDeAlerta(
+                    "modal-danger",
+                    "glyphicon glyphicon-remove-circle",
+                    "O valor não pode ser maior do que o das faltas."
+                );
+            }
+        }
+    }
+}
+} tratarCampoAunsenciasCompensadas();
