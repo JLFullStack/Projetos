@@ -525,7 +525,7 @@ function deixarCampoDinamico(campo) {
 
 function mapearTabelaNotas() {
     let
-        iColuna = 1;
+        iColuna = 1,
         linha = document.querySelectorAll("#tb-notas tbody tr"),
         input = document.querySelectorAll("#tb-notas tbody input");
 
@@ -534,7 +534,7 @@ function mapearTabelaNotas() {
         linha[i].setAttribute("data-indice_linha", i);
     }
 
-    //adiciona o indice e o evento onkeydown as inputs da tabela
+    //adiciona o indice e o evento onkeydown nas inputs da tabela
     for (let i = 0; i < input.length; i++) {
         input[i].setAttribute("data-indice_input", i);
         input[i].setAttribute('onkeydown', 'focarNaCelulaAbaixo(this, event)');
