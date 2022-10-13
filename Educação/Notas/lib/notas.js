@@ -416,11 +416,38 @@ function validarCamposMdEditarTarefa() {
     const 
         tarefa = document.querySelector("#campo-tarefa-md-editar-tarefa"),
         peso = document.querySelector("#campo-peso-md-editar-tarefa"),
+        tipoTarefa = document.querySelector("#campo-tipo-tarefa-md-editar-tarefa"),
         titulo = document.querySelector("#campo-titulo-md-editar-tarefa"),
-        msg = document.querySelector("#msg-alerta-md-editar-tarefa");
+        msg = document.querySelector("#msg-alerta-md-editar-tarefa"),
+        notaAlunosTarefaSelecionada = document.querySelectorAll(".col" + tarefa.selectedIndex);
+
+    //destaca o campo da nota do aluno que está com o valor maior do que o peso adicionado 
+    for (var i = 0; i < notaAlunosTarefaSelecionada.length; i++) {
+
+        if (parseFloat(peso.value) < parseFloat(notaAlunosTarefaSelecionada[i].value)) {
+            notaAlunosTarefaSelecionada[i].classList.add("campo-invalido");
+        }
+    }
+    
+    //verifica se a nota do aluno está maior do que o peso adicionado
+    for (var i = 0; i < notaAlunosTarefaSelecionada.length; i++) {
+
+        if (parseFloat(peso.value) < parseFloat(notaAlunosTarefaSelecionada[i].value)) {
+
+            event.preventDefault();
+
+            enviarMenssagemDeAlerta(
+                "modal-danger",
+                "glyphicon glyphicon-remove-circle",
+                "Algum aluno está com a nota maior do que o peso adicionado"
+            );
+
+            return false;
+        }
+    }
 
     // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
-    if (tarefa.selectedIndex === 0 || peso.value == "" || titulo.value == "") {
+    if (tarefa.selectedIndex === 0 || peso.value == "" || tipoTarefa.selectedIndex === 0 || titulo.value == "") {
         event.preventDefault();
 
         msg.style = "opacity:100%";
@@ -431,6 +458,7 @@ function validarCamposMdEditarTarefa() {
 
         deixarCampoDinamico(tarefa);
         deixarCampoDinamico(peso);
+        deixarCampoDinamico(tipoTarefa);
         deixarCampoDinamico(titulo);
     }
 }
@@ -563,7 +591,7 @@ function focarNaCelulaAbaixo(ipt, event) {
         linhas = document.querySelectorAll("#tb-notas tbody tr"),
         input = document.querySelectorAll("#tb-notas tbody input");
 
-    let quantInputPorLinha, cellFocoInicio;
+    let quantInputPorLinha;
 
     //verifica a quantidade de inputs que tem na mesma linha
     for (let i = 0; i < linhas.length; i++) {
@@ -573,10 +601,24 @@ function focarNaCelulaAbaixo(ipt, event) {
     }
 
     if (ipt != undefined) {
-        const 
+        const
             tecla = event.code,
-            cellFoco = parseInt(ipt.dataset.indice_input) + quantInputPorLinha,
-            cellFocoInicio = linhas[0].querySelector(".col" +ipt.dataset.col);
+            cellFoco = parseInt(ipt.dataset.indice_input) + quantInputPorLinha;
+
+        let cellFocoInicio;
+        
+        for (let i = 0; i < linhas.length; i++) {
+
+            //torna a primeira célula habilidada da coluna como foco de início
+            if (linhas[i].querySelector(".col" +ipt.dataset.col).getAttribute("disabled") == "true") {
+                cellFocoInicio = linhas[i+1].querySelector(".col" +ipt.dataset.col);
+                break;
+            } 
+            else {
+                cellFocoInicio = linhas[i].querySelector(".col" +ipt.dataset.col);
+                break;
+            }
+        }
 
         //verifica o código da tecla pressionada
         if (tecla === "Tab") {
@@ -584,12 +626,24 @@ function focarNaCelulaAbaixo(ipt, event) {
             event.preventDefault(); // bloqueia o padrão da tecla tab
 
             try {
-                document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").focus(); // foca no próximo campo
-                document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").select(); // foca no próximo campo
+                const
+                celulaHabilitada = document.querySelector("[data-indice_input='" + cellFoco.toString() + "']"),
+                celulaDesabilitada = document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").getAttribute("disabled") == "true",
+                proximaCelula = document.querySelector("[data-indice_input='" + (cellFoco + quantInputPorLinha).toString() + "']");
 
+                //pula o foco das células desabilitadas
+                if (celulaDesabilitada) {
+
+                    proximaCelula.focus(); // foca no próximo campo habilitado
+                    proximaCelula.select(); // seleciona o próximo campo habilitado
+                }
+                else {
+                    celulaHabilitada.focus(); // foca no próximo campo
+                    celulaHabilitada.select(); // seleciona o próximo campo
+                }
             } catch {
                 cellFocoInicio.focus(); // foca no primeiro campo
-                cellFocoInicio.select();
+                cellFocoInicio.select(); // seleciona o primeiro campo
             }
         }
     }
@@ -609,7 +663,7 @@ for (let i = 0; i < aunsencias.length; i++) {
 
         let qtdFaltas = parseInt(falta[i].innerText);
 
-        if (qtdFaltas < 15) {
+        if (qtdFaltas < 5) {
             aunsencias[i].setAttribute("disabled", true);
         } else{
             

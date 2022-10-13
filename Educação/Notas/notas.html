@@ -564,6 +564,7 @@
                                             </div>
                                         </td>
                                     </tr>
+
                                     <!-- <tr>
                                         <td class="text-center cel-numero-chamada-aluno-nota">5</td>
 
@@ -829,12 +830,29 @@
                                                                 <i class="fas fa-weight-hanging"></i>
                                                             </span>
                                                             <input type="text" class="form-control text-center" maxlength="4"
-                                                                autocomplete="off" placeholder="0,0"
+                                                                autocomplete="off" placeholder="0,0" value="10"
                                                                 id="campo-peso-md-editar-tarefa" 
                                                                 name="txt_novo_peso_atividade"
                                                                 oninput="validarNumeroDecimal(this); deixarCampoDinamico(this)"
-                                                                onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                                                onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled>
                                                         </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-tipo-tarefa">
+                                                    <label for="input-group">Tipo</label>
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa-solid fa-list-check"></i>
+                                                        </span>
+                                                        <select class="form-control" name="tipoTarefa"
+                                                            id="campo-tipo-tarefa-md-editar-tarefa" 
+                                                            onclick="deixarCampoDinamico(this)">
+                                                            <option value="0" id="select-placeholder">Selecione um tipo de tarefa</option>
+                                                            <option value="1">Atividade</option>
+                                                            <option value="2">Avaliação</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 

@@ -123,7 +123,8 @@
     }
 
 #md-cadastrar-tarefa #campo-tipo-tarefa-md-cadastrar-tarefa,
-#md-editar-tarefa #campo-tarefa-md-editar-tarefa{
+#md-editar-tarefa #campo-tarefa-md-editar-tarefa,
+#md-editar-tarefa #campo-tipo-tarefa-md-editar-tarefa{
     background-position: right calc(1.375em + 0.1875rem) center;
 }
 
@@ -736,7 +737,7 @@
 }
 
 
-/*modal-cadastrar-tarefa________________________________________________*/
+/*modal-cadastrar-tarefa____________________________________________________________________________________*/
 #campo-titulo-md-cadastrar-tarefa,
 #campo-titulo-md-editar-tarefa,
 #txt-descricao-atividade {
@@ -744,7 +745,17 @@
     width: 100%;
 }
 
-/*modal-editar-tarefa________________________________________________*/
+/*modal-editar-tarefa________________________________________________________________________________________*/
+#md-editar-tarefa .input-tipo-tarefa {
+    width: 70%;
+    margin-bottom:20px;
+}
+
+    #md-editar-tarefa .input-tipo-tarefa .input-group {
+        width: 100%;
+    }
+
+/*modal-editar-tarefa / modal-cadastrar-tarefa______________________________________________________________*/
 #md-editar-tarefa #container-tarefas,
 #md-cadastrar-tarefa #container-tarefas {
     width: 100%;
@@ -783,9 +794,11 @@
 }
 
 #md-editar-tarefa .input-tarefa span i,
+#md-editar-tarefa .input-tipo-tarefa span i,
 #md-cadastrar-tarefa .input-tarefa span i,
 
 #md-editar-tarefa .input-tarefa span svg,
+#md-editar-tarefa .input-tipo-tarefa span svg,
 #md-cadastrar-tarefa .input-tarefa span svg {
     width: 22px;
     height: 22px
