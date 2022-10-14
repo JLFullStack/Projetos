@@ -83,7 +83,7 @@ function limparFiltro() {
 function validarNumeroDecimal(campo) {
     const
         regExp = new RegExp("[^0-9,]", "g"),
-        valor = parseFloat(campo.value.replace(",", "."));  
+        valor = parseFloat(campo.value.replace(",", "."));
 
     if (campo.value === "00") campo.value = 0.0;
     if (campo.value === ",") campo.value = "";
@@ -161,13 +161,13 @@ function calcularMediaDasAtividadesDoAluno(AtividadeAluno) {
                 mediaDasAtividades,
                 somaDasAtividades = 0.0,
                 quantidadeDeAtividades = grupoDeAtividades[i].children.length;
-                
+
 
             for (let i = 0; i < atividade.length; i++) {
 
                 //verifica se a célula digitada faz parte das células de atividades do aluno
                 if (atividade[i].dataset.atividade_matricula === AtividadeAluno.dataset.atividade_matricula) {
-                    let 
+                    let
                         vl_nota_atividade = converterValorDaNotaParaDecimal(atividade[i].value),
                         peso_atividade = converterValorDaNotaParaDecimal(atividade[i].dataset.peso_atividade),
                         nota_atividade_pelo_peso = vl_nota_atividade / peso_atividade;
@@ -264,10 +264,10 @@ function tratarIconeDasNotas(campo) {
         descricaoDesempenhoAluno = ((campo.previousElementSibling).firstElementChild).firstElementChild;
 
     //verifica se existe alguma descrição de desempenho cadastrada
-    if (descricaoDesempenhoAluno.innerHTML != "nenhum desempenho cadastrado"){
+    if (descricaoDesempenhoAluno.innerHTML != "nenhum desempenho cadastrado") {
         valor = converterValorDaNotaParaDecimal(campo.value);
     } else valor = parseFloat(campo.value.replace(",", "."));
-        
+
     let atividade = campo.dataset.atividade;
 
     for (let i = 0; i < icon.length; i++) {
@@ -390,7 +390,7 @@ function AbrirPopover() {
 }
 
 function validarCamposMdCadastrarTarefa() {
-    const 
+    const
         tipoTarefa = document.querySelector("#campo-tipo-tarefa-md-cadastrar-tarefa"),
         peso = document.querySelector("#campo-peso-md-cadastrar-tarefa"),
         titulo = document.querySelector("#campo-titulo-md-cadastrar-tarefa"),
@@ -413,7 +413,7 @@ function validarCamposMdCadastrarTarefa() {
 }
 
 function validarCamposMdEditarTarefa() {
-    const 
+    const
         tarefa = document.querySelector("#campo-tarefa-md-editar-tarefa"),
         peso = document.querySelector("#campo-peso-md-editar-tarefa"),
         tipoTarefa = document.querySelector("#campo-tipo-tarefa-md-editar-tarefa"),
@@ -428,7 +428,7 @@ function validarCamposMdEditarTarefa() {
             notaAlunosTarefaSelecionada[i].classList.add("campo-invalido");
         }
     }
-    
+
     //verifica se a nota do aluno está maior do que o peso adicionado
     for (var i = 0; i < notaAlunosTarefaSelecionada.length; i++) {
 
@@ -464,17 +464,17 @@ function validarCamposMdEditarTarefa() {
 }
 
 function validarCampoMdCadastrarDesempenhoDoAluno() {
-        const 
-            txtDesempenhoAluno = document.querySelector("#txt-descricao-atividade"),
-            msg = document.querySelector("#msg-alerta-md-cadastrar-desempenho-do-aluno"),
-            modalBody = document.querySelector("#md-cadastrar-desempenho-do-aluno .modal-body");
+    const
+        txtDesempenhoAluno = document.querySelector("#txt-descricao-atividade"),
+        msg = document.querySelector("#msg-alerta-md-cadastrar-desempenho-do-aluno"),
+        modalBody = document.querySelector("#md-cadastrar-desempenho-do-aluno .modal-body");
 
     // desabilita o envio do formulário se houverem campos obrigatórios não preenchidos
     if (txtDesempenhoAluno.value == "") {
         event.preventDefault();
 
         modalBody.classList.add("mostrar-menssagem-de-alerta");
-    
+
         setTimeout(function () {
             msg.style = "opacity:100%";
         }, 100);
@@ -503,28 +503,29 @@ function obterDadosAlunoAoAbrirModal(info) {
 }
 
 function destacarTarefasComDesempenhoCadastrado() {
-const descricaoDesempenhoAluno = document.querySelectorAll(".descricao-desempenho");
+    const descricaoDesempenhoAluno = document.querySelectorAll(".descricao-desempenho");
 
-for (let i = 0; i < descricaoDesempenhoAluno.length; i++) {
+    for (let i = 0; i < descricaoDesempenhoAluno.length; i++) {
 
-    //verifica se existe alguma descrição de desempenho cadastrada
-    if (descricaoDesempenhoAluno[i].innerHTML.trim() != "Nenhum desempenho cadastrado") {
+        //verifica se existe alguma descrição de desempenho cadastrada
+        if (descricaoDesempenhoAluno[i].innerHTML.trim() != "Nenhum desempenho cadastrado") {
 
-        const atividade = descricaoDesempenhoAluno[i].closest("div.form-atividades");
-        let
-            valorAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.value),
-            pesoAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.dataset.peso_atividade);
+            const atividade = descricaoDesempenhoAluno[i].closest("div.form-atividades");
+            let
+                valorAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.value),
+                pesoAtividade = converterValorDaNotaParaDecimal(atividade.lastElementChild.dataset.peso_atividade);
 
-        if (valorAtividade < pesoAtividade / 2) {
-            atividade.classList.add("destaque-desempenho-negativo");
-            atividade.classList.remove("destaque-desempenho-positivo");
-        } else{
-            atividade.classList.add("destaque-desempenho-positivo");
-            atividade.classList.remove("destaque-desempenho-negativo");
+            if (valorAtividade < pesoAtividade / 2) {
+                atividade.classList.add("destaque-desempenho-negativo");
+                atividade.classList.remove("destaque-desempenho-positivo");
+            } else {
+                atividade.classList.add("destaque-desempenho-positivo");
+                atividade.classList.remove("destaque-desempenho-negativo");
+            }
         }
-    }  
+    }
 }
-} destacarTarefasComDesempenhoCadastrado();
+destacarTarefasComDesempenhoCadastrado();
 
 function deixarCampoDinamico(campo) {
     if (campo.value == "" || campo.selectedIndex === 0) {
@@ -537,13 +538,13 @@ function deixarCampoDinamico(campo) {
             campo.previousElementSibling.classList.add("campo-invalido");
             campo.previousElementSibling.classList.remove("campo-valido");
         }
-        
-    } else{
+
+    } else {
         campo.classList.add("campo-valido");
         campo.classList.add("background-campo-valido");
         campo.classList.remove("campo-invalido");
         campo.classList.remove("background-campo-invalido");
-        
+
         if (campo.previousElementSibling != null) {
             campo.previousElementSibling.classList.add("campo-valido");
             campo.previousElementSibling.classList.remove("campo-invalido");
@@ -565,7 +566,7 @@ function mapearTabelaNotas() {
     //adiciona o indice e o evento onkeydown nas inputs da tabela
     for (let i = 0; i < input.length; i++) {
         input[i].setAttribute("data-indice_input", i);
-        input[i].setAttribute('onkeydown', 'focarNaCelulaAbaixo(this, event)');
+        input[i].setAttribute('onkeydown', 'modificarPadraoDeTeclaPressionada(this, event)');
     }
 
     //adiciona o indice nas colunas da tabela
@@ -574,7 +575,7 @@ function mapearTabelaNotas() {
 
             let quantInputPorLinha = input.length / linha.length;
 
-            input[j].classList.add("col" +iColuna);
+            input[j].classList.add("col" + iColuna);
             input[j].setAttribute("data-Col", iColuna);
 
             iColuna++;
@@ -584,115 +585,155 @@ function mapearTabelaNotas() {
             }
         }
     }
-}mapearTabelaNotas();
+}
+mapearTabelaNotas();
 
-function focarNaCelulaAbaixo(ipt, event) {
-    const 
+/** @function modificarPadraoDeTeclaPressionada */
+/**
+ * @version dev - 14/10/2022
+ * @description Função modifica o padrão da tecla Tab e Shift+Tab. Focando, de forma vertical, em células de uma mesma coluna.
+ * @example input1(col1) para input2(col1)
+ * @param {element} ipt - propriedades de uma input
+ * @param {keyProperties} event - propriedades de uma tecla pressionada 
+ */
+function modificarPadraoDeTeclaPressionada(ipt, event) {
+    const
         linhas = document.querySelectorAll("#tb-notas tbody tr"),
-        input = document.querySelectorAll("#tb-notas tbody input");
+        inputs = document.querySelectorAll("#tb-notas tbody input");
 
     let quantInputPorLinha;
 
     //verifica a quantidade de inputs que tem na mesma linha
     for (let i = 0; i < linhas.length; i++) {
-        for (let j = 0; j < input.length; j++) {
-            quantInputPorLinha = input.length / linhas.length
+        for (let j = 0; j < inputs.length; j++) {
+            quantInputPorLinha = inputs.length / linhas.length;
         }
     }
 
     if (ipt != undefined) {
         const
-            tecla = event.code,
-            cellFoco = parseInt(ipt.dataset.indice_input) + quantInputPorLinha;
+            teclaPressionada = event.code,
+            proximaCelula = parseInt(ipt.dataset.indice_input) + quantInputPorLinha,
+            celulaAnterior = parseInt(ipt.dataset.indice_input) - quantInputPorLinha;
 
-        let cellFocoInicio;
-        
+        let primeiraCelula, ultimaCelula;
+
         for (let i = 0; i < linhas.length; i++) {
-
-            //torna a primeira célula habilidada da coluna como foco de início
-            if (linhas[i].querySelector(".col" +ipt.dataset.col).getAttribute("disabled") == "true") {
-                cellFocoInicio = linhas[i+1].querySelector(".col" +ipt.dataset.col);
+            //torna a primeira célula habilidada da coluna como foco
+            if (linhas[i].querySelector(".col" + ipt.dataset.col).getAttribute("disabled") == "true") {
+                primeiraCelula = linhas[i + 1].querySelector(".col" + ipt.dataset.col);
                 break;
-            } 
-            else {
-                cellFocoInicio = linhas[i].querySelector(".col" +ipt.dataset.col);
+            } else {
+                primeiraCelula = linhas[i].querySelector(".col" + ipt.dataset.col);
                 break;
             }
         }
 
-        //verifica o código da tecla pressionada
-        if (tecla === "Tab") {
+        for (let i = 0; i < linhas.length; i++) {            
+            //torna a última célula habilidada da coluna como foco
+            if ((linhas[i].querySelector(".col" + ipt.dataset.col).getAttribute("disabled")) == null) {
+                ultimaCelula = linhas[i].querySelector(".col" + ipt.dataset.col);
+            }
+        }
 
-            event.preventDefault(); // bloqueia o padrão da tecla tab
+        //modifica o padrão da tecla Shift+Tab
+        if (event.shiftKey === true && teclaPressionada === "Tab") {
+            event.preventDefault(); // bloqueia o padrão da tecla Shift+Tab
 
             try {
                 const
-                celulaHabilitada = document.querySelector("[data-indice_input='" + cellFoco.toString() + "']"),
-                celulaDesabilitada = document.querySelector("[data-indice_input='" + cellFoco.toString() + "']").getAttribute("disabled") == "true",
-                proximaCelula = document.querySelector("[data-indice_input='" + (cellFoco + quantInputPorLinha).toString() + "']");
+                    celulaHabilitada = document.querySelector("[data-indice_input='" + celulaAnterior.toString() + "']"),
+                    celulaDesabilitada = document.querySelector("[data-indice_input='" + celulaAnterior.toString() + "']").getAttribute("disabled") == "true",
+                    celulaAnteriorHabilitada = document.querySelector("[data-indice_input='" + (celulaAnterior - quantInputPorLinha).toString() + "']");
 
                 //pula o foco das células desabilitadas
                 if (celulaDesabilitada) {
 
-                    proximaCelula.focus(); // foca no próximo campo habilitado
-                    proximaCelula.select(); // seleciona o próximo campo habilitado
-                }
-                else {
-                    celulaHabilitada.focus(); // foca no próximo campo
-                    celulaHabilitada.select(); // seleciona o próximo campo
+                    celulaAnteriorHabilitada.focus(); // foca e seleciona a célula anterior que esteja habilitada na coluna
+                    celulaAnteriorHabilitada.select();
+                } else {
+                    celulaHabilitada.focus(); // foca e seleciona a célula anterior da coluna
+                    celulaHabilitada.select();
                 }
             } catch {
-                cellFocoInicio.focus(); // foca no primeiro campo
-                cellFocoInicio.select(); // seleciona o primeiro campo
+                ultimaCelula.focus(); // foca e seleciona a última célula que esteja habilitada na coluna
+                ultimaCelula.select();
             }
-        }
+        } 
+        
+        //modifica o padrão da tecla Tab
+        else if (teclaPressionada === "Tab") {
+            event.preventDefault(); // bloqueia o padrão da tecla Tab
+
+            try {
+                const
+                    celulaHabilitada = document.querySelector("[data-indice_input='" + proximaCelula.toString() + "']"),
+                    celulaDesabilitada = document.querySelector("[data-indice_input='" + proximaCelula.toString() + "']").getAttribute("disabled") == "true",
+                    proximaCelulaHabilitada = document.querySelector("[data-indice_input='" + (proximaCelula + quantInputPorLinha).toString() + "']");
+
+                //pula o foco das células desabilitadas
+                if (celulaDesabilitada) {
+                    proximaCelulaHabilitada.focus(); // foca e seleciona a próxima célula que esteja habilitada na coluna
+                    proximaCelulaHabilitada.select();
+                } else {
+                    celulaHabilitada.focus(); // foca e seleciona a próxima célula da coluna
+                    celulaHabilitada.select();
+                }
+            } catch {
+                primeiraCelula.focus(); // foca e seleciona a primeira célula que esteja habilitada na coluna
+                primeiraCelula.select();
+            }
+        } 
+        else { console.log(0); }
     }
-} focarNaCelulaAbaixo();
+}
+modificarPadraoDeTeclaPressionada();
 
 function tratarCampoAunsenciasCompensadas(campo) {
-    const 
+    const
         regExp = new RegExp("[^0-9,]", "g"),
         falta = document.querySelectorAll(".qtd-faltas"),
         aunsencias = document.querySelectorAll(".ausencias-compensadas input");
 
-//desabilita o campo das ausências compensadas
-for (let i = 0; i < aunsencias.length; i++) {
-
-    //verifica se os campos estão na mesma linha
-    if (aunsencias[i].closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
-
-        let qtdFaltas = parseInt(falta[i].innerText);
-
-        if (qtdFaltas < 5) {
-            aunsencias[i].setAttribute("disabled", true);
-        } else{
-            
-            falta[i].style.color = "#F44336";
-        }
-    }
-}
-
-//trata os campos desabilitados das ausências compensadas 
-if (campo != undefined) {
-    campo.value = campo.value.replace(regExp, "");
-
-    for (let i = 0; i < falta.length; i++) {
+    //desabilita o campo das ausências compensadas
+    for (let i = 0; i < aunsencias.length; i++) {
 
         //verifica se os campos estão na mesma linha
-        if (campo.closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
+        if (aunsencias[i].closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
 
             let qtdFaltas = parseInt(falta[i].innerText);
 
-            if (campo.value > qtdFaltas) {
-                campo.value = qtdFaltas;
+            if (qtdFaltas < 5) {
+                aunsencias[i].setAttribute("disabled", true);
+            } else {
 
-                enviarMenssagemDeAlerta(
-                    "modal-danger",
-                    "glyphicon glyphicon-remove-circle",
-                    "O valor não pode ser maior do que o das faltas."
-                );
+                falta[i].style.color = "#F44336";
+            }
+        }
+    }
+
+    //trata os campos desabilitados das ausências compensadas 
+    if (campo != undefined) {
+        campo.value = campo.value.replace(regExp, "");
+
+        for (let i = 0; i < falta.length; i++) {
+
+            //verifica se os campos estão na mesma linha
+            if (campo.closest("tr").dataset.indice_linha == falta[i].closest("tr").dataset.indice_linha) {
+
+                let qtdFaltas = parseInt(falta[i].innerText);
+
+                if (campo.value > qtdFaltas) {
+                    campo.value = qtdFaltas;
+
+                    enviarMenssagemDeAlerta(
+                        "modal-danger",
+                        "glyphicon glyphicon-remove-circle",
+                        "O valor não pode ser maior do que o das faltas."
+                    );
+                }
             }
         }
     }
 }
-} tratarCampoAunsenciasCompensadas();
+tratarCampoAunsenciasCompensadas();
