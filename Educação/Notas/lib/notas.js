@@ -566,7 +566,7 @@ function mapearTabelaNotas() {
     //adiciona o indice e o evento onkeydown nas inputs da tabela
     for (let i = 0; i < input.length; i++) {
         input[i].setAttribute("data-indice_input", i);
-        input[i].setAttribute('onkeydown', 'modificarPadraoDeTeclaPressionada(this, event)');
+        input[i].setAttribute('onkeydown', 'modificarPadraoDaTeclaPressionada(this, event)');
     }
 
     //adiciona o indice nas colunas da tabela
@@ -590,13 +590,13 @@ mapearTabelaNotas();
 
 /** @function modificarPadraoDeTeclaPressionada */
 /**
- * @version dev - 14/10/2022
+ * @version 1.0.0 - 18/10/2022
  * @description Função modifica o padrão da tecla Tab e Shift+Tab. Focando, de forma vertical, em células de uma mesma coluna.
  * @example input1(col1) para input2(col1)
  * @param {element} ipt - propriedades de uma input
  * @param {keyProperties} event - propriedades de uma tecla pressionada 
  */
-function modificarPadraoDeTeclaPressionada(ipt, event) {
+function modificarPadraoDaTeclaPressionada(ipt, event) {
     const
         linhas = document.querySelectorAll("#tb-notas tbody tr"),
         inputs = document.querySelectorAll("#tb-notas tbody input");
@@ -613,81 +613,112 @@ function modificarPadraoDeTeclaPressionada(ipt, event) {
     if (ipt != undefined) {
         const
             teclaPressionada = event.code,
-            proximaCelula = parseInt(ipt.dataset.indice_input) + quantInputPorLinha,
-            celulaAnterior = parseInt(ipt.dataset.indice_input) - quantInputPorLinha;
-
-        let primeiraCelula, ultimaCelula;
-
-        for (let i = 0; i < linhas.length; i++) {
-            //torna a primeira célula habilidada da coluna como foco
-            if (linhas[i].querySelector(".col" + ipt.dataset.col).getAttribute("disabled") == "true") {
-                primeiraCelula = linhas[i + 1].querySelector(".col" + ipt.dataset.col);
-                break;
-            } else {
-                primeiraCelula = linhas[i].querySelector(".col" + ipt.dataset.col);
-                break;
-            }
-        }
-
-        for (let i = 0; i < linhas.length; i++) {            
-            //torna a última célula habilidada da coluna como foco
-            if ((linhas[i].querySelector(".col" + ipt.dataset.col).getAttribute("disabled")) == null) {
-                ultimaCelula = linhas[i].querySelector(".col" + ipt.dataset.col);
-            }
-        }
+            somarIndice = parseInt(ipt.dataset.indice_input) + quantInputPorLinha,
+            subtrairIndice = parseInt(ipt.dataset.indice_input) - quantInputPorLinha;
 
         //modifica o padrão da tecla Shift+Tab
         if (event.shiftKey === true && teclaPressionada === "Tab") {
             event.preventDefault(); // bloqueia o padrão da tecla Shift+Tab
 
+            let ultimaCelula;
+
+            //identifica a última célula habilitada na coluna
+            for (let i = 0; i < linhas.length; i++) {
+                const celulaAtual = linhas[i].querySelector(".col" + ipt.dataset.col);
+
+                //verifica se a célula está habilitada
+                if ((celulaAtual.getAttribute("disabled")) == null) {
+                    ultimaCelula = celulaAtual;
+                }
+            }
+
             try {
-                const
-                    celulaHabilitada = document.querySelector("[data-indice_input='" + celulaAnterior.toString() + "']"),
-                    celulaDesabilitada = document.querySelector("[data-indice_input='" + celulaAnterior.toString() + "']").getAttribute("disabled") == "true",
-                    celulaAnteriorHabilitada = document.querySelector("[data-indice_input='" + (celulaAnterior - quantInputPorLinha).toString() + "']");
+                const celulaAnterior = document.querySelector("[data-indice_input='" + subtrairIndice.toString() + "']");
 
-                //pula o foco das células desabilitadas
-                if (celulaDesabilitada) {
+                //pula o foco das células anteriores que estejam desabilitadas
+                if (celulaAnterior.getAttribute("disabled")) {
+                    const indiceCelulaAnterior = celulaAnterior.closest("tr").dataset.indice_linha;
+                    let celulaIminenteHabilitada;
 
-                    celulaAnteriorHabilitada.focus(); // foca e seleciona a célula anterior que esteja habilitada na coluna
-                    celulaAnteriorHabilitada.select();
+                    for (let i = indiceCelulaAnterior; i < linhas.length; i--) {
+                        celulaIminenteHabilitada = linhas[i].querySelector(".col" + ipt.dataset.col);
+
+                        //verifica se existe alguma célula anterior que esteja habilitada na coluna
+                        if (celulaIminenteHabilitada.getAttribute("disabled") == null) {
+                            celulaIminenteHabilitada.focus();
+                            celulaIminenteHabilitada.select();
+                            break;
+                        } else {
+                            ultimaCelula.focus();
+                            ultimaCelula.select();
+                        }
+                    }
                 } else {
-                    celulaHabilitada.focus(); // foca e seleciona a célula anterior da coluna
-                    celulaHabilitada.select();
+                    celulaAnterior.focus();
+                    celulaAnterior.select();
                 }
             } catch {
-                ultimaCelula.focus(); // foca e seleciona a última célula que esteja habilitada na coluna
+                ultimaCelula.focus();
                 ultimaCelula.select();
             }
-        } 
-        
+        }
+
         //modifica o padrão da tecla Tab
         else if (teclaPressionada === "Tab") {
             event.preventDefault(); // bloqueia o padrão da tecla Tab
 
-            try {
-                const
-                    celulaHabilitada = document.querySelector("[data-indice_input='" + proximaCelula.toString() + "']"),
-                    celulaDesabilitada = document.querySelector("[data-indice_input='" + proximaCelula.toString() + "']").getAttribute("disabled") == "true",
-                    proximaCelulaHabilitada = document.querySelector("[data-indice_input='" + (proximaCelula + quantInputPorLinha).toString() + "']");
+            let primeiraCelula;
 
-                //pula o foco das células desabilitadas
-                if (celulaDesabilitada) {
-                    proximaCelulaHabilitada.focus(); // foca e seleciona a próxima célula que esteja habilitada na coluna
-                    proximaCelulaHabilitada.select();
+            //identifica a primeira célula habilitada na coluna
+            for (let i = 0; i < linhas.length; i++) {
+                const celulaAtual = linhas[i].querySelector(".col" + ipt.dataset.col);
+
+                //verifica se a célula está desabilitada
+                if (celulaAtual.getAttribute("disabled")) {
+                    do {
+                        primeiraCelula = linhas[i + 1].querySelector(".col" + ipt.dataset.col);
+                        break;
+                    } while (celulaAtual.getAttribute("disabled"));
                 } else {
-                    celulaHabilitada.focus(); // foca e seleciona a próxima célula da coluna
-                    celulaHabilitada.select();
+                    primeiraCelula = celulaAtual;
+                    break;
+                }
+            }
+
+            try {
+                const celulaSeguinte = document.querySelector("[data-indice_input='" + somarIndice.toString() + "']");
+
+                //pula o foco das células seguintes que estejam desabilitadas
+                if (celulaSeguinte.getAttribute("disabled")) {
+
+                    const indiceCelulaSeguinte = celulaSeguinte.closest("tr").dataset.indice_linha;
+                    let celulaIminenteHabilitada;
+
+                    for (let i = indiceCelulaSeguinte; i < linhas.length; i++) {
+                        celulaIminenteHabilitada = linhas[i].querySelector(".col" + ipt.dataset.col);
+
+                        //verifica se existe alguma célula seguinte que esteja habilitada na coluna
+                        if (celulaIminenteHabilitada.getAttribute("disabled") == null) {
+                            celulaIminenteHabilitada.focus();
+                            celulaIminenteHabilitada.select();
+                            break;
+                        } else {
+                            primeiraCelula.focus();
+                            primeiraCelula.select();
+                        }
+                    }
+                } else {
+                    celulaSeguinte.focus();
+                    celulaSeguinte.select();
                 }
             } catch {
-                primeiraCelula.focus(); // foca e seleciona a primeira célula que esteja habilitada na coluna
+                primeiraCelula.focus();
                 primeiraCelula.select();
             }
-        } 
-        else { console.log(0); }
+        } else { console.log(0); }
     }
 }
-modificarPadraoDeTeclaPressionada();
+modificarPadraoDaTeclaPressionada();
 
 function tratarCampoAunsenciasCompensadas(campo) {
     const
@@ -737,3 +768,5 @@ function tratarCampoAunsenciasCompensadas(campo) {
     }
 }
 tratarCampoAunsenciasCompensadas();
+
+// document.querySelectorAll(".media-trimestre").forEach(x =>  { if(x.disabled === false) console.log(x);});

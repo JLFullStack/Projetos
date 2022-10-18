@@ -278,7 +278,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="1111"
-                                                    maxlength="4" placeholder="0" disabled="">3</label>
+                                                    maxlength="4" placeholder="0" disabled="">1</label>
                                             </div>
                                         </td>
 
@@ -412,7 +412,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="3333"
-                                                    maxlength="4" placeholder="0" disabled="">15</label>
+                                                    maxlength="4" placeholder="0" disabled="">3</label>
                                             </div>
                                         </td>
 
@@ -546,7 +546,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="4444"
-                                                    maxlength="4" placeholder="0" disabled="">5</label>
+                                                    maxlength="4" placeholder="0" disabled="">6</label>
                                             </div>
                                         </td>
 
@@ -680,7 +680,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="5555"
-                                                    maxlength="4" placeholder="0" disabled="">3</label>
+                                                    maxlength="4" placeholder="0" disabled="">7</label>
                                             </div>
                                         </td>
 
@@ -814,7 +814,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="6666"
-                                                    maxlength="4" placeholder="0" disabled="">15</label>
+                                                    maxlength="4" placeholder="0" disabled="">3</label>
                                             </div>
                                         </td>
 
@@ -948,7 +948,7 @@
                                         <td class="qtd-faltas">
                                             <div class="form-group">
                                                 <label class="control-label media-trimestre" data-qtd-faltas="7777"
-                                                    maxlength="4" placeholder="0" disabled="">2</label>
+                                                    maxlength="4" placeholder="0" disabled="">4</label>
                                             </div>
                                         </td>
 
@@ -957,6 +957,542 @@
                                                 <input type="text" class="form-control media-trimestre"
                                                     oninput="tratarCampoAunsenciasCompensadas(this);"
                                                     data-ausencia-compensacao="7777" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">8</td>
+
+                                        <td class="text-left">ALAN BATISTA DE OLIVEIRA</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="8888">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre cores
+                                                            <i class="descricao-desempenho"> Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="8" autocomplete="off"
+                                                        maxlength="4" placeholder="0,0" data-atividade="1"
+                                                        data-peso_atividade=10 data-atividade_matricula="8888"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre animais
+                                                            <i class="descricao-desempenho">Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="8" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="8888" maxlength="4"
+                                                        data-peso_atividade=5 placeholder="0,0" value="5"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="8888" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota-conselho="8888" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <label class="control-label media-trimestre" data-qtd-faltas="8888"
+                                                    maxlength="4" placeholder="0" disabled="">6</label>
+                                            </div>
+                                        </td>
+
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    oninput="tratarCampoAunsenciasCompensadas(this);"
+                                                    data-ausencia-compensacao="8888" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">9</td>
+
+                                        <td class="text-left">DAVI DE OLIVEIRA</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="9999">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre cores
+                                                            <i class="descricao-desempenho"> Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="9" autocomplete="off"
+                                                        maxlength="4" placeholder="0,0" data-atividade="1"
+                                                        data-peso_atividade=10 data-atividade_matricula="9999"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre animais
+                                                            <i class="descricao-desempenho">Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="9" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="9999" maxlength="4"
+                                                        data-peso_atividade=5 placeholder="0,0" value="5"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="9999" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota-conselho="9999" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <label class="control-label media-trimestre" data-qtd-faltas="9999"
+                                                    maxlength="4" placeholder="0" disabled="">6</label>
+                                            </div>
+                                        </td>
+
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    oninput="tratarCampoAunsenciasCompensadas(this);"
+                                                    data-ausencia-compensacao="9999" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">10</td>
+
+                                        <td class="text-left">AMANDA MARIA</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="10">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre cores
+                                                            <i class="descricao-desempenho"> Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="10" autocomplete="off"
+                                                        maxlength="4" placeholder="0,0" data-atividade="1"
+                                                        data-peso_atividade=10 data-atividade_matricula="10"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre animais
+                                                            <i class="descricao-desempenho">Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="AMANDA MARIA DA COSTA"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="4"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="10" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="10" maxlength="4"
+                                                        data-peso_atividade=5 placeholder="0,0" value="5"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="10" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota-conselho="10" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <label class="control-label media-trimestre" data-qtd-faltas="10"
+                                                    maxlength="4" placeholder="0" disabled="">2</label>
+                                            </div>
+                                        </td>
+
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    oninput="tratarCampoAunsenciasCompensadas(this);"
+                                                    data-ausencia-compensacao="10" maxlength="4" placeholder="0">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center cel-numero-chamada-aluno-nota">11</td>
+
+                                        <td class="text-left">AMANDA PORTES CUSTODIO</td>
+
+                                        <td id="tb-notas-atividades" colspan="3">
+                                            <div class="form-group form-group-atividades"
+                                                data-grupo_de_atividades_matricula="11">
+
+                                                <div class="form-atividades" data-atividade="1">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade">Atividade sobre cores
+                                                            <i class="descricao-desempenho">A aluna demonstrou dificuldade na pronúncia de algumas palavras</i>
+                                                        </span>
+                                                        <label for="form-control">AT1</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="1" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ADRIANA DOS SANTOS"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno="A aluna demonstrou dificuldade na pronúncia de algumas palavras"
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="1"
+                                                                data-ico_atividade="1">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="11" autocomplete="off"
+                                                        data-atividade="1" data-atividade_matricula="11" maxlength="4"
+                                                        data-peso_atividade=6 placeholder="0,0" value="2,5"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+
+                                                <div class="form-atividades" data-atividade="2">
+                                                    <div class="form-atividades-cabeçalho tooltip-group">
+                                                        <span class="tooltip-text descricao-atividade"> Atividade sobre animais
+                                                            <i class="descricao-desempenho"> Nenhum desempenho cadastrado</i>
+                                                        </span>
+                                                        <label for="form-control">AT2</label>
+
+                                                        <a class="btn btn-cadastrar-desempenho-do-aluno"
+                                                            data-toggle="modal"
+                                                            data-target="#md-cadastrar-desempenho-do-aluno"
+                                                            data-atividade="2" data-trimestre="3"
+                                                            data-codigo-turma="@item.Codigo"
+                                                            data-nome="ADRIANA DOS SANTOS"
+                                                            data-numero-chamada="@item.NumeroChamada"
+                                                            data-deficiecia="@item.cdNecessidadeEspecial"
+                                                            data-afastamento="@item.ckAfastado"
+                                                            data-componente-curricular="@item.codigoComponenteCurricular"
+                                                            data-matricula="@item.codigoMatricula"
+                                                            data-pf="@item.codigoPessoaFisica"
+                                                            data-nascimento="@item.dtNascimento"
+                                                            data-none-situacao="@item.nmTipoSituacao"
+                                                            data-descricao-situacao="@item.tipoSituacao"
+                                                            data-turma="@item.nmTurma"
+                                                            data-numero-registro-matricula="@item.nrRegistroMatricula"
+                                                            data-desempenho_do_aluno=""
+                                                            onclick="obterDadosAlunoAoAbrirModal(this)">
+
+                                                            <span class="ico-nota-vermelha">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+
+                                                            <span class="ico-nota-azul" data-numero_chamada="1"
+                                                                data-ico_atividade="2">
+                                                                <i class="fa-sharp fa-solid fa-pencil"></i>
+                                                            </span>
+                                                        </a>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" id="11" autocomplete="off"
+                                                        data-atividade="2" data-atividade_matricula="11" maxlength="4"
+                                                        data-peso_atividade=5,5 placeholder="0,0" value="2,75"
+                                                        oninput="validarNumeroDecimal(this); tratarIconeDasNotas(this); destacarTarefasComDesempenhoCadastrado()"
+                                                        onblur="tratarValorDecimalEmDesfoqueDoCampo(this); calcularMediaDasAtividadesDoAluno(this)">
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-final-trimestre">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_final_matricula="11" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)">
+                                            </div>
+                                        </td>
+
+                                        <td class="nota-conselho">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    data-nota_conselho="11" maxlength="4" placeholder="0,0"
+                                                    oninput="validarNumeroDecimal(this)"
+                                                    onblur="tratarValorDecimalEmDesfoqueDoCampo(this)" disabled="">
+                                            </div>
+                                        </td>
+
+                                        <td class="qtd-faltas">
+                                            <div class="form-group">
+                                                <label class="control-label media-trimestre" data-qtd-faltas="11"
+                                                    maxlength="4" placeholder="0" disabled="">2</label>
+                                            </div>
+                                        </td>
+
+                                        <td class="ausencias-compensadas">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control media-trimestre"
+                                                    oninput="tratarCampoAunsenciasCompensadas(this);"
+                                                    data-ausencia-compensacao="11" maxlength="4" placeholder="0">
                                             </div>
                                         </td>
                                     </tr>
