@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .erro-borda {
+            border-color: red;
+        }
+
+        .erro-ant {
+            background-color: red;
+        }
+
+        .msg-erro {
+            display: none;
+        }
+
+        .exibe {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post">
+
+        <span>asdf</span>
+        <select name="" id="selecao">
+            <option value="-1">selecionar</option>
+            <option value="">tarefa</option>
+            <option value="">avaliavcao</option>
+        </select>
+
+        <div>
+            <span>asdf</span>
+            <input type="text" name="" id="nome">
+            <p class="msg-erro">Erro!</p>
+        </div>
+
+        <span>asdf</span>
+        <input type="text" name="" id="idade">
+
+        <button type="submit" onclick="enviar('selecao', 'nome', 'idade')">Enviar</button>
+    </form>
+
+    <hr>
+
+    <form action="" method="post">
+
+        <span>asdf</span>
+        <select name="" id="selecao2">
+            <option value="-1">selecionar</option>
+            <option value="">tarefa</option>
+            <option value="">avaliavcao</option>
+        </select>
+
+        <div>
+            <span>asdf</span>
+            <input type="text" name="" id="nome2">
+            <p class="msg-erro">Erro!</p>
+        </div>
+
+        <span>asdf</span>
+        <input type="text" name="" id="idade2">
+
+        <button type="submit" onclick="enviar('selecao2', 'nome2', 'idade2'); obterFormPai(this)">Enviar</button>
+    </form>
+
+    <script>
+        function enviar(el1, el2, el3) {
+            event.preventDefault();
+
+            console.log(el1, el2, el3);
+
+            const nome = document.querySelector("#" + el1);
+            const idade = document.querySelector("#" + el2);
+            const selecao = document.querySelector("#" + el3);
+
+            console.log(nome, idade, selecao);
+
+            // const nome = document.querySelector("#nome");
+            // const idade = document.querySelector("#idade");
+            // const selecao = document.querySelector("#selecao");
+
+            // if (nome.value === "") {
+            //     event.preventDefault();
+
+            //     nome.classList.add("erro-borda");
+            //     nome.previousElementSibling.classList.add("erro-ant");
+            //     nome.nextElementSibling.classList.add("exibe");
+            // } else {
+            //     nome.classList.remove("erro-borda");
+            //     nome.previousElementSibling.classList.remove("erro-ant");
+            //     nome.nextElementSibling.classList.remove("exibe");
+            // }
+
+            // if (idade.value === "") {
+            //     event.preventDefault();
+            // } else {
+            // }
+
+            // if (selecao.selectedIndex === 0) {
+            //     event.preventDefault();
+            // } else {
+            // }
+        }
+
+        function obterFormPai(btn){
+            console.log("entrada", btn);
+
+            const form = btn.closest("form");
+
+            console.log("saida", form);
+        }
+
+        document.addEventListener("keydown", e => {
+            console.log(e);
+        });
+    </script>
+</body>
+
+</html>

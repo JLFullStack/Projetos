@@ -1,0 +1,202 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Get HTML Table TR And TD Index</title>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        td:hover {
+            background-color: #ddd;
+            ;
+            cursor: pointer
+        }
+
+        .selected {
+            background-color: red;
+            color: #fff;
+            font-weight: bold
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="table" border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+
+        <tr>
+            <td>FN1</td>
+            <td>LN1</td>
+            <td>10</td>
+        </tr>
+
+        <tr>
+            <td>FN2</td>
+            <td>LN2</td>
+            <td>20</td>
+        </tr>
+
+        <tr>
+            <td>FN3</td>
+            <td class="selected">LN3</td>
+            <td>30</td>
+        </tr>
+
+        <tr>
+            <td>FN4</td>
+            <td>LN4</td>
+            <td>40</td>
+        </tr>
+
+        <tr>
+            <td>FN5</td>
+            <td>LN5</td>
+            <td>50</td>
+        </tr>
+    </table>
+
+    <table class="dummy" id="dummy">
+        <thead>
+            <tr>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var table = document.getElementById("table"),
+            rIndex, cIndex;
+
+        // table rows
+        for (var i = 1; i < table.rows.length; i++) {
+            // row cells
+            for (var j = 0; j < table.rows[i].cells.length; j++) {
+                table.rows[i].cells[j].onclick = function () {
+                    rIndex = this.parentElement.rowIndex;
+                    cIndex = this.cellIndex + 1;
+                    console.log("Row : " + rIndex + " , Cell : " + cIndex);
+                };
+            }
+        }
+    </script>
+
+    <script>
+        const inputs = document.querySelectorAll("input[type='text']");
+
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].setAttribute("data-numero-input", i);
+            inputs[i].setAttribute('onkeydown', 'teste(this)');
+        }
+
+        function teste(ipt){
+            let posicao = parseInt(ipt.dataset.numeroInput) + 1;
+
+            document.querySelector("[data-numero-input='"+posicao.toString()+"']").focus();
+        }
+    </script>
+</body> -->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table class="dummy" id="dummy">
+        <thead>
+            <tr>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+                <th>Lorem Ipsum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col1"><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td class="col1"><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <td class="col1"><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const inputs = document.querySelectorAll(".col1 input");
+
+        for (let i = 0; i < inputs.length; i++) {   
+            let input = inputs[i];
+
+            input.setAttribute("data-numero-input", i);
+            input.setAttribute('onkeydown', 'teste(this, event)');
+        }
+
+        function teste(ipt, event) {
+            let tecla = event.which;
+            let posicao = parseInt(ipt.dataset.numeroInput) + 1;
+
+            if (tecla === 9) {
+                event.preventDefault(); // bloqueia o padrão da tecla tab
+
+                try {
+                    document.querySelector("[data-numero-input='" + posicao.toString() + "']").focus(); // foca no próximo campo
+                } catch {
+                    document.querySelector("[data-numero-input='0']").focus(); // foca no primeiro campo
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
