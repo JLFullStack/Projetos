@@ -20,11 +20,11 @@
                     <div class="tab-content">
 
                         <section id="container-form-lista-arquivos-upload">
-                            <h4 class="text-center" id="titulo-form-lista-arquivos-upload">
+                            <div id="titulo-form-lista-arquivos-upload">
                                 <span>
                                     <i class="fad fa-upload"></i> Upload
                                 </span>
-                            </h4>
+                            </div>
                             <div class="panel panel-default">
 
                                 <div class="panel-body">
@@ -92,14 +92,14 @@
                         </section>
 
                         <section class="container-fluid" id="container-table-lista-arquivos-upload">
-                            <h4 class="text-center" id="titulo-table-lista-arquivos-upload">
+                            <div id="titulo-table-lista-arquivos-upload">
                                 <span>
                                     <i class="fad fa-clipboard-list fa-lg"></i> Lista de arquivos
                                 </span>
-                            </h4>
+                            </div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table table-responsive" id="table-lista-arquivos-upload">
+                                    <table class="table table-responsive table-striped" id="table-lista-arquivos-upload">
                                         <thead>
                                             <tr>
                                                 <th scope="col">NOME DO ARQUIVO</th>
@@ -113,72 +113,48 @@
                                                 <td>NOTAS E FALTAS - MANUAL DE UTILIZACAO DO PROFESSOR</td>
                                                 <td class="text-center">pdf</td>
                                                 <td class="text-center">05/01/2023</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-warning"
+                                                <td class="grupo-btn-tabela-lista-arquivos-upload">
+                                                    <a type="button" class="btn"
                                                         id="btn-descricao-tabela-lista-arquivos-upload"
                                                         data-ds_arquivo="teste 1" data-toggle="modal"
                                                         data-target="#md-descricao-tabela-lista-arquivos-upload"
                                                         onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
-                                                        <span><i class="fad fa-file-signature fa-lg"></i></span>
-                                                        <span>
-                                                            <i class="fad fa-file-signature fa-lg"></i> Detalhar
-                                                        </span>
-                                                    </button>
-
-                                                    <a type="button" class="btn btn-sm btn-success"
-                                                        id="btn-download-tabela-lista-arquivos-upload">
-                                                        <span><i class="fad fa-file-download fa-lg"></i></span>
-                                                        <span>
-                                                            <i class="fad fa-file-download fa-lg"></i> Download
-                                                        </span>
+                                                        <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                    <a type="button" class="btn"
+                                                        id="btn-download-tabela-lista-arquivos-upload">
+                                                        <span><i class="fad fa-file-download fa-2x"></i></span>
+                                                    </a>
+
+                                                    <a type="button" class="btn"
                                                         id="btn-deletar-tabela-lista-arquivos-upload">
-                                                        <span><i class="fad fa-trash-alt fa-lg"></i></span>
-                                                        <span>
-                                                            <i class="fad fa-trash-alt fa-lg"></i> Deletar
-                                                        </span>
-                                                    </button>
+                                                        <span><i class="fad fa-trash-alt fa-2x"></i></span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>DETALHES - MANUAL DE UTILIZACAO DO PROFESSOR</td>
                                                 <td class="text-center">docx</td>
                                                 <td class="text-center">07/01/2023</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-warning"
+                                                <td class="text-center grupo-btn-tabela-lista-arquivos-upload">
+                                                    <a type="button" class="btn"
                                                         id="btn-descricao-tabela-lista-arquivos-upload"
                                                         data-ds_arquivo="" data-toggle="modal"
                                                         data-target="#md-descricao-tabela-lista-arquivos-upload"
                                                         onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
-                                                        <span>
-                                                            <i class="fad fa-file-signature fa-lg"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fad fa-file-signature fa-lg"></i> Detalhar
-                                                        </span>
-                                                    </button>
-
-                                                    <a type="button" class="btn btn-sm btn-success"
-                                                        id="btn-download-tabela-lista-arquivos-upload">
-                                                        <span>
-                                                            <i class="fad fa-file-download fa-lg"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fad fa-file-download fa-lg"></i> Download
-                                                        </span>
+                                                        <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                    <a type="button" class="btn"
+                                                        id="btn-download-tabela-lista-arquivos-upload">
+                                                        <span><i class="fad fa-file-download fa-2x"></i></span>
+                                                    </a>
+
+                                                    <a type="button" class="btn"
                                                         id="btn-deletar-tabela-lista-arquivos-upload">
-                                                        <span>
-                                                            <i class="fad fa-trash-alt fa-lg"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fad fa-trash-alt fa-lg"></i> Deletar
-                                                        </span>
-                                                    </button>
+                                                        <span><i class="fad fa-trash-alt fa-2x"></i></span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>
