@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload de arquivos</title>
 
+    <link rel="stylesheet" href="lib/media-queries-upload.css" />
     <link rel="stylesheet" href="lib/upload.css" />
     <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="lib/font-awesome-pro/pro-5.13.0/css/all.min.css" />
@@ -16,7 +17,7 @@
     <div class="panel panel-default" id="container-modulo-principal-lista-arquivos-upload">
         <div class="panel-body">
             <div class="container-fluid">
-                <div class="container container-tab">
+                <div class="container">
                     <div class="tab-content">
 
                         <section id="container-form-lista-arquivos-upload">
@@ -55,14 +56,16 @@
                                                 id="descricao-arquivos-form-upload"></textarea>
                                         </div>
                                         <div class="text-center" id="grupo-btn-form-upload">
-                                            <span class="btn btn-danger btn-limpar-form-upload">
-                                                Limpar <i class="fad fa-eraser fa-lg"></i>
-                                            </span>
-                                            <button type="button" class="btn btn-primary" id="btn-salvar-form-upload">
+                                            <a class="btn btn-default btn-limpar-form-upload">
                                                 <span>
-                                                    <i class="fad fa-file-upload fa-lg"></i> Salvar
+                                                    <i class="fad fa-eraser fa-lg"></i> Limpar
                                                 </span>
-                                            </button>
+                                            </a>
+                                            <a class="btn btn-default" id="btn-salvar-form-upload">
+                                                <span>
+                                                    Salvar <i class="fad fa-file-upload fa-lg"></i>
+                                                </span>
+                                            </a>
                                         </div>
                                     </form>
                                 </div>
@@ -99,7 +102,8 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <table class="table table-responsive table-striped" id="table-lista-arquivos-upload">
+                                    <table class="table-responsive table-striped"
+                                        id="table-lista-arquivos-upload">
                                         <thead>
                                             <tr>
                                                 <th scope="col">NOME DO ARQUIVO</th>
@@ -114,21 +118,18 @@
                                                 <td class="text-center">pdf</td>
                                                 <td class="text-center">05/01/2023</td>
                                                 <td class="grupo-btn-tabela-lista-arquivos-upload">
-                                                    <a type="button" class="btn"
-                                                        id="btn-descricao-tabela-lista-arquivos-upload"
+                                                    <a class="btn" id="btn-descricao-tabela-lista-arquivos-upload"
                                                         data-ds_arquivo="teste 1" data-toggle="modal"
                                                         data-target="#md-descricao-tabela-lista-arquivos-upload"
                                                         onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
                                                         <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <a type="button" class="btn"
-                                                        id="btn-download-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-download-tabela-lista-arquivos-upload">
                                                         <span><i class="fad fa-file-download fa-2x"></i></span>
                                                     </a>
 
-                                                    <a type="button" class="btn"
-                                                        id="btn-deletar-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-deletar-tabela-lista-arquivos-upload">
                                                         <span><i class="fad fa-trash-alt fa-2x"></i></span>
                                                     </a>
                                                 </td>
@@ -138,21 +139,18 @@
                                                 <td class="text-center">docx</td>
                                                 <td class="text-center">07/01/2023</td>
                                                 <td class="text-center grupo-btn-tabela-lista-arquivos-upload">
-                                                    <a type="button" class="btn"
-                                                        id="btn-descricao-tabela-lista-arquivos-upload"
+                                                    <a class="btn" id="btn-descricao-tabela-lista-arquivos-upload"
                                                         data-ds_arquivo="" data-toggle="modal"
                                                         data-target="#md-descricao-tabela-lista-arquivos-upload"
                                                         onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
                                                         <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <a type="button" class="btn"
-                                                        id="btn-download-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-download-tabela-lista-arquivos-upload">
                                                         <span><i class="fad fa-file-download fa-2x"></i></span>
                                                     </a>
 
-                                                    <a type="button" class="btn"
-                                                        id="btn-deletar-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-deletar-tabela-lista-arquivos-upload">
                                                         <span><i class="fad fa-trash-alt fa-2x"></i></span>
                                                     </a>
                                                 </td>
@@ -180,8 +178,12 @@
                                             <p id="conteudo-md-descricao-tabela-lista-arquivos-upload"></p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Fechar</button>
+                                            <button type="button" class="btn btn-default btn-fechar"
+                                                data-dismiss="modal">
+                                                <span>
+                                                    <i class="fas fa-reply-all"></i> Fechar
+                                                </span>    
+                                            </button>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

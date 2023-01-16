@@ -125,19 +125,19 @@
             tabela = document.querySelector("#table-lista-arquivos-upload"),
             tr = tabela.querySelectorAll("tbody tr"),
             btnLimparFiltro = document.querySelector("#btn-limpar-filtro-arquivos-upload");
-    
+
         //evento filtra o arquivo conforme o usuário escreve o nome
         inputFiltro.addEventListener("keyup", () => {
             const filtro = inputFiltro.value.toUpperCase();
-    
+
             //percorre todas as trs existentes na tabela
             for (let i = 0; i < tr.length; i++) {
                 let td = tr[i].querySelectorAll("td")[0];
-    
+
                 //se existe alguma td na tabela
                 if (td) {
                     let valor = td.textContent || td.innerText;
-    
+
                     if (valor.toUpperCase().indexOf(filtro) > -1) {
                         tr[i].removeAttribute("style", "display");
                     } else {
@@ -146,15 +146,15 @@
                 }
             }
         });
-    
+
         //evento limpa o fitro do arquivo
         btnLimparFiltro.addEventListener("click", () => {
             const
                 nomeArquivo = inputFiltro,
                 restaurar = tr;
-    
+
             nomeArquivo.value = "";
-    
+
             restaurar.forEach(tr => {
                 tr.removeAttribute("style", "display");
             });

@@ -3,18 +3,29 @@
     src: url("font/Merriweather-Regular.ttf");
 }
 
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
 body {
     font-family: Merriweather;
 }
 
+/* CONTAINER MÓDULO PRONCIPAL ______________________________________________________________________________________________________________ */
 #container-modulo-principal-lista-arquivos-upload {
     background-color: #03a9f4;
-    min-width: 500px;
+    margin: 0px;
+}
+
+#container-modulo-principal-lista-arquivos-upload .panel {
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+#container-modulo-principal-lista-arquivos-upload .panel-body,
+#container-modulo-principal-lista-arquivos-upload .container-fluid,
+#container-modulo-principal-lista-arquivos-upload .container {
+    padding: 0px !important;
+}
+
+#container-modulo-principal-lista-arquivos-upload .tab-content {
+    margin: 10px 3px;
 }
 
 /* GLOBAL CONTAINER ________________________________________________________________________________________________________________________ */
@@ -25,7 +36,7 @@ body {
     border-radius: 2px;
     border: 2px solid #48657d;
     background-color: #48657d;
-    margin: 10px 3px 0px 3px;
+    margin-top: 10px;
 }
 
 #titulo-form-lista-arquivos-upload,
@@ -38,10 +49,9 @@ body {
     padding: 8px 0px 8px 4px;
 }
 
-.panel {
-    border-radius: 0px !important;
-    margin-bottom: 0px !important;
-    background-color: #FAFAFA;
+#container-form-lista-arquivos-upload .panel-body,
+#container-table-lista-arquivos-upload .panel-body {
+    padding: 15px !important;
 }
 
 /* CONTAINER UPLOAD DE ARQUIVOS ____________________________________________________________________________________________________________ */
@@ -55,7 +65,7 @@ textarea {
     max-width: 100% !important;
 }
 
-#input-mascara-form-upload{
+#input-mascara-form-upload {
     font-size: smaller;
 }
 
@@ -76,7 +86,7 @@ textarea {
     color: #AA0000;
 }
 
-#titulo-descricao-arquivos-form-upload{
+#titulo-descricao-arquivos-form-upload {
     font-size: medium;
 }
 
@@ -84,17 +94,29 @@ textarea {
     height: 100px;
 }
 
-#grupo-btn-form-upload{
+#grupo-btn-form-upload {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
 }
 
 #grupo-btn-form-upload .btn-limpar-form-upload,
-#grupo-btn-form-upload #btn-salvar-form-upload{
-    width: 50%;
+#grupo-btn-form-upload #btn-salvar-form-upload {
+    width: 100px;
     margin: 10px 0px;
-    padding: 10px 0px;
+    padding: 8px 0px;
+    border-radius: 10px;
+    color: #48657d;
+    background-color: #FAFAFA;
+}
+
+#grupo-btn-form-upload .btn-limpar-form-upload {
+    border: 5px solid #fc6560;
+}
+
+#grupo-btn-form-upload #btn-salvar-form-upload {
+    border: 5px solid #03a9f4;
 }
 
 /* CONTAINER FILTRO DE ARQUIVOS ___________________________________________________________________________________________________________ */
@@ -103,7 +125,7 @@ textarea {
     background-color: #FAFAFA;
 }
 
-#btn-limpar-filtro-arquivos-upload{
+#btn-limpar-filtro-arquivos-upload {
     width: 100px;
 }
 
@@ -112,21 +134,27 @@ textarea {
     font-size: smaller;
 }
 
-#table-lista-arquivos-upload thead tr th{
+#table-lista-arquivos-upload{
+    width: 100%;
+}
+
+#table-lista-arquivos-upload thead tr th {
     border: 0px;
 }
 
-#table-lista-arquivos-upload tr td{
+#table-lista-arquivos-upload tr td {
     vertical-align: inherit;
     border-top: 1px solid #ddd;
 }
 
-.grupo-btn-tabela-lista-arquivos-upload{
+.grupo-btn-tabela-lista-arquivos-upload {
+    padding: 10px;
+    
     display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    align-items: flex-start;
-    gap: 5px;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
 }
 
 .grupo-btn-tabela-lista-arquivos-upload .btn {
@@ -135,20 +163,23 @@ textarea {
     color: initial;
 }
 
-/* MODAL _______________________________________________________________*/
+/* MODAL __________________________________________________________________________________________________________________________________ */
+.modal .modal-footer .btn {
+    width: 100px;
+    margin: 10px 0px;
+    padding: 8px 0px;
+    border-radius: 10px;
+    color: #48657d;
+    background-color: #FAFAFA;
+}
+
+.modal .modal-footer .btn-fechar {
+    border: 5px solid #48657d;
+}
+
 #md-descricao-tabela-lista-arquivos-upload .modal-header {
     border-bottom: 0px;
     color: #FFFFFF;
     font-weight: bold;
     background-color: #03a9f4;
-}
-
-@media only screen and (min-width: 600px) {
-    .grupo-btn-tabela-lista-arquivos-upload{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 5px;
-        justify-content: space-between;
-    }
 }
