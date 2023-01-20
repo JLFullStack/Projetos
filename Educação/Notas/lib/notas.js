@@ -770,3 +770,4 @@ function tratarCampoAunsenciasCompensadas(campo) {
 tratarCampoAunsenciasCompensadas();
 
 // document.querySelectorAll(".media-trimestre").forEach(x =>  { if(x.disabled === false) console.log(x);});
+

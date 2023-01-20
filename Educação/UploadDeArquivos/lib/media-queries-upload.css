@@ -19,7 +19,7 @@
         align-items: center !important;
     }
 
-    .grupo-btn-tabela-lista-arquivos-upload {
+    .grupo-btn-tb-lista-arquivos-upload {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;

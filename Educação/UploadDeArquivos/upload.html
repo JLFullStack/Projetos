@@ -49,21 +49,34 @@
                                         <ul class="list-group" id="lista-arquivos-form-upload"></ul>
 
                                         <div class="text-center form-group">
-                                            <span id="titulo-descricao-arquivos-form-upload">
-                                                <i class="fad fa-file-signature"></i> Detalhes de upload
-                                            </span>
                                             <textarea class="form-control"
+                                                placeholder="Descreva os detalhes sobre o(s) arquivo(s) de upload"
                                                 id="descricao-arquivos-form-upload"></textarea>
                                         </div>
+
+                                        <div class="text-center" id="msg-aquivo-invalido-form-upload">
+                                            <span class="">
+                                                <i class="fad fa-file-exclamation fa-2x"></i> 
+                                                <msg class="arquivo-invalido">Algum arquivo selecionado não é aceito. Verifique sua extensão!</msg> 
+                                            </span>
+                                        </div>
+
+                                        <div class="text-center" id="msg-lista-vazia-form-upload">
+                                            <span class="">
+                                                <i class="fad fa-file-exclamation fa-2x"></i> 
+                                                <msg class="arquivo-invalido">Selecione algum arquivo.</msg> 
+                                            </span>
+                                        </div>
+
                                         <div class="text-center" id="grupo-btn-form-upload">
-                                            <a class="btn btn-default btn-limpar-form-upload">
-                                                <span>
-                                                    <i class="fad fa-eraser fa-lg"></i> Limpar
-                                                </span>
-                                            </a>
                                             <a class="btn btn-default" id="btn-salvar-form-upload">
                                                 <span>
-                                                    Salvar <i class="fad fa-file-upload fa-lg"></i>
+                                                    <i class="fad fa-file-upload fa-lg"></i> Salvar
+                                                </span>
+                                            </a>
+                                            <a class="btn btn-default btn-limpar-form-upload">
+                                                <span>
+                                                    Limpar <i class="fad fa-eraser fa-lg"></i>
                                                 </span>
                                             </a>
                                         </div>
@@ -82,11 +95,11 @@
                             <form id="form-filtro-arquivos-upload">
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="input-filtro-arquivos-upload"
-                                        autocomplete="off" placeholder="Encontre um arquivo" />
+                                        autocomplete="off" placeholder="Encontre um arquivo" onkeyup="filtrarArquivo()" />
 
                                     <span class="input-group-btn tooltip-group">
                                         <button type="button" class="btn btn-default"
-                                            id="btn-limpar-filtro-arquivos-upload">
+                                            id="btn-limpar-filtro-arquivos-upload" onclick="limparFiltro()">
                                             <i class="fad fa-eraser fa-lg"></i>
                                         </button>
                                     </span>
@@ -94,8 +107,8 @@
                             </form>
                         </section>
 
-                        <section class="container-fluid" id="container-table-lista-arquivos-upload">
-                            <div id="titulo-table-lista-arquivos-upload">
+                        <section class="container-fluid" id="container-tb-lista-arquivos-upload">
+                            <div id="titulo-tb-lista-arquivos-upload">
                                 <span>
                                     <i class="fad fa-clipboard-list fa-lg"></i> Lista de arquivos
                                 </span>
@@ -103,7 +116,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <table class="table-responsive table-striped"
-                                        id="table-lista-arquivos-upload">
+                                        id="tb-lista-arquivos-upload">
                                         <thead>
                                             <tr>
                                                 <th scope="col">NOME DO ARQUIVO</th>
@@ -117,19 +130,25 @@
                                                 <td>NOTAS E FALTAS - MANUAL DE UTILIZACAO DO PROFESSOR</td>
                                                 <td class="text-center">pdf</td>
                                                 <td class="text-center">05/01/2023</td>
-                                                <td class="grupo-btn-tabela-lista-arquivos-upload">
-                                                    <a class="btn" id="btn-descricao-tabela-lista-arquivos-upload"
+                                                <td class="grupo-btn-tb-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-descricao-tb-lista-arquivos-upload"
                                                         data-ds_arquivo="teste 1" data-toggle="modal"
-                                                        data-target="#md-descricao-tabela-lista-arquivos-upload"
-                                                        onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
+                                                        data-target="#md-descricao-tb-lista-arquivos-upload"
+                                                        onclick="obterDescricaoDoArquivoAoAbrirModal(this)">
                                                         <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <a class="btn" id="btn-download-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-download-tb-lista-arquivos-upload">
                                                         <span><i class="fad fa-file-download fa-2x"></i></span>
                                                     </a>
 
-                                                    <a class="btn" id="btn-deletar-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-confirmar-excluir-tb-lista-arquivos-upload"
+                                                        data-nome_arquivo="nome"
+                                                        data-tipo_arquivo="tipo"
+                                                        data-dt_upload_arquivo="data upload" 
+                                                        data-toggle="modal"
+                                                        data-target="#md-confirmar-excluir-arquivo-upload"
+                                                        onclick="obterDadosDoArquivoAoAbrirModal(this)">
                                                         <span><i class="fad fa-trash-alt fa-2x"></i></span>
                                                     </a>
                                                 </td>
@@ -138,19 +157,25 @@
                                                 <td>DETALHES - MANUAL DE UTILIZACAO DO PROFESSOR</td>
                                                 <td class="text-center">docx</td>
                                                 <td class="text-center">07/01/2023</td>
-                                                <td class="text-center grupo-btn-tabela-lista-arquivos-upload">
-                                                    <a class="btn" id="btn-descricao-tabela-lista-arquivos-upload"
+                                                <td class="text-center grupo-btn-tb-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-descricao-tb-lista-arquivos-upload"
                                                         data-ds_arquivo="" data-toggle="modal"
-                                                        data-target="#md-descricao-tabela-lista-arquivos-upload"
-                                                        onclick="(obterDescricaoDoArquivoAoAbrirModal(this))">
+                                                        data-target="#md-descricao-tb-lista-arquivos-upload"
+                                                        onclick="obterDescricaoDoArquivoAoAbrirModal(this)">
                                                         <span><i class="fad fa-file-signature fa-2x"></i></span>
                                                     </a>
 
-                                                    <a class="btn" id="btn-download-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-download-tb-lista-arquivos-upload">
                                                         <span><i class="fad fa-file-download fa-2x"></i></span>
                                                     </a>
 
-                                                    <a class="btn" id="btn-deletar-tabela-lista-arquivos-upload">
+                                                    <a class="btn" id="btn-confirmar-excluir-tb-lista-arquivos-upload"
+                                                        data-nome_arquivo="nome"
+                                                        data-tipo_arquivo="tipo"
+                                                        data-dt_upload_arquivo="data-upload" 
+                                                        data-toggle="modal"
+                                                        data-target="#md-confirmar-excluir-arquivo-upload"
+                                                        onclick="obterDadosDoArquivoAoAbrirModal(this)">
                                                         <span><i class="fad fa-trash-alt fa-2x"></i></span>
                                                     </a>
                                                 </td>
@@ -163,19 +188,19 @@
 
                         <section>
                             <!--MODAL DESCRIÇÃO DE ARQUIVOS-->
-                            <div class="modal fade" id="md-descricao-tabela-lista-arquivos-upload">
+                            <div class="modal fade md-global-upload-de-arquivos" id="md-descricao-tb-lista-arquivos-upload">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <span class="modal-title">
-                                                <i class="fas fa-comment-alt-plus"></i>
+                                                <i class="fas fa-comment-alt-edit"></i>
                                                 <strong>Detalhar upload do arquivo?</strong>
                                             </span>
                                         </div>
                                         <div class="modal-body">
-                                            <p id="conteudo-md-descricao-tabela-lista-arquivos-upload"></p>
+                                            <p id="conteudo-md-descricao-tb-lista-arquivos-upload"></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default btn-fechar"
@@ -184,6 +209,38 @@
                                                     <i class="fas fa-reply-all"></i> Fechar
                                                 </span>    
                                             </button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div>
+
+                            <!--MODAL CONFIRMAR EXCLUIR ARQUIVO-->
+                            <div class="modal fade md-global-upload-de-arquivos" id="md-confirmar-excluir-arquivo-upload">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <span class="modal-title">
+                                                <i class="fas fa-comment-alt-times"></i>
+                                                <strong>Deseja excluir o arquivo?</strong>
+                                            </span>
+                                        </div>
+                                        <div class="modal-body">
+                                            <ul id="dados-arquivo-md-confirmar-excluir-arquivo-upload"></ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default btn-fechar"
+                                                data-dismiss="modal">
+                                                <span>
+                                                    <i class="fas fa-reply-all"></i> Fechar
+                                                </span>    
+                                            </button>
+                                            <a class="btn btn-default" id="btn-excluir-arquivo-upload" data-dismiss="modal">
+                                                <span>
+                                                    excluir <i class="fad fa-trash-alt"></i>
+                                                </span>
+                                            </a>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

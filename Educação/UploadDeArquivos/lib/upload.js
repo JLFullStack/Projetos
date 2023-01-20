@@ -45,12 +45,17 @@
             inputFiles = document.querySelector("#input-arquivos-form-upload"),
             inputMascara = document.querySelector("#input-mascara-form-upload"),
             lista = document.querySelector("#lista-arquivos-form-upload"),
-            btnLimparFormulario = document.querySelectorAll(".btn-limpar-form-upload");
+            btnLimparFormulario = document.querySelectorAll(".btn-limpar-form-upload"),
+            msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
+            msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
 
         //evento é acionado toda vez que o valor da inputFiles é modificado
         inputFiles.addEventListener("change", (e) => {
             let arquivos = e.target.files;
             let quantidadeDeArquivos = arquivos.length;
+
+            if (quantidadeDeArquivos === 0)
+                inputMascara.value = "";
 
             if (quantidadeDeArquivos === 1)
                 inputMascara.value = `${arquivos.length} arquivo selecionado`;
@@ -59,6 +64,8 @@
                 inputMascara.value = `${arquivos.length} arquivos selecionados`;
 
             lista.innerHTML = "";
+            msgArquivoInvalido.style = "display:none";
+            msgListaVazia.style = "display:none";
 
             //percorre o objeto de arquivos aceitos
             for (const arquivo of arquivos) {
@@ -83,84 +90,118 @@
             inputFiles = document.querySelector("#input-arquivos-form-upload"),
             inputMascara = document.querySelector("#input-mascara-form-upload"),
             lista = document.querySelector("#lista-arquivos-form-upload"),
-            textoDescricao = document.querySelector("#descricao-arquivos-form-upload");
+            textoDescricao = document.querySelector("#descricao-arquivos-form-upload"),
+            msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
+            msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
 
         inputFiles.value = "";
         lista.innerHTML = "";
         inputMascara.value = "";
         textoDescricao.value = "";
+        msgArquivoInvalido.style = "display:none";
+        msgListaVazia.style = "display:none";
     }
 
     function validarFormularioDeArquivos(listaDeArquivosAceitos) {
         const
             btnSalvar = document.querySelector("#btn-salvar-form-upload"),
-            inputFiles = document.querySelector("#input-arquivos-form-upload");
+            inputFiles = document.querySelector("#input-arquivos-form-upload"),
+            lista = document.querySelector("#lista-arquivos-form-upload"),
+            msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
+            msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
 
         btnSalvar.addEventListener("click", () => {
             let arquivoValido = true;
             const arquivos = inputFiles.files;
 
-            //percorre a lista de arquivos selecionados
-            for (const arquivo of arquivos) {
-                let tipoDoArquivo = arquivo.type;
-
-                if (tipoDoArquivo !== listaDeArquivosAceitos.formatos.pdf &&
-                    tipoDoArquivo !== listaDeArquivosAceitos.formatos.docx) {
-                    arquivoValido = false;
-                }
-
-                if (!arquivoValido)
-                    event.preventDefault();
+            if (lista.innerHTML == "") {
+                event.preventDefault();
+                msgListaVazia.style = "display:block";
             }
 
-            if (arquivoValido) {
-                limparFormularioUploadDeArquivos();
+            if (lista.innerHTML != "") {
+                //percorre a lista de arquivos selecionados
+                for (const arquivo of arquivos) {
+                    let tipoDoArquivo = arquivo.type;
+
+                    if (tipoDoArquivo !== listaDeArquivosAceitos.formatos.pdf &&
+                        tipoDoArquivo !== listaDeArquivosAceitos.formatos.docx) {
+                        arquivoValido = false;
+                    }
+
+                    if (!arquivoValido){
+                        event.preventDefault();
+                        msgArquivoInvalido.style = "display:block";
+                    }
+                }
+
+                if (arquivoValido) {
+                    limparFormularioUploadDeArquivos();
+                }
             }
         });
     };
+})();
 
-    function aplicarFiltroDeArquivos() {
-        const
-            inputFiltro = document.querySelector("#input-filtro-arquivos-upload"),
-            tabela = document.querySelector("#table-lista-arquivos-upload"),
-            tr = tabela.querySelectorAll("tbody tr"),
-            btnLimparFiltro = document.querySelector("#btn-limpar-filtro-arquivos-upload");
+function filtrarArquivo() {
+    const
+        filtro = document.querySelector("#input-filtro-arquivos-upload").value.toUpperCase(),
+        tr = document.querySelectorAll("#tb-lista-arquivos-upload tbody tr");
 
-        //evento filtra o arquivo conforme o usuário escreve o nome
-        inputFiltro.addEventListener("keyup", () => {
-            const filtro = inputFiltro.value.toUpperCase();
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].querySelectorAll("td")[0];
 
-            //percorre todas as trs existentes na tabela
-            for (let i = 0; i < tr.length; i++) {
-                let td = tr[i].querySelectorAll("td")[0];
+        if (td) {
+            let valor = td.textContent || td.innerText;
 
-                //se existe alguma td na tabela
-                if (td) {
-                    let valor = td.textContent || td.innerText;
-
-                    if (valor.toUpperCase().indexOf(filtro) > -1) {
-                        tr[i].removeAttribute("style", "display");
-                    } else {
-                        tr[i].setAttribute("style", "display: none");
-                    }
-                }
+            if (valor.toUpperCase().indexOf(filtro) > -1) {
+                tr[i].removeAttribute("style", "display");
+            } else {
+                tr[i].setAttribute("style", "display: none");
             }
-        });
-
-        //evento limpa o fitro do arquivo
-        btnLimparFiltro.addEventListener("click", () => {
-            const
-                nomeArquivo = inputFiltro,
-                restaurar = tr;
-
-            nomeArquivo.value = "";
-
-            restaurar.forEach(tr => {
-                tr.removeAttribute("style", "display");
-            });
-        });
+        }
     }
-    aplicarFiltroDeArquivos();
+}
+
+function limparFiltro() {
+    const
+        filtro = document.querySelector("#input-filtro-arquivos-upload"),
+        restaurar = document.querySelectorAll("#tb-lista-arquivos-upload tbody tr");
+
+    filtro.value = "";
+
+    restaurar.forEach(x => {
+        x.removeAttribute("style", "display");
+    });
+}
+
+function obterDescricaoDoArquivoAoAbrirModal(valor) {
+    const
+        descricao = valor.dataset.ds_arquivo,
+        conteudoModal = document.querySelector("#md-descricao-tb-lista-arquivos-upload #conteudo-md-descricao-tb-lista-arquivos-upload");
+
+    conteudoModal.innerHTML = "";
+
+    if (descricao == "") {
+        conteudoModal.innerHTML = "Nenhum detalhe registrado";
+    } else {
+        conteudoModal.innerHTML = descricao;
+    }
+};
+
+function obterDadosDoArquivoAoAbrirModal(dados) {
+    const
+        nomeArquivo = dados.dataset.nome_arquivo,
+        tipoArquivo = dados.dataset.tipo_arquivo,
+        dataUpload = dados.dataset.dt_upload_arquivo,
+        lista = document.querySelector("#dados-arquivo-md-confirmar-excluir-arquivo-upload");
+
+    lista.innerHTML = ""
+
+    lista.innerHTML = ` <li><strong>Nome:</strong> ${nomeArquivo}</li>
+                        <li><strong>Tipo:</strong> ${tipoArquivo}</li>
+                        <li><strong>Data:</strong> ${dataUpload} </li>`;
+}
 
     //formato mais utilizado para validação
     // btnSalvar.addEventListener("click", () => {
@@ -181,56 +222,3 @@
     //             event.preventDefault();
     //     }
     // });
-
-})();
-
-
-// function filtrarArquivo() {
-//     const
-//         nomeArquivo = document.querySelector("#input-filtro-arquivos-upload"),
-//         filtro = nomeArquivo.value.toUpperCase(),
-//         tabela = document.querySelector("#table-lista-arquivos-upload"),
-//         tr = tabela.querySelectorAll("tbody tr");
-
-//     //percorre todas as tr existentes na tabela
-//     for (let i = 0; i < tr.length; i++) {
-//         let td = tr[i].querySelectorAll("td")[0];
-
-//         //se existe alguma td na tabela
-//         if (td) {
-//             let valor = td.textContent || td.innerText;
-
-//             if (valor.toUpperCase().indexOf(filtro) > -1) {
-//                 tr[i].removeAttribute("style", "display");
-//             } else {
-//                 tr[i].setAttribute("style", "display: none");
-//             }
-//         }
-//     }
-// }
-
-// function limparFiltroArquivo() {
-//     const
-//         nomeArquivo = document.querySelector("#input-filtro-arquivos-upload"),
-//         restaurar = document.querySelectorAll("#table-lista-arquivos-upload tbody tr");
-
-//     nomeArquivo.value = "";
-
-//     restaurar.forEach(tr => {
-//         tr.removeAttribute("style", "display");
-//     });
-// }
-
-function obterDescricaoDoArquivoAoAbrirModal(valor) {
-    const
-        descricao = valor.dataset.ds_arquivo,
-        conteudoModal = document.querySelector("#md-descricao-tabela-lista-arquivos-upload #conteudo-md-descricao-tabela-lista-arquivos-upload");
-
-    conteudoModal.innerHTML = "";
-
-    if (descricao == "") {
-        conteudoModal.innerHTML = "Nenhum detalhe registrado";
-    } else {
-        conteudoModal.innerHTML = descricao;
-    }
-};
