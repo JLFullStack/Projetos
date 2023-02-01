@@ -42,5 +42,7 @@
 
 /* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
 @media only screen and (min-width: 993px) {
-
+    #tb-lista-arquivos-upload tbody tr {
+        border-bottom: none !important;
+    }
 }

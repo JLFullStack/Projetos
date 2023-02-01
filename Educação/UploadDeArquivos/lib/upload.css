@@ -14,6 +14,7 @@ body {
 }
 
 #container-modulo-principal-lista-arquivos-upload .panel {
+    border: 0px !important;
     border-radius: 0px !important;
     margin-bottom: 0px !important;
 }
@@ -115,8 +116,12 @@ textarea {
     margin: 10px;
     padding: 8px 0px;
     border-radius: 10px;
-    color: #48657d;
     background-color: #FAFAFA;
+}
+
+#grupo-btn-form-upload .btn-limpar-form-upload:hover,
+#grupo-btn-form-upload #btn-salvar-form-upload:hover {
+    background-color: #ececec;
 }
 
 #grupo-btn-form-upload .btn-limpar-form-upload {
@@ -144,23 +149,64 @@ textarea {
 
 #tb-lista-arquivos-upload{
     width: 100%;
+    margin: 0px !important;
+    border: 0px !important;
 }
 
-#tb-lista-arquivos-upload thead tr th {
-    padding: 10px;
+#tb-lista-arquivos-upload thead tr {
+    color: #333;
     font-weight: bold;
-    border-right: solid 1px;
-    border-bottom: solid 1px;
-    background-color: #ccc;
+    border-bottom: 2px solid #b0bec5;
+    background-color: #CFD8DC;
+}
+
+#tb-lista-arquivos-upload thead tr th{
+    padding: 10px;
 }
 
 #tb-lista-arquivos-upload thead tr th:nth-child(4){
     border-right: none;
 }
 
+#legendas-tb-lista-arquivos-upload tr{
+    border: 0px !important;
+}
+
+#legendas-tb-lista-arquivos-upload tr th{
+    background-color: #ECEFF1 !important;
+}
+
+#legendas-tb-lista-arquivos-upload tr th ul{
+    color: #333; 
+    list-style-type: none; 
+    padding-left: 4px; 
+    display: flex; 
+    gap: 3px; 
+    margin-bottom: 0px;
+}
+
+#legendas-tb-lista-arquivos-upload tr th ul li{
+    padding-bottom: 3px;
+}
+
+#legendas-tb-lista-arquivos-upload #legenda-descricao-tb-lista-arquivos-upload{
+    color: #337ab7;
+}
+
+#legendas-tb-lista-arquivos-upload #legenda-download-tb-lista-arquivos-upload{
+    color: rgb(46, 125, 50);
+}
+
+#legendas-tb-lista-arquivos-upload #legenda-excluir-tb-lista-arquivos-upload{
+    color: rgb(244, 67, 54);
+}
+
+#tb-lista-arquivos-upload tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
 #tb-lista-arquivos-upload tbody tr td {
     vertical-align: inherit;
-    border-top: 1px solid #ddd;
 }
 
 #tb-lista-arquivos-upload thead tr th:nth-child(1),
@@ -181,7 +227,30 @@ textarea {
 .grupo-btn-tb-lista-arquivos-upload .btn {
     padding: 0px;
     margin-top: 10px;
-    color: initial;
+}
+
+#btn-descricao-tb-lista-arquivos-upload{
+    color: #337ab7;
+}
+
+#btn-descricao-tb-lista-arquivos-upload:hover{
+    color: #23527c;
+}
+
+#btn-download-tb-lista-arquivos-upload{
+    color: rgb(46, 125, 50);
+}
+
+#btn-download-tb-lista-arquivos-upload:hover{
+    color: rgb(35, 92, 37);
+}
+
+#btn-confirmar-excluir-tb-lista-arquivos-upload{
+    color: rgb(244, 67, 54);
+}
+
+#btn-confirmar-excluir-tb-lista-arquivos-upload:hover{
+    color: rgb(190, 51, 41);
 }
 
 /* MODAL __________________________________________________________________________________________________________________________________ */
@@ -201,12 +270,15 @@ textarea {
     margin: 10px !important;
     padding: 8px 0px;
     border-radius: 10px;
-    color: #48657d;
     background-color: #FAFAFA;
 }
 
+.md-global-upload-de-arquivos .modal-footer .btn:hover {
+    background-color: #ececec;
+}
+
 .md-global-upload-de-arquivos .modal-footer .btn-fechar {
-    border: 5px solid #48657d;
+    border: 5px solid #78909C;
 }
 
 #md-confirmar-excluir-arquivo-upload .modal-body ul{

@@ -18,7 +18,7 @@
         const listaDeArquivosAceitos = {
             formatos: {
                 pdf: "application/pdf",
-                docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                jpg: "image/jpeg"
             }
         }
 
@@ -69,8 +69,9 @@
 
             //percorre o objeto de arquivos aceitos
             for (const arquivo of arquivos) {
+
                 if (arquivo.type === listaDeArquivosAceitos.formatos.pdf ||
-                    arquivo.type === listaDeArquivosAceitos.formatos.docx)
+                    arquivo.type === listaDeArquivosAceitos.formatos.jpg)
                     lista.innerHTML += `<li class="list-group-item arquivo-valido">${arquivo.name}</li>`;
                 else
                     lista.innerHTML += `<li class="list-group-item arquivo-invalido">${arquivo.name}</li>`;
@@ -125,7 +126,7 @@
                     let tipoDoArquivo = arquivo.type;
 
                     if (tipoDoArquivo !== listaDeArquivosAceitos.formatos.pdf &&
-                        tipoDoArquivo !== listaDeArquivosAceitos.formatos.docx) {
+                        tipoDoArquivo !== listaDeArquivosAceitos.formatos.jpg) {
                         arquivoValido = false;
                     }
 
