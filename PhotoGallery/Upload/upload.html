@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoGallery</title>
+
+    <!--adiciona icone na guia da página-->
+    <link rel="shortcut icon" href="../assets/images/icons/icon_PhotoGallery.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../../common/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../common/font-awesome-pro/pro-5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
+    <link rel="stylesheet" href="../assets/themes/dist/css/themes.css" />
+    <link rel="stylesheet" href="lib/css/upload.css" />
+    <link rel="stylesheet" href="lib/css/media-queries-upload.css" />
+</head>
+
+<body class="dark font-content">
+    <header class="dark bg-dark-3 bg-light-3">
+        <nav class="navbar navbar-dark  navbar-expand-sm navbar-toggleable-sm" data-bs-theme="dark">
+            <div class="container-fluid ms-2 me-2">
+                <a class="navbar-brand" role="button" asp-controller="Home" asp-action="Index">
+                    <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
+                        alt="icon-PhotoGallery">
+                    <strong class="font-title">PhotoGallery</strong>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end dark text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand" role="button" asp-controller="Home" asp-action="Index">
+                            <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
+                                alt="icon-PhotoGallery">
+                            <strong class="font-title">PhotoGallery</strong>
+                        </a>
+
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close">
+                        </button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item me-3">
+                                <a class="nav-link" role="button" aria-current="page" asp-controller="Home"
+                                    asp-action="Index"> Home
+                                    <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
+                                </a>
+                            </li>
+                            <li class="nav-item me-3">
+                                <a class="nav-link active" role="button" asp-controller="File" asp-action="Index">
+                                    Upload
+                                    <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav align-items-center ms-5 me-5">
+                            <li class="nav-item">
+                                <span class="ico-theme dark" data-bs-dismiss="offcanvas"></span>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <strong>Bem vindo, Lucas</strong>
+                                    <i class="fad fa-user fa-lg mb-1"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark font-featured">
+                                    <li role="button"><a class="dropdown-item">Action-1</a></li>
+                                    <li role="button"><a class="dropdown-item">Action-2</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li role="button"><a class="dropdown-item">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid dark p-0" role="main">
+        <section class="d-flex pt-4 pe-1 pb-3 ps-1" id="container-form-lista-arquivos-upload">
+            <form class="box-shadow" id="form-upload-arquivos">
+                <input type="file" class="file" id="input-arquivos-form-upload" name="arquivos"
+                    data-show-preview="false" multiple />
+
+                <span
+                    class="d-flex align-items-center justify-content-center flex-column dark bg-dark-3 bg-light-3 rounded-start-1 p-5"
+                    role="button" id="btn-mascara-form-upload">
+
+                    <strong class="text-dark-5">
+                        <h5>UPLOAD</h5>
+                    </strong>
+                    <i class="fas fa-cloud-upload fa-4x text-dark-5"></i>
+                    <msg class="text-center text-dark-5" id="msg-upload-pc">
+                        Clique nesta região ou arraste imagens do computador para adicioná-las na galeria de fotos.
+                    </msg>
+                    <msg class="text-center text-dark-5" id="msg-upload-celular">
+                        Clique nesta região para adicionar imagens na galeria de fotos.
+                    </msg>
+                </span>
+            </form>
+
+            <div class="d-flex align-items-center justify-content-center flex-column rounded-end-1 box-shadow dark bg-dark-2 bg-light-2"
+                id="card-lista-arquivos-form-upload">
+                <ul class="d-flex flex-column-reverse p-3 pt-3" id="lista-arquivos-form-upload"></ul>
+
+                <div class="d-flex text-center flex-column align-items-center m-5" id="msg-aquivo-form-upload">
+                    <i class="fas fa-times-circle fa-4x text-dark-5"></i>
+                    <msg class="text-dark-5">nenhuma imagem selecionada</msg>
+                </div>
+
+                <div class="text-center" id="grupo-btn-form-upload">
+                    <a class="btn btn-default m-3 text-white bg-blue border-blue" id="btn-salvar-form-upload">
+                        <span>
+                            <i class="fas fa-cloud-upload fa-lg"></i> Enviar
+                        </span>
+                    </a>
+                    <a class="btn btn-default m-3 text-white bg-red border-red" id="btn-limpar-form-upload">
+                        <span>
+                            Cancelar <i class="fas fa-eraser fa-lg"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer container-fluid p-0">
+        <section class="d-flex flex-column align-items-center dark bg-dark-2 bg-light-2" id="footer-section-1">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
+                    alt="icon-PhotoGallery">
+                <strong class="font-title" role="button">PhotoGallery</strong>
+            </a>
+            <a class="mt-4" role="button">Termos de Uso</a>
+            <a class="mt-4" role="button">Política de Privacidade</a>
+            <div class="m-4" id="social-icons">
+                <a class="rounded-circle m-3 p-1 pe-1 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+                    target="_blank">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a class="rounded-circle m-3  p-1 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+                    target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="rounded-circle m-3 p-1 pe-2 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+                    target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="text-center pt-4 pb-4 dark bg-dark-3 bg-light-3">
+            Copyrigth <i class="far fa-copyright"></i> 2023 PhotoGallery. Design By
+            <a href="" target="_blank">LUCAS ARAÚJO</a>
+        </section>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../../common/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
+    <script src="../../../common/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/themes/dist/js/themes.js"></script>
+    <script src="lib/upload.js"></script>
+</body>
+
+</html>

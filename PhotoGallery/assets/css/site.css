@@ -1,0 +1,47 @@
+/* GLOBAL_____________________________________________________________________________________________________________________________ */
+.icon-PhotoGallery {
+    height: 60px;
+}
+
+a.active hr {
+    display: block !important;
+    border-color: #318efb !important;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.box-shadow {
+    box-shadow: 8px 3px 6px 1px #0000002b;
+}
+
+/* HEADER_________________________________________________________________________________________________________________________________ */
+header .dropdown-toggle::after {
+    content: none;
+}
+
+/* MAIN___________________________________________________________________________________________________________________________________ */
+main {
+    margin-bottom: 300px;
+}
+
+/* FOOTER_________________________________________________________________________________________________________________________________ */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* .footer #footer-section-1 {
+    display: flex;
+} */

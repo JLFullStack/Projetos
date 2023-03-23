@@ -1,0 +1,51 @@
+/* <!-- CSS devices midia queries
+-- Tipycal Devices Breakpoints --
+    * telas pequenas: até 600px
+    * celular       : de 600px até 768px
+    * tablet        : de 768px até 992px
+    * desktop       : de 992px até 1200px
+    * telas grandes : acima de 1200px
+--> */
+
+/* CELULAR _________________________________________________________________________________________________________________________________ */
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    #container-form-lista-arquivos-upload {
+        flex-direction: column;
+    }
+
+    #container-form-lista-arquivos-upload #form-upload-arquivos,
+    #container-form-lista-arquivos-upload #card-lista-arquivos-form-upload {
+        width: 100%;
+    }
+
+    #btn-mascara-form-upload {
+        border-bottom-left-radius: 0rem !important;
+        border-top-right-radius: var(--bs-border-radius-sm)!important;
+    }
+
+    #card-lista-arquivos-form-upload{
+        border-top-right-radius: 0rem !important;
+        border-bottom-left-radius: var(--bs-border-radius-sm)!important;
+    }
+}
+
+/* TABLET __________________________________________________________________________________________________________________________________ */
+@media only screen and (min-width: 768px) and (max-width: 992px) { }
+
+/* TELAS MENORES ___________________________________________________________________________________________________________________________ */
+@media only screen and (max-width: 992px) {
+    #msg-upload-pc{
+        display: none;
+    }
+
+    #msg-upload-celular{
+        display: block;
+    }
+
+    main {
+        margin-bottom: 270px;
+    }
+}
+
+/* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
+@media only screen and (min-width: 993px) {}

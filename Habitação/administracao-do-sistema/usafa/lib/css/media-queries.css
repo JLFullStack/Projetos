@@ -1,0 +1,27 @@
+/* <!-- CSS devices midia queries
+-- Tipycal Devices Breakpoints --
+    * telas pequenas: até 600px
+    * celular       : de 600px até 768px
+    * tablet        : de 768px até 992px
+    * desktop       : de 992px até 1200px
+    * telas grandes : acima de 1200px
+--> */
+
+/* CELULAR _________________________________________________________________________________________________________________________________ */
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+
+}
+
+/* TABLET __________________________________________________________________________________________________________________________________ */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) and (orientation: landscape) {
+
+}
+
+/* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
+@media only screen and (min-width: 993px) {
+
+}

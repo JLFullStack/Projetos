@@ -1,0 +1,35 @@
+/* CONTAINER FORMULÁRIO UPLOAD_________________________________________________ */
+#container-form-lista-arquivos-upload #form-upload-arquivos {
+    width: 40%;
+}
+
+#container-form-lista-arquivos-upload #card-lista-arquivos-form-upload {
+    width: 60%;
+    /* display: flex; */
+}
+
+/* #container-form-lista-arquivos-upload,
+#btn-mascara-form-upload,
+#lista-arquivos-form-upload,
+#msg-aquivo-form-upload {
+    display: flex;
+} */
+
+#btn-mascara-form-upload {
+    height: 100%;
+}
+
+#input-arquivos-form-upload,
+#msg-upload-celular,
+#lista-arquivos-form-upload,
+#grupo-btn-form-upload {
+    display: none;
+}
+
+#lista-arquivos-form-upload {
+    width: 100%;
+}
+
+#lista-arquivos-form-upload img {
+    width: 150px;
+}
