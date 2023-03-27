@@ -20,8 +20,8 @@
 
 <body class="dark font-content">
     <header class="dark bg-dark-3 bg-light-3">
-        <nav class="navbar navbar-dark  navbar-expand-sm navbar-toggleable-sm" data-bs-theme="dark">
-            <div class="container-fluid ms-2 me-2">
+        <!-- <nav class="navbar navbar-dark  navbar-expand-sm navbar-toggleable-sm" data-bs-theme="dark">
+            <div class="container-fluid ms-2 me-2 dark bg-dark-3 bg-light-3">
                 <a class="navbar-brand" role="button" asp-controller="Home" asp-action="Index">
                     <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
                         alt="icon-PhotoGallery">
@@ -90,6 +90,77 @@
                     </div>
                 </div>
             </div>
+        </nav> -->
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+            <div class="container-fluid ms-2 me-2">
+                <a asp-controller="Home" asp-action="Index">
+                    <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
+                        alt="icon-PhotoGallery">
+                    <strong class="font-title" role="button">PhotoGallery</strong>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end dark bg-dark-2 bg-light-2" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+
+                    <div class="offcanvas-header">
+                        <a asp-controller="Home" asp-action="Index">
+                            <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
+                                alt="icon-PhotoGallery">
+                            <strong class="font-title" role="button">PhotoGallery</strong>
+                        </a>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                        </button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item me-3">
+                                <a class="nav-link" role="button" aria-current="page" asp-controller="Home"
+                                    asp-action="Index"> Home
+                                    <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
+                                </a>
+                            </li>
+                            <li class="nav-item me-3">
+                                <a class="nav-link active" role="button" asp-controller="File" asp-action="Index">
+                                    Upload
+                                    <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav align-items-center ms-5 me-5">
+                            <li class="nav-item">
+                                <span class="ico-theme dark" data-bs-dismiss="offcanvas"></span>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <strong>Bem vindo, Lucas</strong>
+                                    <i class="fad fa-user fa-lg mb-1"></i>
+                                </a>
+                                <ul class="dropdown-menu font-featured dark bg-dark-2-reverse bg-light-2-reverse">
+                                    <li role="button"><a class="dropdown-item">Action-1</a></li>
+                                    <li role="button"><a class="dropdown-item">Action-2</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li role="button"><a class="dropdown-item">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -143,7 +214,7 @@
 
     <footer class="footer container-fluid p-0">
         <section class="d-flex flex-column align-items-center dark bg-dark-2 bg-light-2" id="footer-section-1">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <a asp-controller="Home" asp-action="Index">
                 <img class="icon-PhotoGallery" src="../assets/images/icons/icon_PhotoGallery.png"
                     alt="icon-PhotoGallery">
                 <strong class="font-title" role="button">PhotoGallery</strong>
