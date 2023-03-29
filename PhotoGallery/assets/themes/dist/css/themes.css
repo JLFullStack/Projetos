@@ -17,39 +17,39 @@
 }
 
 
-/*paleta de cores ___________________*/
+/*color palette ___________________*/
 :root {
-    --dark-color-1:#ffffff;
-    --dark-color-2:#f9fbfd;
-    --dark-color-3:#e9eef4;
-    --dark-color-4:#bdbdbd;
-    --dark-color-5:#65768c;
-    --dark-color-6:#323a4d;
-    --dark-color-7:#212934;
+    --dark-color-1: #ffffff;
+    --dark-color-2: #f9fbfd;
+    --dark-color-3: #e9eef4;
+    --dark-color-4: #bdbdbd;
+    --dark-color-5: #65768c;
+    --dark-color-6: #323a4d;
+    --dark-color-7: #212934;
 
-    --blue-color-1:#67aaec;
-    --blue-color-2:#318efb;
-    --blue-color-3:#2f77ca;
-    --blue-color-4:#1a57a7;
+    --blue-color-1: #67aaec;
+    --blue-color-2: #318efb;
+    --blue-color-3: #2f77ca;
+    --blue-color-4: #1a57a7;
 
-    --red-color-1:#fd573d;
-    --red-color-2:#d44731;
+    --red-color-1: #fd573d;
+    --red-color-2: #d44731;
 
-    --fonte-conteudo: 'Roboto Regular', sans-serif;
-    --fonte-titulo: 'Gabriela', 'lucida grande', lucida, sans-serif;
-    --fonte-destaque: 'Roboto', serif;
+    --content-font: 'Roboto Regular', sans-serif;
+    --title-font: 'Gabriela', 'lucida grande', lucida, sans-serif;
+    --highlight-font: 'Roboto', serif;
 }
 
-.font-title {
-    font-family: var(--fonte-titulo);
+.content-font {
+    font-family: var(--content-font);
 }
 
-.font-content {
-    font-family: var(--fonte-conteudo);
+.title-font {
+    font-family: var(--title-font);
 }
 
-.font-featured {
-    font-family: var(--fonte-destaque);
+.highlight-font {
+    font-family: var(--highlight-font);
 }
 
 .ico-theme {
@@ -67,28 +67,56 @@ a {
     border: solid 1px transparent;
 }
 
-.text-red {
-    color: var(--red-color-1);
+a.active hr {
+    display: block !important;
+    border-color: #318efb !important;
 }
 
+a.nav-link {
+    color: var(--dark-color-5) !important;
+}
+
+/*#region Backgrounds ___________________________________*/
 .bg-red {
     background-color: var(--red-color-1);
-}
-
-.border-red {
-    border: solid 2px var(--red-color-2);
-}
-
-.text-blue {
-    color: var(--blue-color-2);
 }
 
 .bg-blue {
     background-color: var(--blue-color-2);
 }
 
-.border-blue {
-    border: solid 2px var(--blue-color-3);
+.bg-red.btn:hover {
+    background-color: var(--red-color-2);
+}
+
+.bg-blue.btn:hover {
+    background-color: var(--blue-color-3);
+}
+
+/*#endregion */
+
+/*#region Borders _______________________________________*/
+.border-red-2 {
+    border: solid 2px var(--red-color-2);
+}
+
+.border-blue-1 {
+    border: solid 1px var(--blue-color-1);
+}
+
+.border-blue-2 {
+    border: solid 3px var(--blue-color-3);
+}
+
+/*#endregion */
+
+/*#region Text Colors ___________________________________*/
+.text-red {
+    color: var(--red-color-1);
+}
+
+.text-blue {
+    color: var(--blue-color-2);
 }
 
 .text-dark-1 {
@@ -119,12 +147,14 @@ a {
     color: var(--dark-color-7);
 }
 
-/* Dark Theme______________________________________________________________________________________________________________________________ */
+/*#endregion */
+
+/*#region Dark Theme ____________________________________*/
 .ico-theme.dark {
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="%23fff" viewBox="0 0 512 512"%3E%3Ctitle%3Eionicons-v5-j%3C/title%3E%3Cpath d="M152.62,126.77c0-33,4.85-66.35,17.23-94.77C87.54,67.83,32,151.89,32,247.38,32,375.85,136.15,480,264.62,480c95.49,0,179.55-55.54,215.38-137.85-28.42,12.38-61.8,17.23-94.77,17.23C256.76,359.38,152.62,255.24,152.62,126.77Z"/%3E%3C/svg%3E');
 }
 
-main.dark {
+body.dark {
     background-color: var(--blue-color-4);
 }
 
@@ -150,26 +180,46 @@ main.dark {
 
 .bg-dark-2-reverse.dark {
     color: var(--dark-color-6);
-    background-color: var(--dark-color-1);
+    background-color: var(--dark-color-2);
 }
 
 .bg-dark-3-reverse.dark {
     color: var(--dark-color-7);
-    background-color: var(--dark-color-1);
+    background-color: var(--dark-color-3);
+}
+
+a.dark:hover {
+    background-color: var(--dark-color-4);
 }
 
 body.dark a:hover,
 body.dark a.active,
-body.dark a.show {
+body.dark a.show,
+body.dark .navbar-toggler {
     color: var(--dark-color-1);
 }
 
-a.dark:hover{
-    background-color: var(--dark-color-4);
+body.dark .navbar-toggler {
+    border: var(--dark-color-6) solid 1px;
 }
 
-/* Light Theme______________________________________________________________________________________________________________________________ */
-main.light {
+body.dark a.nav-link:hover,
+body.dark a.nav-link.active,
+body.dark a.nav-link.show,
+body.dark a.text-reverse {
+    color: var(--dark-color-1) !important;
+}
+
+body.dark a.text-reverse:hover,
+body.dark a.text-reverse.active,
+body.dark a.text-reverse.show {
+    color: var(--dark-color-5) !important;
+}
+
+/*#endregion */
+
+/*#region Light Theme ___________________________________*/
+body.light {
     background-color: var(--blue-color-1);
 }
 
@@ -199,8 +249,13 @@ main.light {
 }
 
 .bg-light-3-reverse.light {
-    color: var(--dark-color-3);
-    background-color: var(--dark-color-7);
+    color: var(--dark-color-1);
+    background-color: var(--dark-color-6);
+}
+
+a.light:hover {
+    background-color: var(--dark-color-4);
+    border: solid 1px var(--dark-color-7);
 }
 
 body.light a:hover,
@@ -209,7 +264,17 @@ body.light a.show {
     color: var(--dark-color-7);
 }
 
-a.light:hover{
-    background-color: var(--dark-color-4);
-    border: solid 1px var(--dark-color-7);
+body.light a.nav-link:hover,
+body.light a.nav-link.active,
+body.light a.nav-link.show,
+body.light a.text-reverse {
+    color: var(--dark-color-7) !important;
 }
+
+body.light a.text-reverse:hover,
+body.light a.text-reverse.active,
+body.light a.text-reverse.show {
+    color: var(--dark-color-5) !important;
+}
+
+/*#endregion */

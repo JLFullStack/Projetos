@@ -5,15 +5,7 @@
 
 #container-form-lista-arquivos-upload #card-lista-arquivos-form-upload {
     width: 60%;
-    /* display: flex; */
 }
-
-/* #container-form-lista-arquivos-upload,
-#btn-mascara-form-upload,
-#lista-arquivos-form-upload,
-#msg-aquivo-form-upload {
-    display: flex;
-} */
 
 #btn-mascara-form-upload {
     height: 100%;
