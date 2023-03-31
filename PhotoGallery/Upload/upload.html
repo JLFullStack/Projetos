@@ -12,10 +12,11 @@
 
     <link rel="stylesheet" href="../../../common/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../../common/font-awesome-pro/pro-5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="../assets/css/site.css" />
-    <link rel="stylesheet" href="../assets/themes/dist/css/themes.css" />
-    <link rel="stylesheet" href="lib/css/upload.css" />
-    <link rel="stylesheet" href="lib/css/media-queries-upload.css" />
+    <link rel="stylesheet" href="../assets/css/site-style.css" />
+    <link rel="stylesheet" href="../assets/css/site-media-queries.css" />
+    <link rel="stylesheet" href="../assets/themes/css/themes.css" />
+    <link rel="stylesheet" href="../assets/css/upload/style.css" />
+    <link rel="stylesheet" href="../assets/css/upload/media-queries.css" />
 </head>
 
 <body class="dark content-font">
@@ -49,13 +50,13 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item me-3">
-                                <a class="nav-link" role="button" aria-current="page" asp-controller="Home"
+                                <a class="nav-link active" role="button" aria-current="page" asp-controller="Home"
                                     asp-action="Index"> Home
                                     <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
                                 </a>
                             </li>
                             <li class="nav-item me-3">
-                                <a class="nav-link active" role="button" asp-controller="File" asp-action="Index">
+                                <a class="nav-link" role="button" asp-controller="File" asp-action="Index">
                                     Upload
                                     <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
                                 </a>
@@ -165,17 +166,17 @@
             </div>
         </section>
 
-        <section class="text-center pt-4 pb-4 dark bg-dark-3 bg-light-3">
+        <section class="text-center pt-2 pb-2 dark bg-dark-3 bg-light-3">
             Copyrigth <i class="far fa-copyright"></i> 2023 PhotoGallery. Design By
-            <a href="" target="_blank">LUCAS ARAÚJO</a>
+            <a class="highlight-font fs-1" href="" target="_blank">Lucas Araújo</a>
         </section>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../../../common/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
     <script src="../../../common/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/themes/dist/js/themes.js"></script>
-    <script src="lib/upload.js"></script>
+    <script src="../assets/themes/js/themes.js"></script>
+    <script src="../assets/js/upload.js"></script>
 </body>
 
 </html>

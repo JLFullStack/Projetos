@@ -1,4 +1,4 @@
-/* CONTAINER FORMULÁRIO UPLOAD_________________________________________________ */
+/*#region Upload Form ----------------------------*/
 #container-form-lista-arquivos-upload #form-upload-arquivos {
     width: 40%;
 }
@@ -25,3 +25,8 @@
 #lista-arquivos-form-upload img {
     width: 150px;
 }
+/*#endregion*/
+
+/*#region File List Table ------------------------*/
+
+/*#endregion*/

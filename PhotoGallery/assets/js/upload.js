@@ -8,6 +8,7 @@
         }
     }
 
+    //#region Upload Form ----------------------------
     function aplicarMascaraNoFormularioDeArquivos() {
         const
             btnMascara = document.querySelector("#btn-mascara-form-upload"),
@@ -15,29 +16,34 @@
 
         let arquivos;
 
-        //Ao clicar no botão de máscara um evento de clique aciona a input 
-        btnMascara.addEventListener("click", () => {
-            input.click();
-        });
+        if (!(input == null)) {
+            //evento é acionado toda vez que o valor da inputFiles é modificado
+            input.addEventListener("change", (e) => {
+                arquivos = e.target.files;
+                listarArquivosSelecionados(arquivos);
+            });
+        };
 
-        //evento é acionado toda vez que o valor da inputFiles é modificado
-        input.addEventListener("change", (e) => {
-            arquivos = e.target.files;
-            listarArquivosSelecionados(arquivos);
-        });
+        if (!(btnMascara == null)) {
+            //Ao clicar no botão de máscara um evento de clique aciona a input
+            btnMascara.addEventListener("click", () => {
+                input.click();
+            });
 
-        //evento é acionado ao arrastar o arquivo
-        btnMascara.addEventListener("dragover", (e) => {
-            e.preventDefault();
-        });
+            //evento é acionado ao arrastar o arquivo
+            btnMascara.addEventListener("dragover", (e) => {
+                e.preventDefault();
+            });
 
-        //evento é acionado ao soltar o arquivo
-        btnMascara.addEventListener("drop", (e) => {
-            e.preventDefault();
+            //evento é acionado ao soltar o arquivo
+            btnMascara.addEventListener("drop", (e) => {
+                e.preventDefault();
 
-            arquivos = e.dataTransfer.files;
-            listarArquivosSelecionados(arquivos);
-        });
+                arquivos = e.dataTransfer.files;
+                input.files = arquivos;
+                listarArquivosSelecionados(arquivos);
+            });
+        };
 
         function listarArquivosSelecionados(arquivos) {
             const
@@ -51,7 +57,7 @@
             lista.innerHTML = "";
             msg.innerHTML = "";
 
-            if (quantidadeDeArquivos != 0) {
+            if (!(quantidadeDeArquivos == 0)) {
                 grupoBtn.style = "display: block";
                 lista.style = "display: block";
                 lista.style = "display: flex";
@@ -59,8 +65,8 @@
 
                 //percorre o objeto de arquivos aceitos   
                 for (const arquivo of arquivos) {
-                    if (arquivo.type === listaDeArquivosAceitos.formatos.jpg ||
-                        arquivo.type === listaDeArquivosAceitos.formatos.jpeg) {
+                    if (arquivo.type === listaDeArquivosAceitos.formatos.jpeg ||
+                        arquivo.type === listaDeArquivosAceitos.formatos.jpg) {
 
                         //cria um novo objeto para leitura de arquivo
                         let fileReader = new FileReader();
@@ -73,12 +79,12 @@
                                                     <div>
                                                         <img class="me-4" src="${fileURL}" alt="image"\> ${arquivo.name} 
                                                     <\div>
-                                            </li>`;
+                                                </li>`;
                         }
                         fileReader.readAsDataURL(arquivo);
                     } else
                         lista.innerHTML += `<li class="list-group-item mt-3 text-red">${arquivo.name}</li>`;
-                }
+                };
 
                 if (quantidadeDeArquivos === 1)
                     msg.innerHTML = `<msg> ${quantidadeDeArquivos} arquivo selecionado </msg>`;
@@ -90,7 +96,7 @@
                 btnLimparFormulario.addEventListener("click", () => {
                     limparFormularioUploadDeArquivos();
                 });
-            }
+            };
         };
     }
     aplicarMascaraNoFormularioDeArquivos();
@@ -119,70 +125,78 @@
             msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
             msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
 
-        btnSalvar.addEventListener("click", () => {
-            let arquivoValido = true;
-            const arquivos = inputFiles.files;
+        if (!(btnSalvar == null)) {
+            btnSalvar.addEventListener("click", () => {
+                let arquivoValido = true;
+                const arquivos = inputFiles.files;
 
-            if (lista.innerHTML == "") {
-                event.preventDefault();
-                msgListaVazia.style = "display:block";
-            }
-
-            if (lista.innerHTML != "") {
-                //percorre a lista de arquivos selecionados
-                for (const arquivo of arquivos) {
-                    let tipoDoArquivo = arquivo.type;
-
-                    if (tipoDoArquivo !== listaDeArquivosAceitos.formatos.jpg) arquivoValido = false;
-
-                    if (!arquivoValido) {
-                        event.preventDefault();
-                        msgArquivoInvalido.style = "display:block";
-                    }
+                if (lista.innerHTML == "") {
+                    event.preventDefault();
+                    msgListaVazia.style = "display:block";
                 }
 
-                if (arquivoValido) {
-                    tornarAssincronoUploadDeArquivos();
-                    limparFormularioUploadDeArquivos();
-                }
-            }
-        });
-    };
+                if (lista.innerHTML != "") {
+                    //percorre a lista de arquivos selecionados
+                    for (const arquivo of arquivos) {
+                        let tipoDoArquivo = arquivo.type;
+
+                        if (tipoDoArquivo != listaDeArquivosAceitos.formatos.jpeg &&
+                            tipoDoArquivo != listaDeArquivosAceitos.formatos.jpg) arquivoValido = false;
+
+                        if (!arquivoValido) {
+                            event.preventDefault();
+                            msgArquivoInvalido.style = "display:block";
+                        };
+                    };
+
+                    if (arquivoValido) {
+                        tornarAssincronoUploadDeArquivos();
+                        limparFormularioUploadDeArquivos();
+                    };
+                };
+            });
+        };
+    }
+    validarFormularioDeArquivos();
 
     function tornarAssincronoUploadDeArquivos() {
         const
             input = document.querySelector("#input-arquivos-form-upload"),
             files = $(input).get(0).files,
-            formData = new FormData(),
-            description = document.querySelector("#descricao-arquivos-form-upload");
+            formData = new FormData();
 
-        //Percorre os arquivos selecionados na input adicionando-os na "formData"
-        for (var i = 0; i !== files.length; i++) {
-            formData.append("files", files[i]);
-        }
+        //browse selected files
+        for (let file of files) {
+            formData.append("files", file);
+        };
 
-        //Adiciona o valor da descrição na "formData" junto aos arquivos
-        formData.append("description", description.value);
-
-        //Envia os arquivos e a descrição de upload para o método post "Upload"
-        $.ajax({
-            type: "POST",
-            url: "/File/Upload",
-            data: formData,
-            dataType: "json",
-            contentType: false,
-            processData: false,
-            success: function (result, status, xhr, data) {
-
-                //Evento atualiza somente a tabela com a lista de arquivos, tornando assíncrona a view Index
-                $("#container-tb-lista-arquivos-upload").load('@Url.Action("_FileList", "File")');
-            },
-            error: function (result, xhr, status, error) {
-
-            }
-        });
+        // Send the file to the server using the fetch API
+        fetch('/File/Upload', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    fetch('/File/_FileListPartial')
+                        .then((response) => {
+                            if (response.ok) return response.text();
+                        })
+                        .then((text) => {
+                            document.querySelector('#container-tb-lista-arquivos-upload').innerHTML = text;
+                        });
+                } else {
+                    // Handle the error if the upload was not successful
+                    console.log('Upload failed: ' + response.status + ' ' + response.statusText);
+                }
+            })
+            .catch(error => {
+                // Handle any network errors
+                console.log('Network error: ' + error);
+            });
     }
+    //#endregion
 
+    //#region File List Table ------------------------
     function obterDadosDoArquivoAoAbrirModal(dados) {
         const
             id = dados.dataset.id_arquivo,
@@ -225,5 +239,6 @@
             }
         });
     }
+    //#endregion
 
 })();

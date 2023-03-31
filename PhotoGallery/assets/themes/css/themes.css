@@ -1,21 +1,26 @@
 @font-face {
-    font-family: 'Roboto Medium';
-    font-weight: 700;
-    src: url(../../../../../../common/assets/fonts/Roboto/Roboto-Bold.ttf) format('truetype');
+    font-family: 'roboto bold';
+    src: url('../../../../../../common/assets/fonts/Content/Roboto/roboto-bold.woff2') format('woff2'),
+        url('../../../../../../common/assets/fonts/Content/Roboto/roboto-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto Regular';
-    font-weight: 400;
-    src: url(../../../../../../common/assets/fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+    font-family: 'gabriela regular';
+    src: url('../../../../../../common/assets/fonts/title/Gabriela/gabriela-regular.woff2') format('woff2'),
+        url('../../../../../../common/assets/fonts/title/Gabriela/gabriela-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gabriela';
-    font-weight: 400;
-    src: url(../../../../../../common/assets/fonts/Gabriela/Gabriela-Regular.ttf) format('truetype');
+    font-family: 'ernestone regular';
+    src: url('../../../../../../common/assets/fonts/highlights/Ernestone-Script/ernestone.woff2') format('woff2'),
+        url('../../../../../../common/assets/fonts/highlights/Ernestone-Script/ernestone.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 
 /*color palette ___________________*/
 :root {
@@ -35,9 +40,9 @@
     --red-color-1: #fd573d;
     --red-color-2: #d44731;
 
-    --content-font: 'Roboto Regular', sans-serif;
-    --title-font: 'Gabriela', 'lucida grande', lucida, sans-serif;
-    --highlight-font: 'Roboto', serif;
+    --content-font: 'roboto regular', sans-serif;
+    --title-font: 'gabriela regular', 'lucida grande', lucida, sans-serif;
+    --highlight-font: 'ernestone regular', serif;
 }
 
 .content-font {

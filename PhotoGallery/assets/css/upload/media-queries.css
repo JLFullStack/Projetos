@@ -9,6 +9,7 @@
 
 /* CELULAR _________________________________________________________________________________________________________________________________ */
 @media only screen and (max-width: 767px) and (orientation: portrait) {
+    /*#region Upload Form ----------------------------*/
     #container-form-lista-arquivos-upload {
         flex-direction: column;
     }
@@ -27,6 +28,7 @@
         border-top-right-radius: 0rem !important;
         border-bottom-left-radius: var(--bs-border-radius-sm)!important;
     }
+    /*#endregion*/
 }
 
 /* TABLET __________________________________________________________________________________________________________________________________ */
@@ -34,6 +36,7 @@
 
 /* TELAS MENORES ___________________________________________________________________________________________________________________________ */
 @media only screen and (max-width: 992px) {
+    /*#region Upload Form ----------------------------*/
     #msg-upload-pc{
         display: none;
     }
@@ -41,10 +44,7 @@
     #msg-upload-celular{
         display: block;
     }
-
-    main {
-        margin-bottom: 270px;
-    }
+    /*#endregion*/
 }
 
 /* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
