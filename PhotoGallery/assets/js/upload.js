@@ -6,13 +6,13 @@
             jpeg: "image/jpeg",
             jpg: "image/jpg"
         }
-    }
+    };
 
     //#region Upload Form ----------------------------
     function aplicarMascaraNoFormularioDeArquivos() {
         const
             btnMascara = document.querySelector("#btn-mascara-form-upload"),
-            input = document.querySelector("#input-arquivos-form-upload");
+            input = document.querySelector("#file-input");
 
         let arquivos;
 
@@ -103,7 +103,7 @@
 
     function limparFormularioUploadDeArquivos() {
         const
-            input = document.querySelector("#input-arquivos-form-upload"),
+            input = document.querySelector("#file-input"),
             lista = document.querySelector("#lista-arquivos-form-upload"),
             msg = document.querySelector("#msg-aquivo-form-upload"),
             grupoBtn = document.querySelector("#grupo-btn-form-upload");
@@ -120,7 +120,7 @@
     function validarFormularioDeArquivos() {
         const
             btnSalvar = document.querySelector("#btn-salvar-form-upload"),
-            inputFiles = document.querySelector("#input-arquivos-form-upload"),
+            inputFiles = document.querySelector("#file-input"),
             lista = document.querySelector("#lista-arquivos-form-upload"),
             msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
             msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
@@ -150,7 +150,7 @@
                     };
 
                     if (arquivoValido) {
-                        tornarAssincronoUploadDeArquivos();
+                        asyncFileUpload();
                         limparFormularioUploadDeArquivos();
                     };
                 };
@@ -159,16 +159,13 @@
     }
     validarFormularioDeArquivos();
 
-    function tornarAssincronoUploadDeArquivos() {
+    function asyncFileUpload() {
         const
-            input = document.querySelector("#input-arquivos-form-upload"),
-            files = $(input).get(0).files,
+            fileInput = document.querySelector("#file-input"),
             formData = new FormData();
 
         //browse selected files
-        for (let file of files) {
-            formData.append("files", file);
-        };
+        for (let file of fileInput.files) formData.append("files", file);
 
         // Send the file to the server using the fetch API
         fetch('/File/Upload', {
@@ -241,4 +238,28 @@
     }
     //#endregion
 
+    function reloadHtml() {
+        const uploadNavLink = document.querySelector("#upload-nav-link");
+
+        uploadNavLink.addEventListener("click", () => {
+
+            fetch(`../../views/Upload/Index.html`)
+                .then((response) => {
+                    if (response.ok) return response.text();
+                })
+                .then((text) => {
+                    const
+                        startIndex = text.indexOf('<section class="d-flex pt-3 pe-2 pb-3 ps-2" id="container-form-lista-arquivos-upload">'),
+                        endIndex = text.lastIndexOf('</section>'),
+                        filteredText = text.substring(startIndex, endIndex);
+
+                    document.querySelector('main').innerHTML = filteredText;
+
+                    //reload functions
+                    aplicarMascaraNoFormularioDeArquivos();
+                    validarFormularioDeArquivos(); 
+                });
+        });
+    }
+    reloadHtml();
 })();

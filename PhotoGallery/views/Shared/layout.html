@@ -8,22 +8,22 @@
     <title>PhotoGallery</title>
 
     <!--adiciona icone na guia da página-->
-    <link rel="shortcut icon" href="../assets/images/icons/icon_PhotoGallery.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/icons/icon_PhotoGallery.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="../../../common/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../common/font-awesome-pro/pro-5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="../assets/css/site-style.css" />
-    <link rel="stylesheet" href="../assets/css/site-media-queries.css" />
-    <link rel="stylesheet" href="../assets/themes/css/themes.css" />
-    <link rel="stylesheet" href="../assets/css/upload/style.css" />
-    <link rel="stylesheet" href="../assets/css/upload/media-queries.css" />
+    <link rel="stylesheet" href="../../../../common/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../../common/font-awesome-pro/pro-5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../assets/css/upload/style.css" />
+    <link rel="stylesheet" href="../../assets/css/upload/media-queries.css" />
+    <link rel="stylesheet" href="../../assets/css/site-style.css" />
+    <link rel="stylesheet" href="../../assets/css/site-media-queries.css" />
+    <link rel="stylesheet" href="../../assets/themes/css/themes.css" />
 </head>
 
 <body class="dark content-font">
     <header class="dark bg-dark-3 bg-light-3">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid ms-2 me-2">
-                <a class="text-reverse" asp-controller="Home" asp-action="Index">
+                <a class="text-reverse home-nav-link">
                     <i class="fad fa-camera-retro fa-lg"></i>
                     <strong class="title-font fa-lg" role="button">PhotoGallery</strong>
                 </a>
@@ -37,7 +37,7 @@
                     aria-labelledby="offcanvasDarkNavbarLabel">
 
                     <div class="offcanvas-header">
-                        <a class="text-reverse" asp-controller="Home" asp-action="Index">
+                        <a class="text-reverse home-nav-link" data-bs-dismiss="offcanvas" aria-label="Close">
                             <i class="fad fa-camera-retro fa-lg"></i>
                             <strong class="title-font" role="button">PhotoGallery</strong>
                         </a>
@@ -50,13 +50,14 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item me-3">
-                                <a class="nav-link active" role="button" aria-current="page" asp-controller="Home"
-                                    asp-action="Index"> Home
+                                <a class="nav-link home-nav-link active" role="button" aria-current="page"
+                                    data-bs-dismiss="offcanvas" aria-label="Close"> Home
                                     <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
                                 </a>
                             </li>
                             <li class="nav-item me-3">
-                                <a class="nav-link" role="button" asp-controller="File" asp-action="Index">
+                                <a class="nav-link" role="button" id="upload-nav-link" data-bs-dismiss="offcanvas"
+                                    aria-label="Close">
                                     Upload
                                     <hr class="border border-1 opacity-100 m-0 mt-1" style="display: none;">
                                 </a>
@@ -71,8 +72,8 @@
 
                         <ul class="navbar-nav justify-content-end">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-reverse" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a class="dropdown-toggle text-reverse p-2 d-block" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <strong>Bem vindo, Lucas</strong>
                                     <i class="fad fa-user fa-lg mb-1"></i>
                                 </a>
@@ -95,56 +96,14 @@
     </header>
 
     <main class="container-fluid dark p-0" role="main">
-        <section class="d-flex pt-3 pe-2 pb-3 ps-2" id="container-form-lista-arquivos-upload">
-            <form class="box-shadow" id="form-upload-arquivos">
-                <input type="file" class="file" id="input-arquivos-form-upload" name="arquivos"
-                    data-show-preview="false" multiple />
-
-                <span
-                    class="d-flex align-items-center justify-content-center flex-column dark bg-dark-3 bg-light-3 rounded-start-1 p-5"
-                    role="button" id="btn-mascara-form-upload">
-
-                    <strong class="text-dark-5">
-                        <h5>UPLOAD</h5>
-                    </strong>
-                    <i class="fas fa-cloud-upload fa-4x text-dark-5"></i>
-                    <msg class="text-center text-dark-5" id="msg-upload-pc">
-                        Clique nesta região ou arraste imagens do computador para adicioná-las na galeria de fotos.
-                    </msg>
-                    <msg class="text-center text-dark-5" id="msg-upload-celular">
-                        Clique nesta região para adicionar imagens na galeria de fotos.
-                    </msg>
-                </span>
-            </form>
-
-            <div class="d-flex align-items-center justify-content-center flex-column rounded-end-1 box-shadow dark bg-dark-2 bg-light-2"
-                id="card-lista-arquivos-form-upload">
-                <ul class="d-flex flex-column-reverse p-3 pt-3" id="lista-arquivos-form-upload"></ul>
-
-                <div class="d-flex text-center flex-column align-items-center m-5" id="msg-aquivo-form-upload">
-                    <i class="fas fa-times-circle fa-4x text-dark-5"></i>
-                    <msg class="text-dark-5">nenhuma imagem selecionada</msg>
-                </div>
-
-                <div class="text-center" id="grupo-btn-form-upload">
-                    <a class="btn btn-default m-3 text-white bg-blue border-blue-2" id="btn-salvar-form-upload">
-                        <span>
-                            <i class="fas fa-cloud-upload fa-lg"></i> Enviar
-                        </span>
-                    </a>
-                    <a class="btn btn-default m-3 text-white bg-red border-red-2" id="btn-limpar-form-upload">
-                        <span>
-                            Cancelar <i class="fas fa-eraser fa-lg"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
+        <section class="pt-3 pe-2 pb-3 ps-2" id="container-home">
+            <h3 class="text-white text-center">Home</h3>
         </section>
     </main>
 
     <footer class="footer container-fluid p-0">
         <section class="d-flex flex-column align-items-center dark bg-dark-2 bg-light-2" id="footer-section-1">
-            <a class="text-reverse pt-3" asp-controller="Home" asp-action="Index">
+            <a class="text-reverse pt-3 home-nav-link">
                 <i class="fad fa-camera-retro"></i>
                 <strong class="title-font" role="button">PhotoGallery</strong>
             </a>
@@ -173,10 +132,12 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../../../common/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
-    <script src="../../../common/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/themes/js/themes.js"></script>
-    <script src="../assets/js/upload.js"></script>
+    <script src="../../../../common/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
+    <script src="../../../../common/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/home.js"></script>
+    <script src="../../assets/js/upload.js"></script>
+    <script src="../../assets/js/site.js"></script>
+    <script src="../../assets/themes/js/themes.js"></script>
 </body>
 
 </html>
