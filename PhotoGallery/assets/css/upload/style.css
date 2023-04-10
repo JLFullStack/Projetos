@@ -1,30 +1,31 @@
 /*#region Upload Form ----------------------------*/
-#container-form-lista-arquivos-upload #form-upload-arquivos {
+#upload-form-container #upload-form {
     width: 40%;
 }
 
-#container-form-lista-arquivos-upload #card-lista-arquivos-form-upload {
-    width: 60%;
-}
-
-#btn-mascara-form-upload {
+#upload-form #file-input-mask {
     height: 100%;
 }
 
-#file-input,
-#msg-upload-celular,
-#lista-arquivos-form-upload,
-#grupo-btn-form-upload {
-    display: none;
+#upload-form-container #upload-form-file-list {
+    width: 60%;
 }
 
-#lista-arquivos-form-upload {
+#upload-form-file-list #accepted-file-list-card {
     width: 100%;
 }
 
-#lista-arquivos-form-upload img {
+#upload-form-file-list #accepted-file-list-card img {
     width: 150px;
 }
+
+#file-input,
+#upload-form #mobile-upload-msg,
+#upload-form-file-list #accepted-file-list-card,
+#upload-form-file-list #upload-form-button-group {
+    display: none;
+}
+
 /*#endregion*/
 
 /*#region File List Table ------------------------*/

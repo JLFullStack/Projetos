@@ -10,17 +10,19 @@
     <!--adiciona icone na guia da página-->
     <link rel="shortcut icon" href="../../assets/images/icons/icon_PhotoGallery.png" type="image/x-icon">
 
+    <!-- #region Styles -->
     <link rel="stylesheet" href="../../../../common/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../../../common/font-awesome-pro/pro-5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="../../assets/css/upload/style.css" />
     <link rel="stylesheet" href="../../assets/css/upload/media-queries.css" />
     <link rel="stylesheet" href="../../assets/css/site-style.css" />
     <link rel="stylesheet" href="../../assets/css/site-media-queries.css" />
-    <link rel="stylesheet" href="../../assets/themes/css/themes.css" />
+    <link rel="stylesheet" href="../../assets/themes/themes.css" />
+    <!-- endregion -->
 </head>
 
 <body class="dark content-font">
-    <header class="dark bg-dark-3 bg-light-3">
+    <header class="bg-dark-3 bg-light-3">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid ms-2 me-2">
                 <a class="text-reverse home-nav-link">
@@ -28,14 +30,17 @@
                     <strong class="title-font fa-lg" role="button">PhotoGallery</strong>
                 </a>
 
+                <!-- #region offcanvas Hamburder Icon -->
                 <a class="btn navbar-toggler" type="btn-default" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                     <i class="fad fa-bars fa-lg"></i>
                 </a>
+                <!-- #endregion -->
 
-                <div class="offcanvas offcanvas-end dark bg-dark-2 bg-light-2" tabindex="-1" id="offcanvasDarkNavbar"
+                <div class="offcanvas offcanvas-end bg-dark-2 bg-light-2" tabindex="-1" id="offcanvasDarkNavbar"
                     aria-labelledby="offcanvasDarkNavbarLabel">
 
+                    <!-- #region offcanvas Header -->
                     <div class="offcanvas-header">
                         <a class="text-reverse home-nav-link" data-bs-dismiss="offcanvas" aria-label="Close">
                             <i class="fad fa-camera-retro fa-lg"></i>
@@ -46,8 +51,10 @@
                             <i class="fad fa-times fa-2x"></i>
                         </a>
                     </div>
+                    <!-- #endregion -->
 
                     <div class="offcanvas-body">
+                        <!-- #region Nav Links -->
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item me-3">
                                 <a class="nav-link home-nav-link active" role="button" aria-current="page"
@@ -63,13 +70,17 @@
                                 </a>
                             </li>
                         </ul>
+                        <!-- #endregion -->
 
+                        <!-- #region Theme Icon -->
                         <ul class="navbar-nav align-items-center ms-5 me-5">
                             <li class="nav-item">
-                                <span class="ico-theme dark" data-bs-dismiss="offcanvas"></span>
+                                <i class="icon-theme" data-bs-dismiss="offcanvas"></i>
                             </li>
                         </ul>
+                        <!-- #endregion -->
 
+                        <!-- #region Nav Item Dropdown -->
                         <ul class="navbar-nav justify-content-end">
                             <li class="nav-item dropdown">
                                 <a class="dropdown-toggle text-reverse p-2 d-block" role="button"
@@ -77,67 +88,79 @@
                                     <strong>Bem vindo, Lucas</strong>
                                     <i class="fad fa-user fa-lg mb-1"></i>
                                 </a>
-                                <ul class="dropdown-menu p-2 dark bg-dark-3-reverse bg-light-3-reverse">
+                                <ul class="dropdown-menu p-2 bg-dark-3-reverse bg-light-3-reverse">
                                     <li role="button"><span
-                                            class="text-center dark bg-dark-3-reverse bg-light-3-reverse">Configurações</span>
+                                            class="text-center bg-dark-3-reverse bg-light-3-reverse">Configurações</span>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider border-blue-1">
                                     </li>
-                                    <li role="button"><span
-                                            class=" dark bg-dark-3-reverse bg-light-3-reverse">Sair</span></li>
+                                    <li role="button"><span class="bg-dark-3-reverse bg-light-3-reverse">Sair</span>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
+                        <!-- #endregion -->
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container-fluid dark p-0" role="main">
-        <section class="pt-3 pe-2 pb-3 ps-2" id="container-home">
-            <h3 class="text-white text-center">Home</h3>
+    <main class="container-fluid p-0" role="main">
+        <!-- #region Home Page -->
+        <section id="home-index">
+            <section class="pt-3 pe-2 pb-3 ps-2">
+                <h3 class="text-white text-center">Home</h3>
+            </section>
         </section>
+        <!-- #endregion -->
     </main>
 
     <footer class="footer container-fluid p-0">
-        <section class="d-flex flex-column align-items-center dark bg-dark-2 bg-light-2" id="footer-section-1">
+        <!-- #region Infos -->
+        <section class="d-flex flex-column align-items-center bg-dark-2 bg-light-2">
             <a class="text-reverse pt-3 home-nav-link">
                 <i class="fad fa-camera-retro"></i>
                 <strong class="title-font" role="button">PhotoGallery</strong>
             </a>
             <a class="mt-4" role="button">Termos de Uso</a>
             <a class="mt-4" role="button">Política de Privacidade</a>
-            <div class="m-4" id="social-icons">
-                <a class="rounded-circle m-3 p-1 pe-1 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+
+            <!-- #region Social Icons -->
+            <div class="m-4">
+                <a class="rounded-circle m-3 p-1 pe-1 ps-2 icon-theme bg-dark-2-reverse bg-light-2-reverse" href=""
                     target="_blank">
                     <i class="fab fa-facebook-f fa-lg"></i>
                 </a>
-                <a class="rounded-circle m-3  p-1 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+                <a class="rounded-circle m-3  p-1 ps-2 icon-theme bg-dark-2-reverse bg-light-2-reverse" href=""
                     target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a class="rounded-circle m-3 p-1 pe-2 ps-2 dark bg-dark-2-reverse bg-light-2-reverse" href=""
+                <a class="rounded-circle m-3 p-1 pe-2 ps-2 icon-theme bg-dark-2-reverse bg-light-2-reverse" href=""
                     target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
             </div>
+            <!-- #endregion -->
         </section>
+        <!-- #endregion -->
 
-        <section class="text-center pt-2 pb-2 dark bg-dark-3 bg-light-3">
+        <section class="text-center pt-2 pb-2 bg-dark-3 bg-light-3">
             Copyrigth <i class="far fa-copyright"></i> 2023 PhotoGallery. Design By
             <a class="highlight-font fs-1" href="" target="_blank">Lucas Araújo</a>
         </section>
     </footer>
 
+    <!-- #region Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../../../../common/font-awesome-pro/pro-5.13.0/js/all.min.js"></script>
     <script src="../../../../common/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/home.js"></script>
     <script src="../../assets/js/upload.js"></script>
     <script src="../../assets/js/site.js"></script>
-    <script src="../../assets/themes/js/themes.js"></script>
+    <script src="../../assets/themes/themes.js"></script>
+    <!-- #endregion -->
 </body>
 
 </html>

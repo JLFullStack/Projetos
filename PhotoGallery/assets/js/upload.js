@@ -1,117 +1,129 @@
 (function () {
     "use strict";
 
-    const listaDeArquivosAceitos = {
-        formatos: {
+    const acceptedFileList = {
+        formats: {
             jpeg: "image/jpeg",
             jpg: "image/jpg"
         }
     };
 
     //#region Upload Form ----------------------------
-    function aplicarMascaraNoFormularioDeArquivos() {
+    function applyMaskOnFileUploadInput() {
         const
-            btnMascara = document.querySelector("#btn-mascara-form-upload"),
-            input = document.querySelector("#file-input");
+            mask_btn = document.querySelector("#file-input-mask"),
+            fileInput = document.querySelector("#file-input");
 
-        let arquivos;
+        let files;
 
-        if (!(input == null)) {
-            //evento é acionado toda vez que o valor da inputFiles é modificado
-            input.addEventListener("change", (e) => {
-                arquivos = e.target.files;
-                listarArquivosSelecionados(arquivos);
+        if (!(fileInput == null)) {
+            //event is triggered every time the value of fileInput is modified
+            fileInput.addEventListener("change", (e) => {
+                files = e.target.files;
+                listSelectedFiles(files);
             });
         };
 
-        if (!(btnMascara == null)) {
-            //Ao clicar no botão de máscara um evento de clique aciona a input
-            btnMascara.addEventListener("click", () => {
-                input.click();
+        if (!(mask_btn == null)) {
+            //When clicking on the mask button a click event triggers the input
+            mask_btn.addEventListener("click", () => {
+                fileInput.click();
             });
 
-            //evento é acionado ao arrastar o arquivo
-            btnMascara.addEventListener("dragover", (e) => {
+            //event is triggered when dragging the file
+            mask_btn.addEventListener("dragover", (e) => {
                 e.preventDefault();
             });
 
-            //evento é acionado ao soltar o arquivo
-            btnMascara.addEventListener("drop", (e) => {
+            //event is triggered when dropping the file
+            mask_btn.addEventListener("drop", (e) => {
                 e.preventDefault();
 
-                arquivos = e.dataTransfer.files;
-                input.files = arquivos;
-                listarArquivosSelecionados(arquivos);
+                files = e.dataTransfer.files;
+                fileInput.files = files;
+                listSelectedFiles(files);
             });
         };
 
-        function listarArquivosSelecionados(arquivos) {
+        function listSelectedFiles(files) {
             const
-                lista = document.querySelector("#lista-arquivos-form-upload"),
-                grupoBtn = document.querySelector("#grupo-btn-form-upload"),
-                btnLimparFormulario = document.querySelector("#btn-limpar-form-upload"),
-                msg = document.querySelector("#msg-aquivo-form-upload");
+                acceptedFileListCard = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
+                unacceptedFileListCard = document.querySelector("#upload-form-file-list #unaccepted-file-list-card"),
+                btnGroup = document.querySelector("#upload-form-button-group"),
+                clearFormButton = document.querySelector("#clear-upload-form-button"),
+                msg = document.querySelector("#upload-form-message");
 
-            let quantidadeDeArquivos = arquivos.length;
+            let
+                ckFiles = true,
+                amount_of_files = files.length;
 
-            lista.innerHTML = "";
+            acceptedFileListCard.innerHTML = "";
+            unacceptedFileListCard.innerHTML = "";
             msg.innerHTML = "";
 
-            if (!(quantidadeDeArquivos == 0)) {
-                grupoBtn.style = "display: block";
-                lista.style = "display: block";
-                lista.style = "display: flex";
+            if (!(amount_of_files == 0)) {
+                btnGroup.style = "display: block";
+                acceptedFileListCard.style = "display: flex; flex-wrap: wrap;";
+                unacceptedFileListCard.style = "display: block";
                 msg.classList.remove("m-5");
 
-                //percorre o objeto de arquivos aceitos   
-                for (const arquivo of arquivos) {
-                    if (arquivo.type === listaDeArquivosAceitos.formatos.jpeg ||
-                        arquivo.type === listaDeArquivosAceitos.formatos.jpg) {
+                //cycle through the accepted files object   
+                for (const file of files) {
+                    if (file.type === acceptedFileList.formats.jpeg ||
+                        file.type === acceptedFileList.formats.jpg) {
 
-                        //cria um novo objeto para leitura de arquivo
+                        //create a new object for file reading
                         let fileReader = new FileReader();
 
                         fileReader.onload = () => {
-                            let fileURL = fileReader.result; //passando a fonte do arquivo do usuário na variável fileURL
+                            let fileURL = fileReader.result; //passing source of user file in fileURL variable
 
-                            //adiciona o arquivo e suas características na lista
-                            lista.innerHTML += `<li class="list-group-item mt-3 text-blue">
-                                                    <div>
-                                                        <img class="me-4" src="${fileURL}" alt="image"\> ${arquivo.name} 
-                                                    <\div>
-                                                </li>`;
+                            //adds the file and its characteristics to the list
+                            acceptedFileListCard.innerHTML += `<li class="list-group-item mt-3 text-blue">
+                                                                <div>
+                                                                    <img class="me-4" src="${fileURL}" alt="image"/>
+                                                                </div>
+                                                            </li>`;
                         }
-                        fileReader.readAsDataURL(arquivo);
-                    } else
-                        lista.innerHTML += `<li class="list-group-item mt-3 text-red">${arquivo.name}</li>`;
+                        fileReader.readAsDataURL(file);
+                    } else {
+                        ckFiles = false;
+
+                        unacceptedFileListCard.innerHTML += `<li class="list-group-item mt-3 text-red">
+                                                                <i class="fad fa-file-times fa-2x text-dark-5"></i> ${file.name}
+                                                            </li>`;
+                    };
                 };
 
-                if (quantidadeDeArquivos === 1)
-                    msg.innerHTML = `<msg> ${quantidadeDeArquivos} arquivo selecionado </msg>`;
+                if (amount_of_files === 1 && ckFiles) msg.innerHTML = `<msg> ${amount_of_files} arquivo selecionado </msg>`;
 
-                if (quantidadeDeArquivos > 1)
-                    msg.innerHTML = `<msg> ${quantidadeDeArquivos} arquivos selecionados </msg>`;
+                if (amount_of_files > 1 && ckFiles) msg.innerHTML = `<msg> ${amount_of_files} arquivos selecionados </msg>`;
 
-                //evento limpa a seleção de arquivos e os detalhes de upload
-                btnLimparFormulario.addEventListener("click", () => {
-                    limparFormularioUploadDeArquivos();
+                if (!ckFiles) msg.innerHTML = `<msg class="text-red"> Algum arquivo selecionado não é aceito </msg>`;
+
+                //event clears file selection and upload details
+                clearFormButton.addEventListener("click", () => {
+                    clearUploadForm();
                 });
             };
         };
     }
-    aplicarMascaraNoFormularioDeArquivos();
+    applyMaskOnFileUploadInput();
 
-    function limparFormularioUploadDeArquivos() {
+    function clearUploadForm() {
         const
-            input = document.querySelector("#file-input"),
-            lista = document.querySelector("#lista-arquivos-form-upload"),
-            msg = document.querySelector("#msg-aquivo-form-upload"),
-            grupoBtn = document.querySelector("#grupo-btn-form-upload");
+            fileInput = document.querySelector("#file-input"),
+            acceptedFileListCard = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
+            unacceptedFileListCard = document.querySelector("#upload-form-file-list #unaccepted-file-list-card"),
+            msg = document.querySelector("#upload-form-message"),
+            btnGroup = document.querySelector("#upload-form-button-group");
 
-        input.value = "";
-        lista.innerHTML = "";
-        lista.style = "display:none";
-        grupoBtn.style = "display:none";
+        fileInput.value = "";
+        acceptedFileListCard.innerHTML = "";
+        acceptedFileListCard.style = "display:none";
+        unacceptedFileListCard.innerHTML = "";
+        unacceptedFileListCard.style = "display:none";
+        btnGroup.style = "display:none";
         msg.innerHTML = `<i class="fas fa-times-circle fa-4x text-dark-5"></i> 
                         <msg class="text-dark-5">nenhuma imagem selecionada</msg>`;
         msg.classList.add("m-5");
@@ -121,7 +133,7 @@
         const
             btnSalvar = document.querySelector("#btn-salvar-form-upload"),
             inputFiles = document.querySelector("#file-input"),
-            lista = document.querySelector("#lista-arquivos-form-upload"),
+            lista = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
             msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
             msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
 
@@ -140,8 +152,8 @@
                     for (const arquivo of arquivos) {
                         let tipoDoArquivo = arquivo.type;
 
-                        if (tipoDoArquivo != listaDeArquivosAceitos.formatos.jpeg &&
-                            tipoDoArquivo != listaDeArquivosAceitos.formatos.jpg) arquivoValido = false;
+                        if (tipoDoArquivo != acceptedFileList.formats.jpeg &&
+                            tipoDoArquivo != acceptedFileList.formats.jpg) arquivoValido = false;
 
                         if (!arquivoValido) {
                             event.preventDefault();
@@ -151,7 +163,7 @@
 
                     if (arquivoValido) {
                         asyncFileUpload();
-                        limparFormularioUploadDeArquivos();
+                        clearUploadForm();
                     };
                 };
             });
@@ -243,21 +255,22 @@
 
         uploadNavLink.addEventListener("click", () => {
 
+            //reloader the upload index
             fetch(`../../views/Upload/Index.html`)
                 .then((response) => {
                     if (response.ok) return response.text();
                 })
                 .then((text) => {
                     const
-                        startIndex = text.indexOf('<section class="d-flex pt-3 pe-2 pb-3 ps-2" id="container-form-lista-arquivos-upload">'),
+                        startIndex = text.indexOf('<section id="upload-index">'),
                         endIndex = text.lastIndexOf('</section>'),
-                        filteredText = text.substring(startIndex, endIndex);
+                        filteredText = text.substring(startIndex, endIndex); //filters a part of response.text()
 
                     document.querySelector('main').innerHTML = filteredText;
 
-                    //reload functions
-                    aplicarMascaraNoFormularioDeArquivos();
-                    validarFormularioDeArquivos(); 
+                    //reloader the functions
+                    applyMaskOnFileUploadInput();
+                    validarFormularioDeArquivos();
                 });
         });
     }

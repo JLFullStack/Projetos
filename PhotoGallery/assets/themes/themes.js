@@ -4,7 +4,7 @@
     const 
         body = document.body,
         dark_theme = document.querySelectorAll(".dark"),
-        ico_theme = document.querySelector(".ico-theme");
+        icon_theme = document.querySelector(".icon-theme");
 
     const setdarkmode = () => {
         body.classList.add("dark");
@@ -20,7 +20,7 @@
         dark_theme.forEach(tag => tag.classList.remove("dark"));
     }
 
-    ico_theme.addEventListener("click", () => {
+    icon_theme.addEventListener("click", () => {
         if (body.classList.contains("dark")) setlightmode();
         else setdarkmode();
     });

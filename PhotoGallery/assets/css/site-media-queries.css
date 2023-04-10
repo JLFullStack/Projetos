@@ -7,28 +7,28 @@
     * telas grandes : acima de 1200px
 --> */
 
-/* CELULAR _________________________________________________________________________________________________________________________________ */
+/*#region Cell Phone --------------------------------------------------- */
 @media only screen and (max-width: 767px) and (orientation: portrait) {
 
 }
+/* #endregion */
 
-/* TABLET __________________________________________________________________________________________________________________________________ */
+/* #region Tablet ------------------------------------------------------ */
 @media only screen and (min-width: 768px) and (max-width: 992px) { }
+/* #endregion */
 
-/* TELAS MENORES ___________________________________________________________________________________________________________________________ */
+/* #region Screens Smaller Than 992px ---------------------------------- */
 @media only screen and (max-width: 992px) {
     main {
         margin-bottom: 270px;
     }
 }
+/* #endregion */
 
-/* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
+/* #region Desktop and Bigger Screens ---------------------------------- */
 @media only screen and (min-width: 993px) {
     html {
         font-size: 16px;
     }
-
-    main #text-render-body{
-        max-width: 1920px;
-    }
 }
+/* #endregion */

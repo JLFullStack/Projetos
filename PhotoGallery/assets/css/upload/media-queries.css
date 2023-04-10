@@ -7,45 +7,57 @@
     * telas grandes : acima de 1200px
 --> */
 
-/* CELULAR _________________________________________________________________________________________________________________________________ */
+/*#region Cell Phone --------------------------------------------------- */
 @media only screen and (max-width: 767px) and (orientation: portrait) {
+
     /*#region Upload Form ----------------------------*/
-    #container-form-lista-arquivos-upload {
+    #upload-form-container {
         flex-direction: column;
     }
 
-    #container-form-lista-arquivos-upload #form-upload-arquivos,
-    #container-form-lista-arquivos-upload #card-lista-arquivos-form-upload {
+    #upload-form-container #upload-form,
+    #upload-form-container #upload-form-file-list {
         width: 100%;
     }
 
-    #btn-mascara-form-upload {
+    #file-input-mask {
         border-bottom-left-radius: 0rem !important;
-        border-top-right-radius: var(--bs-border-radius-sm)!important;
+        border-top-right-radius: var(--bs-border-radius-sm) !important;
     }
 
-    #card-lista-arquivos-form-upload{
+    #upload-form-file-list {
         border-top-right-radius: 0rem !important;
-        border-bottom-left-radius: var(--bs-border-radius-sm)!important;
+        border-bottom-left-radius: var(--bs-border-radius-sm) !important;
     }
+
     /*#endregion*/
 }
 
-/* TABLET __________________________________________________________________________________________________________________________________ */
-@media only screen and (min-width: 768px) and (max-width: 992px) { }
+/* #endregion */
 
-/* TELAS MENORES ___________________________________________________________________________________________________________________________ */
+/* #region Tablet ------------------------------------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 992px) {}
+
+/* #endregion */
+
+/* #region Screens Smaller Than 992px ---------------------------------- */
 @media only screen and (max-width: 992px) {
+
     /*#region Upload Form ----------------------------*/
-    #msg-upload-pc{
+    #upload-form #pc-upload-msg {
         display: none;
     }
 
-    #msg-upload-celular{
+    #upload-form #mobile-upload-msg {
         display: block;
     }
+
     /*#endregion*/
 }
 
-/* DESKTOP E TELAS MAIORES __________________________________________________________________________________________________________________ */
+/* #endregion */
+
+/* #region Desktop and Bigger Screens ---------------------------------- */
 @media only screen and (min-width: 993px) {}
+
+/* #endregion*/
