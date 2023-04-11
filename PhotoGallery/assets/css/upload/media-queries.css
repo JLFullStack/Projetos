@@ -1,13 +1,27 @@
-/* <!-- CSS devices midia queries
--- Tipycal Devices Breakpoints --
-    * telas pequenas: até 600px
-    * celular       : de 600px até 768px
-    * tablet        : de 768px até 992px
-    * desktop       : de 992px até 1200px
-    * telas grandes : acima de 1200px
---> */
+/*#region CSS devices midia queries */
+/* -- Tipycal Devices Breakpoints --
+    * small screens : up to 600px
+    * mobile        : from 600px to 768px
+    * tablet        : from 768px to 992px
+    * desktop       : from 992px to 1200px
+    * large screens : above 1200px */
+/*#endregion*/
 
 /*#region Cell Phone --------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+    
+    /*#region Upload Form ----------------------------*/
+    #upload-form-file-list #accepted-file-list-card img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*#endregion*/
+}
+
+/*#endregion*/
+
+/*#region Cell Phone and portrait orientation -------------------------- */
 @media only screen and (max-width: 767px) and (orientation: portrait) {
 
     /*#region Upload Form ----------------------------*/
@@ -20,7 +34,7 @@
         width: 100%;
     }
 
-    #file-input-mask {
+    #upload-form #file-input-mask {
         border-bottom-left-radius: 0rem !important;
         border-top-right-radius: var(--bs-border-radius-sm) !important;
     }

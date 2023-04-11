@@ -25,19 +25,19 @@
         <div class="d-flex align-items-center justify-content-center flex-column rounded-end-1 box-shadow bg-dark-2 bg-light-2"
             id="upload-form-file-list">
 
-            <div class="d-flex flex-column p-3 pt-3">
-                <ol id="accepted-file-list-card"></ol>
-                <ol id="unaccepted-file-list-card"></ol>
+            <div class="d-flex flex-column">
+                <ol class="p-3 pe-0 flex-wrap justify-content-between" id="accepted-file-list-card"></ol>
+                <ol class="p-0" id="unaccepted-file-list-card"></ol>
             </div>
 
-            <div class="d-flex text-center flex-column align-items-center m-5" id="upload-form-message">
+            <div class="d-flex flex-column align-items-center m-5" id="upload-form-message">
                 <i class="fas fa-times-circle fa-4x text-dark-5"></i>
                 <msg class="text-dark-5">nenhuma imagem selecionada</msg>
             </div>
 
             <!-- #region Action Buttons -->
             <div class="text-center" id="upload-form-button-group">
-                <a class="btn btn-default m-3 text-white bg-blue border-blue-2" id="btn-salvar-form-upload">
+                <a class="btn btn-default m-3 text-white bg-blue border-blue-2" id="save-upload-form-button">
                     <span>
                         <i class="fas fa-cloud-upload fa-lg"></i> Enviar
                     </span>

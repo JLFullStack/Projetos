@@ -7,6 +7,13 @@
     height: 100%;
 }
 
+#upload-form #file-input,
+#upload-form #mobile-upload-msg,
+#upload-form-file-list #accepted-file-list-card,
+#upload-form-file-list #upload-form-button-group {
+    display: none;
+}
+
 #upload-form-container #upload-form-file-list {
     width: 60%;
 }
@@ -16,14 +23,7 @@
 }
 
 #upload-form-file-list #accepted-file-list-card img {
-    width: 150px;
-}
-
-#file-input,
-#upload-form #mobile-upload-msg,
-#upload-form-file-list #accepted-file-list-card,
-#upload-form-file-list #upload-form-button-group {
-    display: none;
+    height: 120px;
 }
 
 /*#endregion*/

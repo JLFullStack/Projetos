@@ -47,8 +47,8 @@
 
         function listSelectedFiles(files) {
             const
-                acceptedFileListCard = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
-                unacceptedFileListCard = document.querySelector("#upload-form-file-list #unaccepted-file-list-card"),
+                acceptedFileListCard = document.querySelector("#accepted-file-list-card"),
+                unacceptedFileListCard = document.querySelector("#unaccepted-file-list-card"),
                 btnGroup = document.querySelector("#upload-form-button-group"),
                 clearFormButton = document.querySelector("#clear-upload-form-button"),
                 msg = document.querySelector("#upload-form-message");
@@ -63,7 +63,7 @@
 
             if (!(amount_of_files == 0)) {
                 btnGroup.style = "display: block";
-                acceptedFileListCard.style = "display: flex; flex-wrap: wrap;";
+                acceptedFileListCard.style = "display: flex";
                 unacceptedFileListCard.style = "display: block";
                 msg.classList.remove("m-5");
 
@@ -79,24 +79,21 @@
                             let fileURL = fileReader.result; //passing source of user file in fileURL variable
 
                             //adds the file and its characteristics to the list
-                            acceptedFileListCard.innerHTML += `<li class="list-group-item mt-3 text-blue">
-                                                                <div>
-                                                                    <img class="me-4" src="${fileURL}" alt="image"/>
-                                                                </div>
-                                                            </li>`;
+                            acceptedFileListCard.innerHTML += `<li class="list-group-item mb-3 me-3 text-blue">
+                                                                    <img class="box-shadow" src="${fileURL}" alt="image"/>
+                                                                </li>`;
                         }
                         fileReader.readAsDataURL(file);
                     } else {
                         ckFiles = false;
 
-                        unacceptedFileListCard.innerHTML += `<li class="list-group-item mt-3 text-red">
-                                                                <i class="fad fa-file-times fa-2x text-dark-5"></i> ${file.name}
+                        unacceptedFileListCard.innerHTML += `<li class="list-group-item m-3 text-red">
+                                                                <i class="fa fa-file-times fa-2x text-dark-5"></i> ${file.name}
                                                             </li>`;
                     };
                 };
 
                 if (amount_of_files === 1 && ckFiles) msg.innerHTML = `<msg> ${amount_of_files} arquivo selecionado </msg>`;
-
                 if (amount_of_files > 1 && ckFiles) msg.innerHTML = `<msg> ${amount_of_files} arquivos selecionados </msg>`;
 
                 if (!ckFiles) msg.innerHTML = `<msg class="text-red"> Algum arquivo selecionado não é aceito </msg>`;
@@ -113,8 +110,8 @@
     function clearUploadForm() {
         const
             fileInput = document.querySelector("#file-input"),
-            acceptedFileListCard = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
-            unacceptedFileListCard = document.querySelector("#upload-form-file-list #unaccepted-file-list-card"),
+            acceptedFileListCard = document.querySelector("#accepted-file-list-card"),
+            unacceptedFileListCard = document.querySelector("#unaccepted-file-list-card"),
             msg = document.querySelector("#upload-form-message"),
             btnGroup = document.querySelector("#upload-form-button-group");
 
@@ -129,39 +126,29 @@
         msg.classList.add("m-5");
     }
 
-    function validarFormularioDeArquivos() {
+    function validateUploadFiles() {
         const
-            btnSalvar = document.querySelector("#btn-salvar-form-upload"),
+            save_btn = document.querySelector("#save-upload-form-button"),
             inputFiles = document.querySelector("#file-input"),
-            lista = document.querySelector("#upload-form-file-list #accepted-file-list-card"),
-            msgArquivoInvalido = document.querySelector("#msg-aquivo-invalido-form-upload"),
-            msgListaVazia = document.querySelector("#msg-lista-vazia-form-upload");
+            acceptedFileListCard = document.querySelector("#accepted-file-list-card");
 
-        if (!(btnSalvar == null)) {
-            btnSalvar.addEventListener("click", () => {
-                let arquivoValido = true;
-                const arquivos = inputFiles.files;
+        if (!(save_btn == null)) {
+            save_btn.addEventListener("click", event => {
+                let checkFileValidity = true;
+                const files = inputFiles.files;
 
-                if (lista.innerHTML == "") {
-                    event.preventDefault();
-                    msgListaVazia.style = "display:block";
-                }
+                if (acceptedFileListCard.innerHTML == "") event.preventDefault();
 
-                if (lista.innerHTML != "") {
-                    //percorre a lista de arquivos selecionados
-                    for (const arquivo of arquivos) {
-                        let tipoDoArquivo = arquivo.type;
+                if (acceptedFileListCard.innerHTML != "") {
+                    //scrolls through the list of selected files
+                    for (const file of files) {
+                        if (file.type != acceptedFileList.formats.jpeg &&
+                            file.type != acceptedFileList.formats.jpg) checkFileValidity = false;
 
-                        if (tipoDoArquivo != acceptedFileList.formats.jpeg &&
-                            tipoDoArquivo != acceptedFileList.formats.jpg) arquivoValido = false;
-
-                        if (!arquivoValido) {
-                            event.preventDefault();
-                            msgArquivoInvalido.style = "display:block";
-                        };
+                        if (!checkFileValidity) event.preventDefault();
                     };
 
-                    if (arquivoValido) {
+                    if (checkFileValidity) {
                         asyncFileUpload();
                         clearUploadForm();
                     };
@@ -169,7 +156,7 @@
             });
         };
     }
-    validarFormularioDeArquivos();
+    validateUploadFiles();
 
     function asyncFileUpload() {
         const
@@ -270,7 +257,7 @@
 
                     //reloader the functions
                     applyMaskOnFileUploadInput();
-                    validarFormularioDeArquivos();
+                    validateUploadFiles();
                 });
         });
     }
