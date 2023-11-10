@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Add-on</title>
+
+    <link rel="shortcut icon" href="../assets/icon/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container mt-1">
+        <h5 class="text-info">Possui deficiência?</h5>
+
+        <div class="form-inline">
+            <div class="form-check m-1">
+                <input type="radio" class="form-check-input" name="possui-deficiencia" id="possui-deficiencia-sim" />
+                <label class="form-check-label" for="possui-deficiencia-sim">Sim</label>
+            </div>
+
+            <div class="form-check m-1">
+                <input type="radio" class="form-check-input" name="possui-deficiencia" id="possui-deficiencia-nao" checked />
+                <label class="form-check-label" for="possui-deficiencia-nao">Não</label>
+            </div>
+        </div>
+
+        <h5 class="text-info">Deficiência(as):</h5>
+
+        <div class="form-inline">
+            <div class="form-check m-1">
+                <input type="checkbox" class="form-check-input" name="tipo-deficiencia" id="tipo-deficiencia-1" data-nome-deficiencia="Auditiva" disabled />
+                <label class="form-check-label" for="tipo-deficiencia-1">Auditiva</label>
+            </div>
+
+            <div class="form-check m-1">
+                <input type="checkbox" class="form-check-input" name="tipo-deficiencia" id="tipo-deficiencia-2" data-nome-deficiencia="Física" disabled />
+                <label class="form-check-label" for="tipo-deficiencia-2">Física</label>
+            </div>
+
+            <div class="form-check m-1">
+                <input type="checkbox" class="form-check-input" name="tipo-deficiencia" id="tipo-deficiencia-3" data-nome-deficiencia="Intelectual" disabled />
+                <label class="form-check-label" for="tipo-deficiencia-3">Intelectual</label>
+            </div>
+
+            <div class="form-check m-1">
+                <input type="checkbox" class="form-check-input" name="tipo-deficiencia" id="tipo-deficiencia-4" data-nome-deficiencia="Nanismo" disabled />
+                <label class="form-check-label" for="tipo-deficiencia-4">Nanismo</label>
+            </div>
+
+            <div class="form-check m-1">
+                <input type="checkbox" class="form-check-input" name="tipo-deficiencia" id="tipo-deficiencia-5" data-nome-deficiencia="Visual" disabled />
+                <label class="form-check-label" for="tipo-deficiencia-5">Visual</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        const tiposDeDeficiencias = document.querySelectorAll('[name="tipo-deficiencia"]');
+
+        let listaDeDeficiencias = [];
+
+        document
+            .querySelector("#possui-deficiencia-sim")
+            .addEventListener("click", () => {
+                tiposDeDeficiencias.forEach((tipo) => habilitarSelecaoDeDeficiencia(tipo));
+            });
+
+        const habilitarSelecaoDeDeficiencia = (tipo) => tipo.removeAttribute("disabled");
+
+        document
+            .querySelector("#possui-deficiencia-nao")
+            .addEventListener("click", () => {
+                tiposDeDeficiencias.forEach((tipo) => desabilitarSelecaoDeDeficiencia(tipo));
+                listaDeDeficiencias = [];
+            });
+
+        const desabilitarSelecaoDeDeficiencia = (tipo) => {
+            tipo.setAttribute("disabled", null);
+            tipo.checked = false;
+        }
+
+        tiposDeDeficiencias.forEach((tipo) => {
+            tipo.addEventListener("click", () => listarDeficiencia(tipo));
+        });
+
+        const listarDeficiencia = (tipo) => {
+            const nomeDaDeficiencia = tipo.dataset.nomeDeficiencia;
+
+            const adicionarDeficiencia = (nome) => {
+                if (!listaDeDeficiencias.includes(nome))
+                    listaDeDeficiencias.push(nome);
+            }
+
+            const removerDeficiencia = (nome) => {
+                if (listaDeDeficiencias.includes(nome))
+                    listaDeDeficiencias = listaDeDeficiencias.filter((deficiencia) => deficiencia !== nome);
+            }
+
+            if (tipo.checked) adicionarDeficiencia(nomeDaDeficiencia)
+            else removerDeficiencia(nomeDaDeficiencia);
+        }
+    </script>
+</body>
+
+</html>

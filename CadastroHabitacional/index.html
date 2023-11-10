@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Protótipo</title>
+
+    <link rel="shortcut icon" href="assets/icon/" type="image/x-icon">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark" id="navbar-gh">
+        <img src="assets/img/brasao-colorido.png" alt="Brasão da Prefeitura de Praia Grande" />
+
+        <span class="navbar-brand">
+            Gestão Habitação&ensp;<i class="fa-solid fa-house"></i>
+        </span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#gh-hamburger-menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="gh-hamburger-menu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-img">
+        <img src="assets/img/banner-aplicacao.png" alt="Banner da aplicação">
+    </div>
+
+    <form id="form-gh" action="" method="post" novalidate>
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header text-center">
+                    <div class="etapa-title etapa-1">
+                        <h3>Sobre os Dados</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-2">
+                        <h3>Dados do(a) Titular</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-3">
+                        <h3>Dados do(a) Cônjuge</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-4">
+                        <h3>Características do Imóvel</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-5">
+                        <h3>Escolaridade</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-6">
+                        <h3>Outros</h3>
+                    </div>
+
+                    <div class="etapa-title etapa-7">
+                        <h3>Finalizar</h3>
+                    </div>
+                </div>
+
+                <div class="card-header container-progress">
+                    <div class="progress">
+                        <div>Etapa 1</div>
+                        <div>Etapa 2</div>
+                        <div>Etapa 3</div>
+                        <div>Etapa 4</div>
+                        <div>Etapa 5</div>
+                        <div>Final</div>
+                    </div>
+                </div>
+
+                <div class="card-body text-left">
+                    <div class="etapa-content etapa-1">
+                        <div class="container">
+                            <h3>
+                                <strong>Tratamento de dados pessoais</strong>
+                            </h3>
+                            <hr />
+
+                            <p>
+                                O Município da Estância Balneária de Praia Grande realiza a
+                                coleta e o tratamento dos dados pessoais através da Secretaria
+                                de Finanças com a finalidade de prestação de serviços desta
+                                secretaria e demais compartilhamentos, de acordo com a base
+                                legal que as fundamenta, dentre as permitidas pela Lei Federal
+                                Nº. 13.709/18.
+                            </p>
+
+                            <h3>
+                                <strong>Tipos de dados coletados e tratados</strong>
+                            </h3>
+                            <hr />
+
+                            <p>
+                                Este serviço precisa utilizar suas informações pessoais para o cadastro.<br />
+                                <a data-toggle="collapse" href="#lgpd-list-dados" aria-expanded="false" aria-controls="lgpd-list-dados">
+                                    Clique aqui para listar todas elas.
+                                </a>
+                            </p>
+
+                            <div class="collapse" id="lgpd-list-dados">
+                                <div class="well">
+                                    <ul>
+                                        <li>
+                                            <strong>Nome</strong>
+                                        </li>
+                                        <li>
+                                            <strong>CPF</strong>
+                                        </li>
+                                        <li>
+                                            <strong>RG</strong>
+                                        </li>
+                                        <li>
+                                            <strong>Profissão</strong>
+                                        </li>
+                                        <li>
+                                            <strong>Estado civil</strong>
+                                        </li>
+                                        <li>
+                                            <strong>Endereço</strong>
+                                        </li>
+                                        <li>
+                                            <strong>Telefone</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <p>
+                                O Município da Estância Balneária de Praia Grande usa padrões
+                                aceitos de medidas técnicas e políticas de segurança que
+                                protegem as informações pessoais informadas, resguardando a
+                                privacidade das informações que são concedidas, processadas e
+                                armazenadas.
+                            </p>
+
+                            <h3>
+                                <strong>Política de privacidade</strong>
+                            </h3>
+                            <hr />
+
+                            <p>
+                                Consulte nossa política de privacidade
+                                <a href="https://www.praiagrande.sp.gov.br/politicadeprivacidade/" target="_blank">AQUI</a>.
+                            </p>
+
+                            <h3>
+                                <strong>Tempo de Residência</strong>
+                            </h3>
+                            <hr />
+
+                            <p>
+                                De acordo com a Lei Complementar N. 727 DE 16 DE DEZEMBRO DE
+                                2016 ART. 33 § 2º - Terão direito à participação nos programas
+                                habitacionais municipais, as famílias que comprovarem
+                                residência no Município há mais de 5 anos consecutivos e que
+                                atenderem aos demais critérios instituídos no Plano Municipal
+                                de Habitação de Interesse Social.
+                            </p>
+
+                            <h3>
+                                <strong>Dúvidas?</strong>
+                            </h3>
+                            <hr />
+
+                            <p>
+                                Entre em contato através do e-mail sehab@praiagrande.sp.gov.br ou dos telefones (013)
+                                3496-2135/(013) 3496-2020.
+                            </p>
+
+                            <div class="text-center">
+                                <input type="checkbox" name="" id="chk-lgpd" />
+                                <label for="chk-lgpd" id="lbl-lgpd">Concorda com todos os termos acima?</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="etapa-content etapa-2">
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-user"></i>&ensp;Dados Pessoais
+                            </legend>
+
+                            <div class="form-group">
+                                <label for="titular-nome">Nome</label>
+                                <input type="text" class="form-control col-md-6" name="" id="titular-nome" placeholder="" autocomplete="off" />
+                            </div>
+                            <hr />
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="titular-email">E-mail</label>
+                                    <input type="email" class="form-control" name="" id="titular-email" placeholder="" autocomplete="off" />
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="titular-telefone">Telefone</label>
+                                    <input type="text" class="form-control input-tel" name="" id="titular-telefone" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="titular-cpf">CPF</label>
+                                    <input type="text" class="form-control input-cpf" name="" id="titular-cpf" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="titular-rg">RG</label>
+                                    <input type="text" class="form-control" name="" id="titular-rg" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" id="titular-tem-nis" />
+                                <label for="titular-tem-nis">Tem NIS? (Registro no CADÚnico)</label>
+                                <input type="text" class="form-control col-md-3" name="" id="titular-nis" placeholder="" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="titular-data-nascimento">Data de Nascimento</label>
+                                <input type="date" class="form-control col-md-2" name="" id="titular-data-nascimento" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Gênero:</label>
+
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="titularSexo" id="titular-sexo-masculino" value="masculino" checked />
+                                    <label class="form-check-label" for="titular-sexo-masculino">Masculino</label>
+                                </span>
+
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="titularSexo" id="titular-sexo-feminino" value="feminino" />
+                                    <label class="form-check-label" for="titular-sexo-feminino">Feminino</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="titular-nacionalidade">Nacionalidade</label>
+                                    <select class="form-control" name="" id="titular-nacionalidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="titular-naturalidade">Naturalidade</label>
+                                    <select class="form-control" name="" id="titular-naturalidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="titular-naturalidade-cidade">Cidade</label>
+                                    <select class="form-control" name="" id="titular-naturalidade-cidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-user-tie"></i>&ensp;Dados Profissionais
+                            </legend>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="titular-profissao">Profissão</label>
+                                    <input type="text" class="form-control" name="" id="titular-profissao" placeholder="" autocomplete="off" />
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="titular-ocupacao">Ocupação</label>
+                                    <input type="text" class="form-control" name="" id="titular-ocupacao" placeholder="" autocomplete="off" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="etapa-content etapa-3">
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-user"></i>&ensp;Dados Pessoais
+                            </legend>
+
+                            <div class="form-group">
+                                <label for="conjuge-nome">Nome</label>
+                                <input type="text" class="form-control col-md-6" name="" id="conjuge-nome" placeholder="" autocomplete="off" />
+                            </div>
+                            <hr />
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-email">E-mail</label>
+                                    <input type="email" class="form-control" name="" id="conjuge-email" placeholder="" autocomplete="off" />
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-telefone">Telefone</label>
+                                    <input type="text" class="form-control input-tel" name="" id="conjuge-telefone" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-cpf">CPF</label>
+                                    <input type="text" class="form-control input-cpf" name="" id="conjuge-cpf" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-rg">RG</label>
+                                    <input type="text" class="form-control" name="" id="conjuge-rg" placeholder="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" id="titular-tem-nis" />
+                                <label for="titular-tem-nis">Tem NIS? (Registro no CADÚnico)</label>
+                                <input type="text" class="form-control col-md-3" name="" id="conjuge-nis" placeholder="" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="conjuge-data-nascimento">Data de Nascimento</label>
+                                <input type="date" class="form-control col-md-2" name="" id="conjuge-data-nascimento" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Gênero:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="conjugeSexo" id="conjuge-sexo-masculino" value="masculino" checked />
+                                    <label class="form-check-label" for="conjuge-sexo-masculino">Masculino</label>
+                                </span>
+
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="conjugeSexo" id="conjuge-sexo-feminino" value="feminino" />
+                                    <label class="form-check-label" for="conjuge-sexo-feminino">Feminino</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-nacionalidade">Nacionalidade</label>
+                                    <select class="form-control" name="" id="conjuge-nacionalidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="conjuge-naturalidade">Naturalidade</label>
+                                    <select class="form-control" name="" id="conjuge-naturalidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="conjuge-naturalidade-cidade">Cidade</label>
+                                    <select class="form-control" name="" id="conjuge-naturalidade-cidade">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-user-tie"></i>&ensp;Dados Profissionais
+                            </legend>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="conjuge-profissao">Profissão</label>
+                                    <input type="text" class="form-control" name="" id="conjuge-profissao" placeholder="" autocomplete="off" />
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="conjuge-ocupacao">Ocupação</label>
+                                    <input type="text" class="form-control" name="" id="conjuge-ocupacao" placeholder="" autocomplete="off" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="etapa-content etapa-4">
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-person-dress"></i>&ensp;Chefe de Família
+                            </legend>
+
+                            <div class="form-group">
+                                <label>Mulher Chefe de Família:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="mulherChefeFamilia" id="mulher-chefe-familia-sim" value="true" />
+                                    <label class="form-check-label" for="mulher-chefe-familia-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="mulherChefeFamilia" id="mulher-chefe-familia-nao" value="false" checked />
+                                    <label class="form-check-label" for="mulher-chefe-familia-nao">Não</label>
+                                </span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-house-user"></i>&ensp;Residência
+                            </legend>
+
+                            <div class="form-group">
+                                <label for="imovel-tipo-residencia">Tipo</label>
+                                <select class="form-control col-md-4" name="" id="imovel-tipo-residencia">
+                                    <option>Selecione</option>
+                                    <option>Invasão</option>
+                                    <option>Cedida</option>
+                                    <option>Própria</option>
+                                    <option>Alugada</option>
+                                    <option>Coabitação</option>
+                                    <option>Área de Invasão</option>
+                                </select>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label for="imovel-material-paredes">Material das Paredes</label>
+                                <select class="form-control col-md-4" name="" id="imovel-material-paredes">
+                                    <option>Selecione</option>
+                                    <option>Madeira</option>
+                                    <option>Improvisada</option>
+                                    <option>Alvenaria</option>
+                                </select>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Acesso a Energia Elétrica Oficial:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelEnergiaEletrica" id="imovel-energia-eletrica-sim" value="true" />
+                                    <label class="form-check-label" for="imovel-energia-eletrica-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelEnergiaEletrica" id="imovel-energia-eletrica-nao" value="false" checked />
+                                    <label class="form-check-label" for="imovel-energia-eletrica-nao">Não</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Acesso a Água Canalizada Oficial:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelAguaCanalizada" id="imovel-agua-canalizada-sim" value="true" />
+                                    <label class="form-check-label" for="imovel-agua-canalizada-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelAguaCanalizada" id="imovel-agua-canalizada-nao" value="false" checked />
+                                    <label class="form-check-label" for="imovel-agua-canalizada-nao">Não</label>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imovel-forma-abastecimento">Forma de Abastecimento</label>
+                                <select class="form-control col-md-4" name="" id="imovel-forma-abastecimento">
+                                    <option>Selecione</option>
+                                    <option>Cisterna</option>
+                                    <option>Poço</option>
+                                    <option>Ligação Clandestina</option>
+                                    <option>Carro Pipa</option>
+                                </select>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Possui Escoamento Sanitário:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelEscoamentoSanitario" id="imovel-escoamento-sanitario-sim" value="true" />
+                                    <label class="form-check-label" for="imovel-escoamento-sanitario-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelEscoamentoSanitario" id="imovel-escoamento-sanitario-nao" value="false" checked />
+                                    <label class="form-check-label" for="imovel-escoamento-sanitario-nao">Não</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Possui Coleta de Lixo:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelColetaLixo" id="imovel-coleta-lixo-sim" value="true" />
+                                    <label class="form-check-label" for="imovel-coleta-lixo-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelColetaLixo" id="imovel-coleta-lixo-nao" value="false" checked />
+                                    <label class="form-check-label" for="imovel-coleta-lixo-nao">Não</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Quantidade de Cômodos (Incluindo o Banheiro):</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-1" value="1" checked />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-1">1</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-2" value="2" />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-2">2</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-3" value="3" />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-3">3</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-4" value="4" />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-4">4</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-5" value="5" />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-5">5</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelQuantidadeComodos" id="imovel-quantidade-comodos-6" value="6" />
+                                    <label class="form-check-label" for="imovel-quantidade-comodos-6">6 ou mais</label>
+                                </span>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Domicílio em área de alagamento:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelAreaAlagamento" id="imovel-area-alagamento-sim" value="true" />
+                                    <label class="form-check-label" for="imovel-area-alagamento-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="imovelAreaAlagamento" id="imovel-area-alagamento-nao" value="false" checked />
+                                    <label class="form-check-label" for="imovel-area-alagamento-nao">Não</label>
+                                </span>
+                            </div>
+
+                            <fieldset>
+                                <legend>
+                                    <i class="fa-solid fa-warehouse"></i>&ensp;Abrigo
+                                </legend>
+
+                                <div class="form-group">
+                                    <label>Reside em abrigo:</label>
+                                    <span class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="enderecoAbrigo" id="endereco-abrigo-sim" value="true" />
+                                        <label class="form-check-label" for="endereco-abrigo-sim">Sim</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="enderecoAbrigo" id="endereco-abrigo-nao" value="false" checked />
+                                        <label class="form-check-label" for="endereco-abrigo-nao">Não</label>
+                                    </span>
+                                </div>
+                                <hr />
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label for="imovel-cidade-procedencia">Cidade de Procedência</label>
+                                        <input type="text" class="form-control" name="" id="imovel-cidade-procedencia" placeholder="" />
+                                    </div>
+
+                                    <div class="form-group col-md-5">
+                                        <label for="imovel-ponto-referencia">Ponto de Referência</label>
+                                        <input type="text" class="form-control" name="" id="imovel-ponto-referencia" placeholder="" autocomplete="off" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imovel-tempo-moradia">Tempo de Moradia (Valor em Anos)</label>
+                                    <input type="number" class="form-control col-md-2 input-numero" name="" id="imovel-tempo-moradia" placeholder="" />
+                                </div>
+                            </fieldset>
+                        </fieldset>
+                    </div>
+
+                    <div class="etapa-content etapa-5">
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-users"></i>&ensp;Família
+                            </legend>
+
+                            <p>
+                                <strong>Quantidade de Pessoas</strong>
+                            </p>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-pessoas-total">Todas</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-pessoas-total" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-pessoas-acima-60">Acima de 60 anos</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-pessoas-acima-60" placeholder="" />
+                                </div>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Recebe BPC:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="familiaRecebeBPC" id="familia-recebe-bpc-sim" value="true" />
+                                    <label class="form-check-label" for="familia-recebe-bpc-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="familiaRecebeBPC" id="familia-recebe-bpc-nao" value="false" checked />
+                                    <label class="form-check-label" for="familia-recebe-bpc-nao">Não</label>
+                                </span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-child"></i>&ensp;Crianças
+                            </legend>
+
+                            <p>
+                                <strong>Quantidade de Crianças</strong>
+                            </p>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-criancas-0-6">De 0 a 6 anos</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-criancas-0-6" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-criancas-7-11">De 7 a 11 anos</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-criancas-7-11" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-criancas-12-17">De 12 a 17 anos</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-criancas-12-17" placeholder="" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-graduation-cap"></i>&ensp;Escolaridade
+                            </legend>
+
+                            <p>
+                                <strong>Quantas Crianças Frequentam</strong>
+                            </p>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-criancas-rede-municipal">Rede Municipal</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-criancas-rede-municipal" placeholder="" />
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="familia-quantidade-criancas-rede-estadual">Rede Estadual</label>
+                                    <input type="number" class="form-control input-numero" name="" id="familia-quantidade-criancas-rede-estadual" placeholder="" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="etapa-content etapa-6">
+                        <fieldset>
+                            <legend>
+                                <i class="fa-brands fa-accessible-icon"></i>&ensp;Deficiente
+                            </legend>
+
+                            <div class="form-group">
+                                <label>Possui Pessoa com Deficiência:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="familiaPossuiDeficiente" id="familia-possui-deficiente-sim" value="true" />
+                                    <label class="form-check-label" for="familia-possui-deficiente-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="familiaPossuiDeficiente" id="familia-possui-deficiente-nao" value="false" checked />
+                                    <label class="form-check-label" for="familia-possui-deficiente-nao">Não</label>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="familia-deficiente-nome">Nome</label>
+                                <input type="text" class="form-control col-md-8" name="" id="familia-deficiente-nome" placeholder="" />
+                            </div>
+                            <hr />
+
+                            <p>
+                                <strong>Deficiência(as)</strong>
+                            </p>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <span class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="tipoDeficiencia" id="tipo-deficiencia-fisica" value="fisica" />
+                                        <label class="form-check-label" for="tipo-deficiencia-fisica">Física</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="tipoDeficiencia" id="tipo-deficiencia-auditiva" value="auditiva" />
+                                        <label class="form-check-label" for="tipo-deficiencia-auditiva">Auditiva</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="tipoDeficiencia" id="tipo-deficiencia-visual" value="visual" />
+                                        <label class="form-check-label" for="tipo-deficiencia-visual">Visual</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="tipoDeficiencia" id="tipo-deficiencia-nanismo" value="nanismo" />
+                                        <label class="form-check-label" for="tipo-deficiencia-nanismo">Nanismo</label>
+                                    </span>
+                                    <span class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="tipoDeficiencia" id="tipo-deficiencia-intelectual" value="intelectual" />
+                                        <label class="form-check-label" for="tipo-deficiencia-intelectual">Intelectual</label>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <div class="form-group">
+                                <label>Recebe BPC:</label>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="outrosRecebeBPC" id="outros-recebe-bpc-sim" value="true" />
+                                    <label class="form-check-label" for="outros-recebe-bpc-sim">Sim</label>
+                                </span>
+                                <span class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="outrosRecebeBPC" id="outros-recebe-bpc-nao" value="false" checked />
+                                    <label class="form-check-label" for="outros-recebe-bpc-nao">Não</label>
+                                </span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>
+                                <i class="fa-solid fa-coins"></i>&ensp;Renda
+                            </legend>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label for="renda-declarada">Declarada</label>
+                                    <a tabindex="0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" title="Atenção!" data-content="Trabalho informal">
+                                        <span class="ico-info">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </span>
+                                    </a>
+                                    <input type="text" class="form-control input-moeda" name="" id="renda-declarada" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="renda-comprovada">Comprovada</label>
+                                    <a tabindex="0" role="button" data-toggle="popover" data-placement="top" data-trigger="focus" data-content="Holerite, Carteira de Trabalho Assinada, etc.">
+                                        <span class="ico-info">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </span>
+                                    </a>
+                                    <input type="text" class="form-control input-moeda" name="" id="renda-comprovada" placeholder="" />
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="renda-total-familia">Total da Família</label>
+                                    <input type="text" class="form-control input-moeda" name="" id="renda-total-familia" placeholder="" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="etapa-content etapa-7">
+                        <div class="text-justify">
+                            <h4>
+                                <i class="fa-solid fa-triangle-exclamation"></i>&ensp;Atenção
+                            </h4>
+                            <p>Antes de confirmar, certifique-se de que todos os dados tenham sido preenchidos corretamente.</p>
+                        </div>
+                        <hr />
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success" id="btn-finalizar">
+                                Confirmar
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="btn-cancelar" data-toggle="modal"
+                                data-target="#dialog-cancelar">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer text-center">
+                    <button type="button" class="btn btn-default" id="btn-voltar">
+                        <i class="fa-solid fa-chevron-left"></i>&ensp;Voltar
+                    </button>
+                    <button type="button" class="btn btn-default" id="btn-avancar">
+                        Avançar&ensp;<i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="modal fade" id="dialog-cancelar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fa-solid fa-comment"></i>&ensp;Deseja cancelar o cadastro?
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        <strong>Todos</strong> os dados preenchidos serão apagados!
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn-dialog-fechar" data-dismiss="modal">
+                        <i class="fa-solid fa-delete-left"></i>&ensp;Fechar
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btn-dialog-cancelar">
+                        Apagar&ensp;<i class="fa-solid fa-eraser"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="text-center p-3 bg-secondary text-white">
+            &copy; Prefeitura de Praia Grande | SEPLAN <span id="ano-atual"></span>
+        </div>
+    </footer>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/security.js"></script>
+
+    <script src="assets/lib/jspdf/dist/jspdf.umd.min.js"></script>
+    <script src="assets/js/report.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\WebAPI.dll.config
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\WebAPI.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\WebAPI.pdb
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\csc.exe
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\csc.exe.config
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\csc.rsp
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\csi.exe
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\csi.rsp
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.AppContext.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.IO.FileSystem.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\vbc.exe
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\vbc.exe.config
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\vbc.rsp
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\VBCSCompiler.exe
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\Newtonsoft.Json.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Web.Http.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\Newtonsoft.Json.xml
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Web.Http.xml
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\obj\Debug\WebAPI.dll
+C:\Projetos\GTISolution\TesteCandidato\WebAPI\obj\Debug\WebAPI.pdb
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\WebAPI.dll.config
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\WebAPI.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\WebAPI.pdb
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\csc.exe
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\csc.exe.config
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\csc.rsp
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\csi.exe
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\csi.rsp
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.AppContext.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\vbc.exe
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\vbc.exe.config
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\vbc.rsp
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\Newtonsoft.Json.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Net.Http.Formatting.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Web.Http.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Web.Http.WebHost.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\Newtonsoft.Json.xml
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Net.Http.Formatting.xml
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Web.Http.xml
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\System.Web.Http.WebHost.xml
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\obj\Debug\WebAPI.dll
+D:\Documentos_Projetos\GTISolution\Testes Candidatos\ModeloProjeto\WebAPI\obj\Debug\WebAPI.pdb
+D:\ModeloProjeto\WebAPI\bin\WebAPI.dll.config
+D:\ModeloProjeto\WebAPI\bin\WebAPI.dll
+D:\ModeloProjeto\WebAPI\bin\WebAPI.pdb
+D:\ModeloProjeto\WebAPI\bin\roslyn\csc.exe
+D:\ModeloProjeto\WebAPI\bin\roslyn\csc.exe.config
+D:\ModeloProjeto\WebAPI\bin\roslyn\csc.rsp
+D:\ModeloProjeto\WebAPI\bin\roslyn\csi.exe
+D:\ModeloProjeto\WebAPI\bin\roslyn\csi.rsp
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.AppContext.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\ModeloProjeto\WebAPI\bin\roslyn\vbc.exe
+D:\ModeloProjeto\WebAPI\bin\roslyn\vbc.exe.config
+D:\ModeloProjeto\WebAPI\bin\roslyn\vbc.rsp
+D:\ModeloProjeto\WebAPI\bin\roslyn\VBCSCompiler.exe
+D:\ModeloProjeto\WebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\ModeloProjeto\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ModeloProjeto\WebAPI\bin\Newtonsoft.Json.dll
+D:\ModeloProjeto\WebAPI\bin\System.Net.Http.Formatting.dll
+D:\ModeloProjeto\WebAPI\bin\System.Web.Http.dll
+D:\ModeloProjeto\WebAPI\bin\System.Web.Http.WebHost.dll
+D:\ModeloProjeto\WebAPI\bin\Newtonsoft.Json.xml
+D:\ModeloProjeto\WebAPI\bin\System.Net.Http.Formatting.xml
+D:\ModeloProjeto\WebAPI\bin\System.Web.Http.xml
+D:\ModeloProjeto\WebAPI\bin\System.Web.Http.WebHost.xml
+D:\ModeloProjeto\WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache
+D:\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInputs.cache
+D:\ModeloProjeto\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
+D:\ModeloProjeto\WebAPI\obj\Debug\WebAPI.dll
+D:\ModeloProjeto\WebAPI\obj\Debug\WebAPI.pdb

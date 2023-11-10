@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Add-on</title>
+
+    <link rel="shortcut icon" href="../assets/icon/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <!-- Bootstrap <= 3.x.x = panel | Bootstrap >= 4.x.x = card -->
+
+    <div class="card m-1 text-center">
+        <div class="card-header">
+            <div class="etapa-1">1</div>
+            <div class="etapa-2">2</div>
+            <div class="etapa-3">3</div>
+            <div class="etapa-4">4</div>
+            <div class="etapa-5">5</div>
+        </div>
+
+        <div class="card-body">
+            <form>
+                <div class="etapa-1">1</div>
+                <div class="etapa-2">2</div>
+                <div class="etapa-3">3</div>
+                <div class="etapa-4">4</div>
+                <div class="etapa-5">5</div>
+            </form>
+        </div>
+
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary" id="btn-voltar">
+                Voltar
+            </button>
+            <button type="button" class="btn btn-primary" id="btn-avancar">
+                Avançar
+            </button>
+            <button type="button" class="btn btn-secondary" id="btn-voltar-inicio">
+                Voltar ao Início
+            </button>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            const
+                etapa_1 = document.querySelectorAll(".etapa-1"),
+                etapa_2 = document.querySelectorAll(".etapa-2"),
+                etapa_3 = document.querySelectorAll(".etapa-3"),
+                etapa_4 = document.querySelectorAll(".etapa-4"),
+                etapa_5 = document.querySelectorAll(".etapa-5");
+
+            const inicio = 1,
+                fim = 5;
+            let posicao = 1;
+
+            document.querySelector("#btn-voltar").addEventListener("click", () => voltar());
+            document.querySelector("#btn-avancar").addEventListener("click", () => avancar());
+            document.querySelector("#btn-voltar-inicio").addEventListener("click", () => reiniciar());
+
+            const voltar = () => {
+                if (posicao > inicio) {
+                    posicao--;
+                    redefinir();
+                }
+            };
+
+            const avancar = () => {
+                if (posicao < fim) {
+                    posicao++;
+                    redefinir();
+                }
+            };
+
+            const reiniciar = () => {
+                if (posicao === fim) {
+                    posicao = inicio;
+                    redefinir();
+                }
+            };
+
+            const exibir = (estilo1, estilo2, estilo3, estilo4, estilo5) => {
+                for (let i = 0; i < etapa_1.length; i++) etapa_1[i].style.display = estilo1;
+                for (let i = 0; i < etapa_2.length; i++) etapa_2[i].style.display = estilo2;
+                for (let i = 0; i < etapa_3.length; i++) etapa_3[i].style.display = estilo3;
+                for (let i = 0; i < etapa_4.length; i++) etapa_4[i].style.display = estilo4;
+                for (let i = 0; i < etapa_5.length; i++) etapa_5[i].style.display = estilo5;
+            };
+
+            const redefinir = () => {
+                switch (posicao) {
+                    case 1:
+                        exibir("block", "none", "none", "none", "none");
+                        break;
+                    case 2:
+                        exibir("none", "block", "none", "none", "none");
+                        break;
+                    case 3:
+                        exibir("none", "none", "block", "none", "none");
+                        break;
+                    case 4:
+                        exibir("none", "none", "none", "block", "none");
+                        break;
+                    case 5:
+                        exibir("none", "none", "none", "none", "block");
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            redefinir();
+        })();
+    </script>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

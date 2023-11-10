@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TesteGTIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="enderecoId" Type="Int32" />
+    <NavigationProperty Name="EnderecoCliente" Relationship="TesteGTIModel.FK_Cliente_EnderecoCliente" FromRole="Cliente" ToRole="EnderecoCliente" />
+    <Property Name="cpf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="orgaoExpedicao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataExpedicao" Type="DateTime" Precision="3" />
+    <Property Name="dataNascimento" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="TesteGTIEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="EnderecoCliente" EntityType="TesteGTIModel.EnderecoCliente" />
+    <AssociationSet Name="FK_Cliente_EnderecoCliente" Association="TesteGTIModel.FK_Cliente_EnderecoCliente">
+      <End Role="EnderecoCliente" EntitySet="EnderecoCliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EnderecoCliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero" Type="Int32" />
+    <Property Name="complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Cliente_EnderecoCliente">
+    <End Type="TesteGTIModel.EnderecoCliente" Role="EnderecoCliente" Multiplicity="0..1" />
+    <End Type="TesteGTIModel.Cliente" Role="Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnderecoCliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="enderecoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

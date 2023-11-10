@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Add-on</title>
+
+    <link rel="shortcut icon" href="../assets/icon/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+
+    <style>
+        #btn-upload {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .ico-info {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Ctitle%3Eionicons-v5-e%3C/title%3E%3Cpath d='M248,64C146.39,64,64,146.39,64,248s82.39,184,184,184,184-82.39,184-184S349.61,64,248,64Z' style='fill:none;stroke:%23000;stroke-miterlimit:10;stroke-width:32px'/%3E%3Cpolyline points='220 220 252 220 252 336' style='fill:none;stroke:%23000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/%3E%3Cline x1='208' y1='340' x2='296' y2='340' style='fill:none;stroke:%23000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/%3E%3Cpath d='M248,130a26,26,0,1,0,26,26A26,26,0,0,0,248,130Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: 18px 18px;
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-1">
+        <input type="file" class="d-none" name="" id="in-upload" />
+
+        <div class="form-group mt-3 mb-1">
+            <div class="input-group">
+                <select class="form-control shadow-none" name="" id="sel-tipos">
+                    <option>Selecione</option>
+                    <option>CPF</option>
+                    <option>RG</option>
+                    <option>Comprovante de Residência</option>
+                </select>
+
+                <button class="btn btn-primary shadow-none" type="button" id="btn-upload">
+                    Adicionar&nbsp;<i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <div class="ico-info"></div>
+            <small>Formatos suportados: JPG, PNG e PDF</small>
+        </div>
+
+        <div class="alert alert-secondary mb-3 w-100" role="alert" id="msg-upload"></div>
+
+        <div class="d-flex justify-content-center mb-3">
+            <button type="button" class="btn btn-success shadow-none mr-1" id="btn-enviar">
+                Enviar&nbsp;<i class="fa-solid fa-upload"></i>
+            </button>
+
+            <button class="btn btn-dark d-flex align-items-center shadow-none" type="button" id="btn-apagar">
+                Apagar&nbsp;<i class="fa-solid fa-eraser"></i>
+            </button>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Nome</th>
+                    <th>Formato</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+
+    <script>
+        (() => {
+            const
+                inUpload = document.querySelector("#in-upload"),
+                selTipos = document.querySelector("#sel-tipos"),
+                btnUpload = document.querySelector("#btn-upload"),
+                msgUpload = document.querySelector("#msg-upload"),
+                btnEnviar = document.querySelector("#btn-enviar"),
+                btnApagar = document.querySelector("#btn-apagar");
+
+            let tipoDoDocumento = "";
+
+            const adicionarArquivo = () => {
+                if (selTipos.selectedIndex === 0) return false;
+                inUpload.click();
+            }
+
+            const imprimirArquivo = () => {
+                tipoDoDocumento = selTipos.children[selTipos.selectedIndex].textContent;
+                selTipos.selectedIndex = 0;
+                msgUpload.innerHTML = `${tipoDoDocumento} - ${inUpload.files[0].name}`;
+            }
+
+            const enviarArquivo = () => {
+                const arquivo = inUpload.files[0];
+
+                if (arquivo === undefined) return false;
+
+                console.info(arquivo);
+
+                const adicionarLinhaNaTabela = () => {
+                    document.querySelector("table tbody").innerHTML += `
+                        <tr>
+                            <td>${tipoDoDocumento}</td>
+                            <td>${arquivo.name}</td>
+                            <td>${arquivo.type}</td>
+                            <td><button type="button" class="btn btn-sm btn-dark btn-remove shadow-none"><i class="fa-solid fa-trash"></i></button></tr>
+                        </tr>
+                    `;
+
+                    document.querySelectorAll(".btn-remove").forEach(botao => {
+                        botao.addEventListener("click", (e) => {
+                            const botao = e.target;
+                            botao.setAttribute("onclick", removerArquivoDaTabela(botao));
+                        })
+                    });
+                }
+
+                adicionarLinhaNaTabela();
+            }
+
+            const apagarArquivo = () => {
+                inUpload.value = "";
+                selTipos.selectedIndex = 0;
+
+                imprimirMensagemPadrao();
+            }
+
+            const imprimirMensagemPadrao = () => msgUpload.innerHTML = "Nenhum arquivo selecionado";
+            const removerArquivoDaTabela = (botao) => botao.closest("tr").remove();
+
+            const init = () => {
+                btnUpload.addEventListener("click", () => adicionarArquivo());
+                inUpload.addEventListener("change", () => imprimirArquivo());
+
+                btnEnviar.addEventListener("click", () => {
+                    enviarArquivo();
+                    apagarArquivo();
+                });
+
+                btnApagar.addEventListener("click", () => apagarArquivo());
+
+                imprimirMensagemPadrao();
+            }
+
+            init();
+        })();
+    </script>
+</body>
+
+</html>

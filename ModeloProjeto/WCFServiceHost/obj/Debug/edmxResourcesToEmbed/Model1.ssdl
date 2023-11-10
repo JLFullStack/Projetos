@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TesteGTIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="50" />
+    <Property Name="enderecoId" Type="int" />
+    <Property Name="cpf" Type="varchar" MaxLength="50" />
+    <Property Name="rg" Type="varchar" MaxLength="50" />
+    <Property Name="sexo" Type="varchar" MaxLength="50" />
+    <Property Name="estadoCivil" Type="varchar" MaxLength="50" />
+    <Property Name="orgaoExpedicao" Type="varchar" MaxLength="50" />
+    <Property Name="dataExpedicao" Type="datetime" />
+    <Property Name="dataNascimento" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EnderecoCliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logradouro" Type="varchar" MaxLength="50" />
+    <Property Name="numero" Type="int" />
+    <Property Name="complemento" Type="varchar" MaxLength="50" />
+    <Property Name="cep" Type="varchar" MaxLength="50" />
+    <Property Name="bairro" Type="varchar" MaxLength="50" />
+    <Property Name="cidade" Type="varchar" MaxLength="50" />
+    <Property Name="uf" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <Association Name="FK_Cliente_EnderecoCliente">
+    <End Role="EnderecoCliente" Type="Self.EnderecoCliente" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnderecoCliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="enderecoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TesteGTIModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnderecoCliente" EntityType="Self.EnderecoCliente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cliente_EnderecoCliente" Association="Self.FK_Cliente_EnderecoCliente">
+      <End Role="EnderecoCliente" EntitySet="EnderecoCliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

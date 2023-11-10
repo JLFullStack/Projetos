@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TesteGTIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RG" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DataExpedicao" Type="DateTime" Precision="3" />
+    <Property Name="OrgaoExpedicao" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="DateTime" Precision="3" />
+    <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EnderecoClienteId" Type="Int32" />
+    <NavigationProperty Name="EnderecoCliente" Relationship="Self.FK_Cliente_Cliente" FromRole="Cliente" ToRole="EnderecoCliente" />
+  </EntityType>
+  <EntityType Name="EnderecoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Logradouro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Cliente" FromRole="EnderecoCliente" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="FK_Cliente_Cliente">
+    <End Role="EnderecoCliente" Type="Self.EnderecoCliente" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnderecoCliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="EnderecoClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TesteGTIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="EnderecoCliente" EntityType="Self.EnderecoCliente" />
+    <AssociationSet Name="FK_Cliente_Cliente" Association="Self.FK_Cliente_Cliente">
+      <End Role="EnderecoCliente" EntitySet="EnderecoCliente" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

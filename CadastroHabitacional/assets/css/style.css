@@ -1,0 +1,223 @@
+@font-face {
+    font-family: Lato;
+    src: url(../font/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: WorkSans;
+    src: url(../font/WorkSans-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+body {
+    font-family: WorkSans, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#navbar-gh {
+    /* background: linear-gradient(80deg, #0ea5e9, #38bdf8); */
+    background-color: #0ea5e9;
+    background-image: url(../img/ondas.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+#navbar-gh img {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+}
+
+#navbar-gh .navbar-brand {
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+#navbar-gh .navbar-nav {
+    align-items: flex-end;
+}
+
+.container-img {
+    display: flex;
+    justify-content: center;
+}
+
+.container-img img {
+    height: 160px;
+}
+
+.container-progress {
+    padding: 0;
+    display: none;
+}
+
+.progress {
+    background-color: transparent;
+    border-radius: 0;
+    height: 30px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.progress div:nth-child(1),
+.progress div:nth-child(2),
+.progress div:nth-child(3),
+.progress div:nth-child(4),
+.progress div:nth-child(5) {
+    width: 16.6%;
+}
+
+.progress div:nth-child(6) {
+    width: 17%;
+}
+
+.container-fluid {
+    max-width: 1280px;
+    padding-bottom: 15px;
+}
+
+.card {
+    border: 2px solid #0ea5e9;
+}
+
+.card-header {
+    font-size: large;
+    font-weight: bold;
+    background-color: #0ea5e9;
+    color: #fff;
+}
+
+.card-header:first-child {
+    border-radius: 0;
+}
+
+.card-header h3 {
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 6px;
+}
+
+.card-body h3,
+.card-body legend {
+    color: #0ea5e9;
+    margin: 0;
+}
+
+.card-body .etapa-1 .container {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: justify;
+}
+
+.card-body .etapa-7 {
+    margin: 8px;
+}
+
+.card-body .etapa-7 p {
+    margin-bottom: 8px;
+}
+
+.card-footer {
+    display: none;
+}
+
+fieldset {
+    background-color: #f9fafb;
+    padding: 6px;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+}
+
+legend {
+    font-weight: bold;
+    padding-left: 3.5px;
+    padding-right: 3.5px;
+    width: auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+label {
+    margin: 0;
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.form-row {
+    margin: 0;
+}
+
+.form-group {
+    padding: 0 5px 0 0 !important;
+    margin-bottom: 8px;
+}
+
+.modal-body p {
+    margin-bottom: 0;
+}
+
+#lbl-lgpd {
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: small;
+    margin-top: 0.5rem;
+}
+
+#chk-lgpd {
+    cursor: pointer;
+}
+
+#btn-voltar,
+#btn-avancar {
+    border-radius: 20px;
+}
+
+#btn-voltar {
+    margin-right: 5px;
+}
+
+#btn-avancar {
+    margin-left: 5px;
+    display: none;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.ico-info {
+    color: #0ea5e9;
+    cursor: pointer;
+}
+
+.msg-error {
+    color: #dc3545;
+}
+
+#dialog-cancelar .modal-header {
+    background-color: #0ea5e9;
+    color: #fff;
+}
