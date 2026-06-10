@@ -14,7 +14,7 @@ from openpyxl.chart import BarChart, PieChart, Reference
 REPOSITORIO = Path(
     r"C:\CAMINHO\PARA\O\REPOSITORIO\GIT")
 
-ARQUIVO_SAIDA = "relatorio_de_produtividade_cadastro_base_local.xlsx"
+ARQUIVO_SAIDA = "relatorio_de_produtividade.xlsx"
 
 AUTORES_IGNORADOS = {
     "DESENVOLVEDORES PARTICIPANTES DO PROJETO A SEREM IGNORADOS PELO RELATÓRIO",
